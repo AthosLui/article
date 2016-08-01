@@ -7,6 +7,7 @@
     console.log(a.toFixed(2)); // 8.88
     console.log(b.toFixed(2)); // 8.00
     ```
+
 - js是编译语言，数组长度是随时程序变化而变化的
     ```javascript
     var arr = [0, 1];
