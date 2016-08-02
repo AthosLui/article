@@ -4,7 +4,7 @@
     ```javascript
     var a=8.88888,
         b=8;
-    console.log(a.toFixed(2)); // 8.88
+    console.log(a.toFixed(2)); // 8.89 或者 8.88
     console.log(b.toFixed(2)); // 8.00
     ```
 
