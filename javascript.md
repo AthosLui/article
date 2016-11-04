@@ -1,5 +1,21 @@
 # javascript
 
+- 获取元素距离页面的top、left
+    ```javascript
+    function getRec(ele) {
+        var _t = document.documentElement.clientTop,
+            _l = document.documentElement.clientLeft,
+            rect = ele.getBoundingClientRect();
+        return {
+            top: rect.top - _t,
+            right: rect.right - _l,
+            bottom: rect.bottom - _t,
+            left: rect.left - _l
+        }
+    }
+    ```
+    > 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
+
 - 数字的固定小数位数
     ```javascript
     var a=8.88888,
