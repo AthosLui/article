@@ -1,5 +1,13 @@
 # javascript
 
+- 变量赋值时候的返回值：
+    ```javascript
+    var name = 123; // 返回undefined
+    name = 456; // 返回456
+    ```
+    > 结语：定义变量的时候赋值返回:undefined
+    > 给已声明变量赋值时候返回当前赋值。
+
 - 获取元素距离页面的top、left
     ```javascript
     function getRec(ele) {
