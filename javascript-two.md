@@ -16,6 +16,15 @@
     }
 
     var getBG = function($el) {
-
+        var color = getStyle($el, 'backgroundColor');
+        if(color === 'rgba(0, 0, 0, 0)' || color === 'transparent') { // 判断是否透明
+            if($el.tagName === 'HTML') {
+                return 'rgb(255, 255, 255)'; // 默认为白色
+            } else {
+                return arguments.callee($el.parentNode, 'backgroundColor')
+            }
+        } else {
+            return color;
+        }
     }
     ```
