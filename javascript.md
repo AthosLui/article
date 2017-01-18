@@ -39,7 +39,7 @@
                 _this.next();
             }, _time);
         });
-        return this;
+        return _this;
     }
     _LazyMan.prototype.eat = function(_eat) {
         var _this = this;
