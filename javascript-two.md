@@ -1,6 +1,5 @@
 - 用JS求出元素的最终的`background-color`，不考虑元素float情况。
-    > widow.getComputedStyle (获取css中设置的样式，'准浏览器')
-    > widow.getComputedStyle，返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
+    > widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
     > element.style (获取的是元素行间设置的样式)
     > element.currentStyle (ie低版本)
 
