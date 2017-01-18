@@ -11,7 +11,7 @@
     - 和Object(对象指内存中的可以被标识符引用的一块区域)
 
 - 数据类型检测
-    -. typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
+    - typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
         1. undefined - Undefined类型
         1. number - Number类型
         1. boolean - Boolean类型
