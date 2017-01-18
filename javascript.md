@@ -10,6 +10,21 @@
         1. [Symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
     - 和Object(对象指内存中的可以被标识符引用的一块区域)
 
+- 数据类型检测
+    1. typeof
+        对变量或值调用 typeof 运算符将返回(字符串)下列值之一:
+            1. undefined - Undefined类型
+            1. number - Number类型
+            1. boolean - Boolean类型
+            1. string - String类型
+            1. symbol - Symbol类型(ECMAScript6新增)
+            1. function - 函数对象([[Call]]在ECMA-262条款中实现了)
+            1. object - 引用类型 或 Null类型
+    ```javascript
+    typeof(Array) // function (Array是函数对象)
+    typeof(new Array) // object（实例化的Array就是object）
+    ```
+
 - 变量赋值时候的返回值：
     ```javascript
     var name = 123; // 返回undefined
@@ -17,19 +32,6 @@
     ```
     > 结语：定义变量的时候赋值返回:undefined
     > 给已声明变量赋值时候返回当前赋值。
-
-- 数据类型检测
-    1. typeof
-        对变量或值调用 typeof 运算符将返回(字符串)下列值之一:
-            1. undefined - 如果变量是 Undefined 类型的
-            1. boolean - 如果变量是 Boolean 类型的
-            1. number - 如果变量是 Number 类型的
-            1. string - 如果变量是 String 类型的
-            1. object - 如果变量是一种引用类型或 Null 类型的
-    ```javascript
-    typeof([]) // object
-    typeof(Function) // object
-    ```
 
 - 获取元素距离页面的top、left
     ```javascript
