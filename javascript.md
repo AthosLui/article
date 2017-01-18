@@ -11,16 +11,17 @@
     - 和Object(对象指内存中的可以被标识符引用的一块区域)
 
 - 数据类型检测
-    1. typeof
-        对变量或值调用 typeof 运算符将返回(字符串)下列值之一:
-            1. undefined - Undefined类型
-            1. number - Number类型
-            1. boolean - Boolean类型
-            1. string - String类型
-            1. symbol - Symbol类型(ECMAScript6新增)
-            1. function - 函数对象([[Call]]在ECMA-262条款中实现了)
-            1. object - 引用类型 或 Null类型
+    -. typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
+        1. undefined - Undefined类型
+        1. number - Number类型
+        1. boolean - Boolean类型
+        1. string - String类型
+        1. symbol - Symbol类型(ECMAScript6新增)
+        1. function - 函数对象([[Call]]在ECMA-262条款中实现了)
+        1. object - 引用类型 或 Null类型
     ```javascript
+    typeof(Function) // function (Function是函数对象)
+    typeof(new Function) // function (new Function也是是函数对象，同等：var func = function(){})
     typeof(Array) // function (Array是函数对象)
     typeof(new Array) // object（实例化的Array就是object）
     ```
