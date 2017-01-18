@@ -75,9 +75,7 @@
         [8, 5, 3, 3]
     ];
 
-    changeArr(arr);
-
-    function changeArr(arr) { // 矩阵转置函数(传统方法)
+    function changeArr(arr) { // 矩阵转置函数
         var c;
         for (var i = 1; i < arr.length; i++) {
             for (var j = 0; j < i; j++) {
@@ -87,13 +85,8 @@
             }
         }
     }
-
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr[i].length; j++) {
-            document.writeln(arr[i][j]);
-        }
-        document.writeln('<br />');
-    }
+    changeArr(arr);
+    console.table(arr);
     ```
 
 - 冒泡排序方法
