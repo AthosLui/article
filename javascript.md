@@ -1,7 +1,7 @@
 # javascript
 
 - 数据类型
-    - 6种原始值（不可变）
+    - 6种原始值（不可变。“除非重置当前变量，否则不能改变元素值。”）
         1. Null(只有一个值： null)
         1. Undefined(一个没有被赋值的变量会有个默认值 undefined)
         1. Number
