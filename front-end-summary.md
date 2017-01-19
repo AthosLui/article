@@ -1,6 +1,6 @@
 # front-end-summary
 
-- 用JS求出元素的最终的`background-color`，不考虑元素float情况。
+- ## 用JS求出元素的最终的`background-color`，不考虑元素float情况。
     > widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
     > element.style (获取的是元素行间设置的样式)
     > element.currentStyle (ie低版本)
@@ -26,7 +26,8 @@
         }
     }
     ```
-- 前端优化的方法
+
+- ## 前端优化的方法
 
     > 应用优化涉及各个方面，前端优化只是冰山一角。有人说：“离开系统的性能瓶颈，的前端优化都是扯蛋”，我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远。
 

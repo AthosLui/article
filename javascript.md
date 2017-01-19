@@ -1,6 +1,6 @@
 # javascript
 
-- LazyMan
+- ### LazyMan
     - 实现LazyMan（什么是LazyMan？请自行google）
     ```javascript
     function _LazyMan(_name) {
@@ -56,7 +56,7 @@
     }
     ```
 
-- 数据类型
+- ### 数据类型
     - 6种原始值（不可变。“除非重置当前变量，否则不能改变元素值。”）
         1. Null(只有一个值： null)
         1. Undefined(一个没有被赋值的变量会有个默认值 undefined)
@@ -66,7 +66,7 @@
         1. [Symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
     - 和Object(对象指内存中的可以被标识符引用的一块区域)
 
-- 数据类型检测
+- ### 数据类型检测
     - typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
         1. undefined - Undefined类型
         1. number - Number类型
@@ -82,7 +82,7 @@
     typeof(new Array) // object（实例化的Array就是object）
     ```
 
-- 变量赋值时候的返回值：
+- ### 变量赋值时候的返回值：
     ```javascript
     var name = 123; // 返回undefined
     name = 456; // 返回456
@@ -90,7 +90,7 @@
     > 结语：定义变量的时候赋值返回:undefined
     > 给已声明变量赋值时候返回当前赋值。
 
-- 获取元素距离页面的top、left
+- ### 获取元素距离页面的top、left
     ```javascript
     function getRec(ele) {
         var _t = document.documentElement.clientTop,
@@ -106,7 +106,7 @@
     ```
     > 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
 
-- 数字的固定小数位数
+- ### 数字的固定小数位数
     ```javascript
     var a=8.88888,
         b=8;
@@ -114,7 +114,7 @@
     console.log(b.toFixed(2)); // 8.00
     ```
 
-- js是编译语言，数组长度是随时程序变化而变化的
+- ### js是编译语言，数组长度是随时程序变化而变化的
     ```javascript
     var arr = [0, 1];
     arr[3] = 3;
@@ -122,7 +122,7 @@
     console.log(arr.length); // 4
     ```
 
-- 矩阵的转置
+- ### 矩阵的转置
     ```javascript
     var arr = [ // 定义一个矩阵（二维数据）
         [1, 2, 3, 4],
@@ -145,7 +145,7 @@
     console.table(arr);
     ```
 
-- 冒泡排序方法
+- ### 冒泡排序方法
     ```javascript
     // 第一轮是对n-1的位置定位
     // 第二轮是 每一个位置的数的 确定
@@ -174,7 +174,7 @@
     ```
 
 
-- 二分查找
+- ### 二分查找
     ```javascript
     var arr = [41, 55, 76, 87, 88, 99, 123, 432, 546, 577, 688, 786];
 
@@ -195,7 +195,7 @@
     twoFind(arr, 9, 0, arr.length - 1);
     ```
 
-- js 对象访问属性的二种方式
+- ### js对象访问属性的二种方式
     ```javascript
     function Person () {};
     var new1 = new Person ();
@@ -206,7 +206,7 @@
     ```
 
 
-- js delete 只能 删除对象的属性
+- ### js之delete只能删除对象的属性
     ```javascript
     function Person () {};
     var me = new Person();
@@ -216,7 +216,7 @@
     console.log(me.name);
     ```
 
-- 在js 中 对象的方法不是通用的 如果生成n个对象 那么就有n个内存堆栈
+- ### 在js中对象的方法不是通用的，如果生成n个对象，那么就有n个内存堆栈
     ```javascript
     // js 中 一切类 继承自 Object 而Object 有propotype
     // 下面是解决办法 prototype 获得类的static性质
@@ -230,7 +230,7 @@
     dog2.shout();
     ```
 
-- 对象
+- ### 对象
     ```javascript
     // js里要想创建对象 除了一般的创建方式 还有 通过Object 方式创建类
     // Object 类是所有js类的基类 Object 就表示对象（一切的对象）
@@ -263,7 +263,7 @@
     window.alert(arr.find(77));
     ```
 
-- arguments
+- ### arguments
     ```javascript
     function abc() {
         var sum = 0;
@@ -275,7 +275,7 @@
     window.alert(abc(1, 2, 3));
     ```
 
-- call函数目的就是改变对象的this指向
+- ### call函数目的就是改变对象的this指向
     ```javascript
     var Person = {
         name: 'fjj'
@@ -287,7 +287,7 @@
     test.call(Person);
     ```
 
--  体会js的封装
+- ### 体会js的封装
     ```javascript
     function Person() {
         var name = 'fj'; //私有
@@ -298,7 +298,7 @@
     window.alert(p1.age); //21
     ```
 
-- prototype 的方法不能访问私有属性和方法
+- ### prototype的方法不能访问私有属性和方法
     ```javascript
     function Person() {
         var name = 'fj'; //私有
@@ -315,7 +315,7 @@
     p1.showAge();
     ```
 
-- 继承
+- ### 继承
     ```javascript
     // js 里面是对象冒充来继承的 不算是真正的继承 通过对象冒充 js可以实现多重继承和继承的效果 但是没有Extends关键字
     function Father(name, age) {
@@ -335,19 +335,17 @@
     me.show();
     ```
 
-
-- 重载
+- ### 重载
     ```javascript
     // js从常理来说是不支持重载的 但是又可以说是天然支持重载 因为js天然支持可变参数 而且我们可以通过arguments[]数组的长度判断 而做出相应的处理
     ```
 
-- 闭包
+- ### 闭包
     ```javascript
     // 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
     ```
 
-
-- 数组长度
+- ### 数组长度
     ```javascript
     // 数组的长度是根据下标的最大而确定的
     var arr = new Array();
