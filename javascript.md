@@ -84,10 +84,10 @@
 
 - ### 变量赋值时候的返回值
     ```javascript
-    var name = 123; // 返回undefined
-    name = 456; // 返回456
+    var name = 'hangyang'; // 返回：undefined
+    name = 'ws'; // 返回：ws
     ```
-    > 结语：定义变量的时候赋值返回:undefined
+    > 结语：定义变量的时候赋值返回:undefined。
     > 给已声明变量赋值时候返回当前赋值。
 
 - ### 获取元素距离页面的top、left
@@ -202,7 +202,7 @@
 
         function Son(name, age) {
             this.Father = Father; // Son内部的Father属性指向Father函数（类）
-            this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍。因而实现“继承”
+            this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍，因而实现“继承”。
         }
         var me = new Son('hangyangws', 21);
         me.name; // hangyangws
