@@ -238,6 +238,7 @@
 
 - ### 数组相关
     - 长度（length属性）
+
         ```javascript
         // 数组的长度是根据下标的最大而确定的
         var arr = new Array();
