@@ -1,3 +1,5 @@
+[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
+
 # javascript
 
 - ### 数据类型
