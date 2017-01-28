@@ -1,6 +1,62 @@
 # front-end-summary
 
-- ## 用JS求出元素的最终的`background-color`，不考虑元素float情况。
+- ### LazyMan
+    - 实现LazyMan（什么是LazyMan？请自行google）
+    ```javascript
+    function _LazyMan(_name) {
+        var _this = this;
+        _this.tasks = [];
+        _this.tasks.push(function() {
+            console.log('Hi! This is ' + _name + '!');
+            // 这里的this是window，所以要缓存this
+            _this.next();
+        });
+        setTimeout(function() {
+            _this.next();
+        }, 0);
+    }
+
+    // push函数里面的this和setTimeout函数里面的this都指向全局作用域，所以要缓存当前this指向
+    _LazyMan.prototype.next = function() {
+        var _fn = this.tasks.shift();
+        _fn && _fn();
+    }
+    _LazyMan.prototype.sleep = function(_time) {
+        var _this = this;
+        _this.tasks.push(function() {
+            setTimeout(function() {
+                console.log('Wake up after ' + _time);
+                _this.next();
+            }, _time);
+        });
+        return _this;
+    }
+    _LazyMan.prototype.sleepFirst = function(_time) {
+        var _this = this;
+        _this.tasks.unshift(function() {
+            setTimeout(function() {
+                console.log('Wake up after ' + _time);
+                _this.next();
+            }, _time);
+        });
+        return _this;
+    }
+    _LazyMan.prototype.eat = function(_eat) {
+        var _this = this;
+        _this.tasks.push(function() {
+            console.log('Eat ' + _eat);
+            _this.next();
+        });
+        return _this;
+    }
+
+    // 封装对象
+    var LazyMan = function(_name) {
+        return new _LazyMan(_name);
+    }
+    ```
+
+- ### 用JS求出元素的最终的`background-color`，不考虑元素float情况。
     > widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
     > element.style (获取的是元素行间设置的样式)
     > element.currentStyle (ie低版本)
@@ -27,7 +83,7 @@
     }
     ```
 
-- ## 前端优化简述
+- ### 前端优化简述
 
     > 应用优化涉及各个方面，前端优化只是冰山一角。有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”，我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远。
 
@@ -69,46 +125,46 @@
                 1. 减少文本和元素混合，并作为另一元素的子元素
                 1. 避免使用`<br />、<hr />`
 
-- ## defer、asyn
+- ### defer、asyn
 
-- ## CSS下载解析会不会阻塞DOM树渲染
+- ### CSS下载解析会不会阻塞DOM树渲染
 
-- ## JS下载解析时会阻塞DOM树的构建
+- ### JS下载解析时会阻塞DOM树的构建
 
-- ## 以什么为基准去衡量什么时候使用base64
+- ### 以什么为基准去衡量什么时候使用base64
 
-- ## HTTPS和HTTP有什么区别
+- ### HTTPS和HTTP有什么区别
 
-- ## SSL四次握手过程?
+- ### SSL四次握手过程?
 
-- ## TCP三次握手过程?
+- ### TCP三次握手过程?
 
-- ## SSL握手时有对称加密和非对称加密吗
+- ### SSL握手时有对称加密和非对称加密吗
 
-- ## CSS inline?
+- ### CSS inline?
 
-- ## 快排算法?
+- ### 快排算法?
 
-- ## 盒模型(W3C和IE)
+- ### 盒模型(W3C和IE)
 
-- ## flex的使用
+- ### flex的使用
 
-- ## CSS hack技术
+- ### CSS hack技术
 
-- ## call与apply的区别
+- ### call与apply的区别
 
-- ## 跨域?
+- ### 跨域?
 
-- ## 从输入url到渲染的整个过程?
+- ### 从输入url到渲染的整个过程?
 
-- ## 懒加载(跟预加载的区别?
+- ### 懒加载(跟预加载的区别?
 
-- ## 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
+- ### 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
 
-- ## 有没有遇到过margin重叠的现象?如何解决？BFC
+- ### 有没有遇到过margin重叠的现象?如何解决？BFC
 
-- ## bootstrap是怎么做的？bootstrap是怎么实现grid系统的？
+- ### bootstrap是怎么做的？bootstrap是怎么实现grid系统的？
 
-- ## 什么是浅复制和深复制？有什么区别？如何实现Object的深复制？[递归的方法进行复制/循环的方法]
+- ### 什么是浅复制和深复制？有什么区别？如何实现Object的深复制？[递归的方法进行复制/循环的方法]
 
-- ## xss和csrf
+- ### xss和csrf
