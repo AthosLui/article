@@ -6,13 +6,15 @@
     - 实现LazyMan（什么是LazyMan？请自行google）
     ```javascript
     function _LazyMan(_name) {
-        var _this = this;
-        _this.tasks = [];
-        _this.tasks.push(function() {
+        var _this = this; // 缓存this
+        _this.tasks = []; // 任务初始化为空数组
+        _this.tasks.push(function() { // 新建任务
             console.log('Hi! This is ' + _name + '!');
-            // 这里的this是window，所以要缓存this
+            // 当前新建任务是匿名函数，没有明确的执行对象，所以在当前匿名函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
             _this.next();
         });
+        // 执行下一个任务
+        // 放在0毫秒的setTimeout里面再执行，是因为
         setTimeout(function() {
             _this.next();
         }, 0);
@@ -56,9 +58,12 @@
     var LazyMan = function(_name) {
         return new _LazyMan(_name);
     }
+
+    // 运行测试
+    LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000); // 结果： "Wake up after 2000"(2s后输出) "Hi! This is hangyangws!" "Eat apple" "Wake up after 1000"(1s后输出)
     ```
 
-- ### 用JS求出元素的最终的`background-color`，不考虑元素float情况。
+- ### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况。
     > widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
     > element.style (获取的是元素行间设置的样式)
     > element.currentStyle (ie低版本)
