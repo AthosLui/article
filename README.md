@@ -4,7 +4,7 @@
 ## 初衷
 > 写代码的我不敢改变世界，如果可以，希望能改变我对世界的看法。
 
-## Articles List
+## List of articles
 
 - [javascript.md](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
 
