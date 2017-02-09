@@ -8,9 +8,9 @@
     function _LazyMan(_name) {
         var _this = this; // 缓存this
         _this.tasks = []; // 任务初始化为空数组
-        _this.tasks.push(function() { // 新建任务
+        _this.tasks.push(function() {
             console.log('Hi! This is ' + _name + '!');
-            // 当前新建任务是匿名函数，没有明确的执行对象，所以在当前匿名函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
+            // 当前匿名函数，没有明确的执行对象，所以函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
             _this.next();
         });
         // setTimeout会开辟另一个执行临时队列，在当前线程（js是单线程）执行完成后才会执行此临时队列的任务。
@@ -41,7 +41,7 @@
     }
     _LazyMan.prototype.sleepFirst = function(_time) {
         var _this = this;
-        // sleepFirst和sleep原理一样，只是新增任务时插队了，把当前任务放在了队列的最前面
+        // sleepFirst和sleep原理一样，只是在新增任务时插队了，把当前任务放在了队列的最前面
         _this.tasks.unshift(function() {
             setTimeout(function() {
                 console.log('Wake up after ' + _time);
@@ -66,7 +66,10 @@
 
     // 运行测试
     LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
-    // 结果： "Wake up after 2000"(2s后输出) "Hi! This is hangyangws!" "Eat apple" "Wake up after 1000"(1s后输出)
+    // 结果:
+    // "Wake up after 2000"(2s后输出)
+    // "Hi! This is hangyangws!"
+    // "Eat apple" "Wake up after 1000"(1s后输出)
     ```
 
 - ### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况。
