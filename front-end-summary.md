@@ -142,6 +142,7 @@
                 1. 避免使用`<br />、<hr />`
 
 - ### 跨域访问之JSONP
+
     > - 同源策略`same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制。
     > - 同源：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可。
     > - 所以在JS代码中访问不同源的数据会提示”跨域警告“，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域。
@@ -154,9 +155,9 @@
         document.getElementsByTagName('HEAD')[0].appendChild(script); // 插入节点到head头
         ```
     - 数据返回
-        我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容。
-        但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用。
-        解决方案是：
+        - 我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容。
+        - 但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用。
+        - 解决方案是：
             1. 创建一个函数，函数参数就是返回数据。
                 ```javascript
                 function callBack(responseText) {
@@ -180,8 +181,6 @@
         - 只支持get请求，不支持post请求。
         - 服务端需要根据客户端传过来函数名返回数据。
         - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题。
-
-
 
 - ### defer、asyn
 
