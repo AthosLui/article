@@ -159,7 +159,8 @@
         - 我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容。
         - 但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用。
         - 解决方案是：
-            1. 创建一个函数，函数参数就是返回数据。
+            1. 创建一个函数，函数参数为服务短板返回的数据。
+
                 ```javascript
                 function callBack(responseText) {
                     // 操作responseText
@@ -168,6 +169,7 @@
             1. 给script的src属性设置一个参数。比如：`http://example.com/getData?name="callBack"`。
             1. 服务端接受到GET数据：`name="callBack"`，得到`callBack`函数名。
             1. 服务端以**函数调用**的方式返回数据：
+
                 ```javascript
                 callBack({example: 123})
                 ```
