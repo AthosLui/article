@@ -148,7 +148,7 @@
     > - 所以在JS代码中访问不同源的数据会提示”跨域警告“，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域。
     > - JSONP（JSON with Padding）的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域。
 
-    - HTML页面中创建<script>节点
+    - HTML页面中创建`<script>`节点
         ```javascript
         var script = document.createElement('script'); // 创建<script>节点
         script.src = 'http://example.com/getData'; // 添加src属性
