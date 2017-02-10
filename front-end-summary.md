@@ -141,9 +141,46 @@
                 1. 减少文本和元素混合，并作为另一元素的子元素
                 1. 避免使用`<br />、<hr />`
 
-- ### JSONP
-    > - 同源策略（same-Origin-Policy）：指浏览器对不同源的脚本或文本的访问方式进行的限制。
-    > - 同源：指两个页面具有相同的协议、主机（也常说域名）、端口三要素缺一不可。
+- ### 跨域访问之JSONP
+    > - 同源策略`same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制。
+    > - 同源：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可。
+    > - 所以在JS代码中访问不同源的数据会提示”跨域警告“，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域。
+    > - JSONP（JSON with Padding）的基本原理：在HTML页面中创建<script>节点，向不同源提交网络请求，实现跨域。
+
+    - HTML页面中创建<script>节点
+        ```javascript
+        var script = document.createElement('script'); // 创建<script>节点
+        script.src = 'http://example.com/getData'; // 添加src属性
+        document.getElementsByTagName('HEAD')[0].appendChild(script); // 插入节点到head头
+        ```
+    - 数据返回
+        我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容。
+        但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用。
+        解决方案是：
+            1. 创建一个函数，函数参数就是返回数据。
+                ```javascript
+                function callBack(responseText) {
+                    // 操作responseText
+                }
+                ```
+            1. 给script的src属性设置一个参数。比如：`http://example.com/getData?name="callBack"`。
+            1. 服务端接受到GET数据：`name="callBack"`，得到`callBack`函数名。
+            1. 服务端以**函数调用**的方式返回数据：
+                ```javascript
+                callBack({example: 123})
+                ```
+            1. 浏览器端得到数据：`callBack({example: 123})`。
+            1. 浏览器执行数据：`callBack({example: 123})`。
+            1. 这个时候我们预先设置好的`callBack`函数就被已“回调函数”的方式调用了。
+    - JSONP优点
+        - 与`XMLHttpRequest`不同，JSONP不受同源策略限制。
+        - IE支持良好。
+        - 在请求完成后可通过callback的方式传回结果。
+    - JSONP不足
+        - 只支持get请求，不支持post请求。
+        - 服务端需要根据客户端传过来函数名返回数据。
+        - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题。
+
 
 
 - ### defer、asyn
