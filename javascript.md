@@ -2,7 +2,7 @@
 
 # javascript
 
-- ### 数据类型
+- ### JS数据类型
     - 6种原始值（不可变。“除非重置当前变量，否则不能改变元素值。”）
         1. Null(只有一个值： null)
         1. Undefined(一个没有被赋值的变量会有个默认值 undefined)
@@ -10,7 +10,7 @@
         1. Boolean(两个值：true 和 false)
         1. String
         1. [Symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
-    - 和Object(对象指内存中的可以被标识符引用的一块区域)
+    - Object(对象指内存中的可以被标识符引用的一块区域)
 
 - ### 数据类型检测之`typeof`
     - typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
