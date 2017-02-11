@@ -24,6 +24,7 @@
     ```javascript
     typeof(Function) // function (Function是函数对象)
     typeof(new Function) // function (new Function也是是函数对象，同等：var func = function(){})
+    typeof(new new Function) // object (new Function也是是“构造函数（类）”，new new Function就是“实例（对象）”)
     typeof(Array) // function (Array是函数对象)
     typeof(new Array) // object（实例化的Array就是object）
     ```
