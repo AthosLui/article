@@ -4,17 +4,14 @@
 ## 初衷
 > 写代码的我不敢改变世界，如果可以，希望能改变我对世界的看法。
 
-## List of articles
+## 文章列表
 
 - [javascript.md](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
-
-    > javascript的部分知识点总结与心得
+javascript的部分知识点总结与心得
 
 - [front-end-summary.md](https://github.com/hangyangws/myArticles/blob/master/front-end-summary.md)
-
-    > 前端开发相关问题
+前端开发相关问题
 
 - [Object.defineProperty.md](https://github.com/hangyangws/myArticles/blob/master/Object.defineProperty.md)
-
-    > defineProperty的描述
+defineProperty的描述
 
