@@ -8,13 +8,13 @@
 
 - [javascript.md](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
 
-    javascript的部分知识点总结与心得
+    原生JavaScript的部分知识点
 
 - [front-end-summary.md](https://github.com/hangyangws/myArticles/blob/master/front-end-summary.md)
 
-    前端开发相关问题
+    前端开发相关问题的解决方案
 
 - [Object.defineProperty.md](https://github.com/hangyangws/myArticles/blob/master/Object.defineProperty.md)
 
-    defineProperty的描述
+    JavaScript中defineProperty简述
 
