@@ -2,7 +2,7 @@
 
 # javascript
 
-- ### JS数据类型
+- ### 数据类型
     - 6种原始值（不可变。“除非重置当前变量，否则不能改变元素值。”）
         1. Null(只有一个值： null)
         1. Undefined(一个没有被赋值的变量会有个默认值 undefined)
@@ -37,98 +37,38 @@
     > 结语：定义变量的时候赋值返回:undefined。
     > 给已声明变量赋值时候返回当前赋值。
 
-- ### 获取元素距离页面的top、left
-    ```javascript
-    function getRec(ele) {
-        var _t = document.documentElement.clientTop,
-            _l = document.documentElement.clientLeft,
-            rect = ele.getBoundingClientRect();
-        return {
-            top: rect.top - _t,
-            right: rect.right - _l,
-            bottom: rect.bottom - _t,
-            left: rect.left - _l
-        }
-    }
-    ```
-    > 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
+- ### defer && async
 
-- ### 矩阵的转置
-    ```javascript
-    var arr = [ // 定义一个矩阵（二维数据）
-        [1, 2, 3, 4],
-        [5, 6, 6, 6],
-        [7, 6, 7, 8],
-        [8, 5, 3, 3]
-    ];
+    > - 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？
+    > - 长话短说就是：`<script src="xxx.js">`加载JS会堵塞`DOM`树的解析与构建，解析到`<script src="xxx.js">`浏览器就去下载当前JS文件，这段时间`DOM`树的构建是停止的。
+    > - 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**。
 
-    function changeArr(arr) { // 矩阵转置函数
-        var c;
-        for (var i = 1; i < arr.length; i++) {
-            for (var j = 0; j < i; j++) {
-                c = arr[i][j];
-                arr[i][j] = arr[j][i];
-                arr[j][i] = c;
-            }
-        }
-    }
-    changeArr(arr);
-    console.table(arr);
-    ```
+    - defer（翻译：推迟）
 
-- ### 冒泡排序法
-    ```javascript
-    function bubbleSort(_arr) {
-        var _len = _arr.length - 1,
-            _index_out = 0,
-            _index_in,
-            _temp,
-            _flag;
-        if (_len > 0) {
-            while (_index_out < _len) {
-                _flag = false;
-                _index_in = 0; // 内层循环每次要从0开始
-                while (_index_in < _len - _index_out) {
-                    if (_arr[_index_in] > _arr[_index_in + 1]) {
-                        // 两者值交换
-                        _temp = _arr[_index_in];
-                        _arr[_index_in] = _arr[_index_in + 1];
-                        _arr[_index_in + 1] = _temp;
-                        _flag = true;
-                    }
-                    _index_in++;
-                }
-                if (!_flag) {
-                    // 如果数组已经是顺序的，就不必再循环了
-                    break;
-                }
-                _index_out++;
-            }
-        }
-        return _arr;
-    }
-    ```
+        > 添加`defer`属性：`<script src="xxx.js" defer>`
 
-- ### 二分查找法
-    ```javascript
-    var arr = [41, 55, 76, 87, 88, 99, 123, 432, 546, 577, 688, 786];
+        作用：  
+        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`。  
+        当`JS`下载完成后，并不会马上执行。  
+        而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容。
 
-    function twoFind(arr, wantVal, leftIndex, rightIndex) {
-        if (leftIndex > rightIndex) {
-            document.writeln('SORRY: 找不到 ' + wantVal + ' ！');
-            return;
-        }
-        var minIndex = Math.floor((leftIndex + rightIndex) / 2);
-        if (arr[minIndex] > wantVal) {
-            twoFind(arr, wantVal, leftIndex, minIndex - 1);
-        } else if (arr[minIndex] < wantVal) {
-            twoFind(arr, wantVal, minIndex + 1, rightIndex);
-        } else {
-            document.writeln('找到了 ' + wantVal + ' ,下表为' + minIndex);
-        }
-    }
-    twoFind(arr, 9, 0, arr.length - 1);
-    ```
+    - async（翻译：异步）
+
+        > 添加`async`属性：`<script src="xxx.js" async>`
+
+        作用：  
+        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`。  
+        当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析。  
+        当`JS`执行完成后，又开始解析`DOM`。
+
+    - 总结
+
+        `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步。  
+        它俩的差别在于`JS`下载完之后何时执行。  
+        `defer`执行顺序是和脚本放置位置一样。  
+        `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行。  
+        `defer`最接近**把脚本放在`<body>`闭合标签前**的效果。
+        `async`用到的场景比较少。
 
 - ### arguments、callee、caller
     ```javascript

@@ -185,57 +185,116 @@
         - 服务端需要根据客户端传过来函数名返回数据。
         - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题。
 
-- ### defer、async
+- ### 获取元素距离页面的top、left
+    ```javascript
+    function getRec(ele) {
+        var _t = document.documentElement.clientTop,
+            _l = document.documentElement.clientLeft,
+            rect = ele.getBoundingClientRect();
+        return {
+            top: rect.top - _t,
+            right: rect.right - _l,
+            bottom: rect.bottom - _t,
+            left: rect.left - _l
+        }
+    }
+    ```
+    > 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
 
-    > - 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？
-    > - 长话短说就是：`<script src="xxx.js">`加载JS会堵塞`DOM`树的解析与构建，解析到`<script src="xxx.js">`浏览器就去下载当前JS文件，这段时间`DOM`树的构建是停止的。
-    > - 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**。
+- ### 矩阵的转置
+    ```javascript
+    var arr = [ // 定义一个矩阵（二维数据）
+        [1, 2, 3, 4],
+        [5, 6, 6, 6],
+        [7, 6, 7, 8],
+        [8, 5, 3, 3]
+    ];
 
-    - defer（翻译：推迟）
+    function changeArr(arr) { // 矩阵转置函数
+        var c;
+        for (var i = 1; i < arr.length; i++) {
+            for (var j = 0; j < i; j++) {
+                c = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = c;
+            }
+        }
+    }
+    changeArr(arr);
+    console.table(arr);
+    ```
 
-        > 添加`defer`属性：`<script src="xxx.js" defer>`
+- ### 冒泡排序法
+    ```javascript
+    function bubbleSort(_arr) {
+        var _len = _arr.length - 1,
+            _index_out = 0,
+            _index_in,
+            _temp,
+            _flag;
+        if (_len > 0) {
+            while (_index_out < _len) {
+                _flag = false;
+                _index_in = 0; // 内层循环每次要从0开始
+                while (_index_in < _len - _index_out) {
+                    if (_arr[_index_in] > _arr[_index_in + 1]) {
+                        // 两者值交换
+                        _temp = _arr[_index_in];
+                        _arr[_index_in] = _arr[_index_in + 1];
+                        _arr[_index_in + 1] = _temp;
+                        _flag = true;
+                    }
+                    _index_in++;
+                }
+                if (!_flag) {
+                    // 如果数组已经是顺序的，就不必再循环了
+                    break;
+                }
+                _index_out++;
+            }
+        }
+        return _arr;
+    }
+    ```
 
-        作用：  
-        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`。  
-        当`JS`下载完成后，并不会马上执行。  
-        而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容。
+- ### 二分查找法
+    ```javascript
+    var arr = [41, 55, 76, 87, 88, 99, 123, 432, 546, 577, 688, 786];
 
-    - async（翻译：异步）
+    function twoFind(arr, wantVal, leftIndex, rightIndex) {
+        if (leftIndex > rightIndex) {
+            document.writeln('SORRY: 找不到 ' + wantVal + ' ！');
+            return;
+        }
+        var minIndex = Math.floor((leftIndex + rightIndex) / 2);
+        if (arr[minIndex] > wantVal) {
+            twoFind(arr, wantVal, leftIndex, minIndex - 1);
+        } else if (arr[minIndex] < wantVal) {
+            twoFind(arr, wantVal, minIndex + 1, rightIndex);
+        } else {
+            document.writeln('找到了 ' + wantVal + ' ,下表为' + minIndex);
+        }
+    }
+    twoFind(arr, 9, 0, arr.length - 1);
+    ```
 
-        > 添加`async`属性：`<script src="xxx.js" async>`
-
-        作用：  
-        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`。  
-        当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析。  
-        当`JS`执行完成后，又开始解析`DOM`。
-
-    - 总结
-
-        `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步。  
-        它俩的差别在于`JS`下载完之后何时执行。  
-        `defer`执行顺序是和脚本放置位置一样。  
-        `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行。  
-        `defer`最接近**把脚本放在`<body>`闭合标签前**的效果。
-        `async`用到的场景比较少。
-
+- ### 快排算法
+    ```javascript
+    ```
 
 - ### CSS下载解析会不会阻塞DOM树渲
-
-- ### JS下载解析时会阻塞DOM树的构建
 
 - ### 以什么为基准去衡量什么时候使用base64
 
 - ### HTTPS和HTTP有什么区别
 
-- ### SSL四次握手过程?
+- ### SSL四次握手过程
 
-- ### TCP三次握手过程?
+- ### TCP三次握手过程
 
 - ### SSL握手时有对称加密和非对称加密吗
 
-- ### CSS inline?
-
-- ### 快排算法?
+- ### CSS inline
 
 - ### 盒模型(W3C和IE)
 
@@ -243,20 +302,18 @@
 
 - ### CSS hack技术
 
-- ### call与apply的区别
-
-- ### 跨域?
-
 - ### 从输入url到渲染的整个过程?
 
-- ### 懒加载(跟预加载的区别?
+- ### 懒加载&&预加载
 
 - ### 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
 
-- ### 有没有遇到过margin重叠的现象?如何解决？BFC
+- ### margin重叠现象与BFC
 
-- ### bootstrap是怎么做的？bootstrap是怎么实现grid系统的？
+- ### bootstrap的基本原理，bootstrap的grid系统。
 
-- ### 什么是浅复制和深复制？有什么区别？如何实现Object的深复制？[递归的方法进行复制/循环的方法]
+- ### 浅复制 && 深复制。
+    - 有什么区别
+    - 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 
 - ### xss和csrf
