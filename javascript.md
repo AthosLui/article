@@ -78,30 +78,36 @@
 
 - ### 冒泡排序法
     ```javascript
-    // 第一轮是对n-1的位置定位
-    // 第二轮是 每一个位置的数的 确定
-    var arr = [1, 4, 5, 6, 99, 111, 112, 113, 133],
-        temp = 0,
-        flag = false;
-    for (var i = 0; i < arr.length - 1; i++) {
-        document.writeln('come');
-        for (var j = 0; j < arr.length - 1 - i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                flag = true;
+    function bubbleSort(_arr) {
+        var _len = _arr.length - 1,
+            _index_out = 0,
+            _index_in,
+            _temp,
+            _flag;
+        if (_len > 0) {
+            while (_index_out < _len) {
+                _flag = false;
+                _index_in = 0; // 内层循环每次要从0开始
+                while (_index_in < _len - _index_out) {
+                    if (_arr[_index_in] > _arr[_index_in + 1]) {
+                        // 两者值交换
+                        _temp = _arr[_index_in];
+                        _arr[_index_in] = _arr[_index_in + 1];
+                        _arr[_index_in + 1] = _temp;
+                        _flag = true;
+                    }
+                    _index_in++;
+                }
+                if (!_flag) {
+                    // 如果数组已经是顺序的，就不必再循环了
+                    break;
+                }
+                _index_out++;
             }
         }
-        if (flag) {
-            flag = false;
-        } else {
-            break;
-        }
+        return _arr;
     }
-    for (var i = 0; i < arr.length; i++) {
-        document.writeln(arr[i]);
-    };
+
     ```
 
 - ### 二分查找法
