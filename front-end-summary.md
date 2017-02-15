@@ -260,10 +260,10 @@
 - ### 二分查找法
     ```javascript
     /**
-     * @param  {[Array]} _arr         [查找的数组]
-     * @param  {[Number]} _wantVal    [查找的值]
-     * @param  {[Number]} _leftIndex  [查找的起始下标]
-     * @param  {[Number]} _rightIndex [查找的结束下标]
+     * @param  {[Array]}  _arr         [查找的数组]
+     * @param  {[Number]} _wantVal     [查找的值]
+     * @param  {[Number]} _leftIndex   [查找的起始下标]
+     * @param  {[Number]} _rightIndex  [查找的结束下标]
      */
     function binarySearch(_arr, _wantVal, _leftIndex, _rightIndex) {
         // 二分查找的前提是数组应该是有序的
