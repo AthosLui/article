@@ -262,28 +262,27 @@
     /**
      * @param  {[Array]}  _arr         [查找的数组]
      * @param  {[Number]} _wantVal     [查找的值]
-     * @param  {[Number]} _leftIndex   [查找的起始下标]
-     * @param  {[Number]} _rightIndex  [查找的结束下标]
      */
-    function binarySearch(_arr, _wantVal, _leftIndex, _rightIndex) {
+    function binarySearch(_arr, _wantVal) {
         // 二分查找的前提是数组应该是有序的
-        if (_leftIndex > _rightIndex) {
+        var _left = typeof arguments[2] !== 'undefined' ? arguments[2] : 0,
+            _right = typeof arguments[3] !== 'undefined' ? arguments[3] : _arr.length - 1;
+        if (_left > _right) {
             // 没有找到相应值
             return null;
         }
-        var _middleIndex = Math.floor((_leftIndex + _rightIndex) / 2);
+        var _middleIndex = Math.floor((_left + _right) / 2);
         if (_arr[_middleIndex] > _wantVal) {
             // 查找的值在左边
-            return binarySearch(_arr, _wantVal, _leftIndex, _middleIndex - 1);
-        } else if (_arr[_middleIndex] < _wantVal) {
-            // 查找的值在右边边
-            return binarySearch(_arr, _wantVal, _middleIndex + 1, _rightIndex);
-        } else {
-            // 找到要查找的值
-            return _middleIndex;
+            return binarySearch(_arr, _wantVal, _left, _middleIndex - 1);
         }
+        if (_arr[_middleIndex] < _wantVal) {
+            // 查找的值在右边边
+            return binarySearch(_arr, _wantVal, _middleIndex + 1, _right);
+        }
+        // 找到要查找的值
+        return _middleIndex;
     }
-
     ```
 
 - ### 快排算法
