@@ -129,7 +129,7 @@
     ```
 
 - ### 数组相关
-    - 长度（length属性）
+    - length
 
         ```javascript
         // 数组的长度是根据下标的最大而确定的
@@ -139,4 +139,9 @@
         arr.length; // 返回：0
         arr[100] = 100;
         arr.length; // 返回：101
+
+        // 手动赋值数组长度可以删减多余元素
+        var arr = [1, 2, 3, 4];
+        arr.length = 2;
+        console.log(arr); // [1, 2]
         ```
