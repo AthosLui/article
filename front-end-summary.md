@@ -259,23 +259,31 @@
 
 - ### 二分查找法
     ```javascript
-    var arr = [41, 55, 76, 87, 88, 99, 123, 432, 546, 577, 688, 786];
-
-    function twoFind(arr, wantVal, leftIndex, rightIndex) {
-        if (leftIndex > rightIndex) {
-            document.writeln('SORRY: 找不到 ' + wantVal + ' ！');
-            return;
+    /**
+     * @param  {[Array]} _arr         [查找的数组]
+     * @param  {[Number]} _wantVal    [查找的值]
+     * @param  {[Number]} _leftIndex  [查找的起始下标]
+     * @param  {[Number]} _rightIndex [查找的结束下标]
+     */
+    function binarySearch(_arr, _wantVal, _leftIndex, _rightIndex) {
+        // 二分查找的前提是数组应该是有序的
+        if (_leftIndex > _rightIndex) {
+            // 没有找到相应值
+            return null;
         }
-        var minIndex = Math.floor((leftIndex + rightIndex) / 2);
-        if (arr[minIndex] > wantVal) {
-            twoFind(arr, wantVal, leftIndex, minIndex - 1);
-        } else if (arr[minIndex] < wantVal) {
-            twoFind(arr, wantVal, minIndex + 1, rightIndex);
+        var _middleIndex = Math.floor((_leftIndex + _rightIndex) / 2);
+        if (_arr[_middleIndex] > _wantVal) {
+            // 查找的值在左边
+            return binarySearch(_arr, _wantVal, _leftIndex, _middleIndex - 1);
+        } else if (_arr[_middleIndex] < _wantVal) {
+            // 查找的值在右边边
+            return binarySearch(_arr, _wantVal, _middleIndex + 1, _rightIndex);
         } else {
-            document.writeln('找到了 ' + wantVal + ' ,下表为' + minIndex);
+            // 找到要查找的值
+            return _middleIndex;
         }
     }
-    twoFind(arr, 9, 0, arr.length - 1);
+
     ```
 
 - ### 快排算法
