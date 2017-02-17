@@ -2,9 +2,8 @@
 
 # front-end-summary
 
-- ### LazyMan
-
-> 典型的流程控制解决方案。什么是LazyMan？请自行google
+### LazyMan
+> 典型的流程控制解决方案。什么是LazyMan？请自行google。
 
 ```javascript
 function _LazyMan(_name) {
@@ -74,10 +73,10 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 // "Eat apple" "Wake up after 1000"(1s后输出)
 ```
 
-- ### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况。
-    > widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
-    > element.style (获取的是元素行间设置的样式)
-    > element.currentStyle (ie低版本)
+### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况。
+> widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
+> element.style (获取的是元素行间设置的样式)
+> element.currentStyle (ie低版本)
 
     ```javascript
     // 获取指定元素的某个CSS样式，兼容IE
@@ -101,7 +100,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
     }
     ```
 
-- ### 前端优化简述
+### 前端优化简述
 
     > 应用优化涉及各个方面，前端优化只是冰山一角。有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”，我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远。
 
@@ -143,7 +142,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
                 1. 减少文本和元素混合，并作为另一元素的子元素
                 1. 避免使用`<br />、<hr />`
 
-- ### 跨域访问之JSONP
+### 跨域访问之JSONP
 
     > - 同源策略`same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制。
     > - 同源：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可。
@@ -187,10 +186,10 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
         - 服务端需要根据客户端传过来函数名返回数据。
         - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题。
 
-- ### 跨域访问之POST
+### 跨域访问之POST
 >
 
-- ### 获取元素距离页面的top、left
+### 获取元素距离页面的top、left
     ```javascript
     function getRec(ele) {
         var _t = document.documentElement.clientTop,
@@ -206,7 +205,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
     ```
     > 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
 
-- ### 矩阵的转置
+### 矩阵的转置
     ```javascript
     var arr = [ // 定义一个矩阵（二维数据）
         [1, 2, 3, 4],
@@ -229,7 +228,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
     console.table(arr);
     ```
 
-- ### 冒泡排序法
+### 冒泡排序法
     ```javascript
     function bubbleSort(_arr) {
         var _len = _arr.length - 1,
@@ -262,7 +261,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
     }
     ```
 
-- ### 二分查找法
+### 二分查找法
     ```javascript
     /**
      * @param  {[Array]}  _arr         [查找的数组]
@@ -290,42 +289,42 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
     }
     ```
 
-- ### 快排算法
+### 快排算法
     ```javascript
     ```
 
-- ### CSS下载解析会不会阻塞DOM树渲
+### CSS下载解析会不会阻塞DOM树渲
 
-- ### 以什么为基准去衡量什么时候使用base64
+### 以什么为基准去衡量什么时候使用base64
 
-- ### HTTPS和HTTP有什么区别
+### HTTPS和HTTP有什么区别
 
-- ### SSL四次握手过程
+### SSL四次握手过程
 
-- ### TCP三次握手过程
+### TCP三次握手过程
 
-- ### SSL握手时有对称加密和非对称加密吗
+### SSL握手时有对称加密和非对称加密吗
 
-- ### CSS inline
+### CSS inline
 
-- ### 盒模型(W3C和IE)
+### 盒模型(W3C和IE)
 
-- ### flex的使用
+### flex的使用
 
-- ### CSS hack技术
+### CSS hack技术
 
-- ### 从输入url到渲染的整个过程?
+### 从输入url到渲染的整个过程?
 
-- ### 懒加载&&预加载
+### 懒加载&&预加载
 
-- ### 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
+### 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
 
-- ### margin重叠现象与BFC
+### margin重叠现象与BFC
 
-- ### bootstrap的基本原理，bootstrap的grid系统。
+### bootstrap的基本原理，bootstrap的grid系统。
 
-- ### 浅复制 && 深复制。
+### 浅复制 && 深复制。
     - 有什么区别
     - 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 
-- ### xss和csrf
+### xss和csrf
