@@ -314,6 +314,33 @@ function binarySearch(_arr, _wantVal) {
 ### 网络请求头部
 - POST请求头部
 
+### new一个对象需要注意的
+```javascript
+function person(_name) {
+    this.name = typeof _name !== 'undefined' ? _name : 'testNameOne';
+};
+person.prototype.name = 'testNameTwo';
+person.prototype.from = '四川';
+person.prototype.speak = function() {
+    console.log(this.name, this.from);
+}
+
+// 等价于: “(new person()).speak()”
+new person().speak(); // testNameOne 四川
+
+new person('hangyangws').speak(); // hangyangws 四川
+
+(new person).speak(); // testNameOne 四川
+```
+在查找当前实例对象的属性或者方法时候，如果没有找到，会到原型链`__proto__`上找  
+观察仔细的同学应该发现了`new person()`和`new person`都可以实例化对象  
+区别就是要传参数就必须带小括号  
+不带小括号就表示不穿参数（浏览器会自动加上小括号）  
+提醒：  
+虽然“new”一个对象的时候可以不带小括号。  
+但是，“new person.speak()”调用方式会报错：“person.speak is not a constructor”。  
+因为“.”的优先顺序大于“new”，类似于：“new (person.speak())”。  
+
 ### SSL四次握手过程
 
 ### TCP三次握手过程

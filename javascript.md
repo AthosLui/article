@@ -28,11 +28,11 @@ typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一
 1. object - 引用类型 或 Null类型
 
 ```javascript
-typeof(Function) // function (Function是函数对象)
-typeof(new Function) // function (new Function也是是函数对象，同等：var func = function(){})
-typeof(new new Function) // object (new Function也是是“构造函数（类）”，new new Function就是“实例（对象）”)
-typeof(Array) // function (Array是函数对象)
-typeof(new Array) // object（实例化的Array就是object）
+typeof Function // function (Function是函数对象)
+typeof new Function // function (new Function也是是函数对象，同等：var func = function(){})
+typeof new new Function // object (new Function也是是“构造函数（类）”，new new Function就是“实例（对象）”)
+typeof Array // function (Array是函数对象)
+typeof new Array // object（实例化的Array就是object）
 ```
 
 ### 变量赋值时候的返回值
