@@ -3,74 +3,76 @@
 # front-end-summary
 
 - ### LazyMan
-    - 实现LazyMan（什么是LazyMan？请自行google）
-    ```javascript
-    function _LazyMan(_name) {
-        var _this = this; // 缓存this
-        _this.tasks = []; // 任务初始化为空数组
-        _this.tasks.push(function() {
-            console.log('Hi! This is ' + _name + '!');
-            // 当前匿名函数，没有明确的执行对象，所以函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
-            _this.next();
-        });
-        // setTimeout会开辟另一个执行临时队列，在当前线程（js是单线程）执行完成后才会执行此临时队列的任务。
-        // 在执行此临时队列时，会按照先前设置时间延迟。
-        // 如果延迟时间设置为0，就以为着不延迟执行。
-        // 这样做的意义在于：让当前任务脱离当前执行的线程（有点异步执行的感觉）
+
+> 典型的流程控制解决方案。什么是LazyMan？请自行google
+
+```javascript
+function _LazyMan(_name) {
+    var _this = this; // 缓存this
+    _this.tasks = []; // 任务初始化为空数组
+    _this.tasks.push(function() {
+        console.log('Hi! This is ' + _name + '!');
+        // 当前匿名函数，没有明确的执行对象，所以函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
+        _this.next();
+    });
+    // setTimeout会开辟另一个执行临时队列，在当前线程（js是单线程）执行完成后才会执行此临时队列的任务。
+    // 在执行此临时队列时，会按照先前设置时间延迟。
+    // 如果延迟时间设置为0，就以为着不延迟执行。
+    // 这样做的意义在于：让当前任务脱离当前执行的线程（有点异步执行的感觉）
+    setTimeout(function() {
+        _this.next(); // 执行下一个任务
+    }, 0);
+}
+
+// push函数里面的this和setTimeout函数里面的this都指向全局作用域，所以要缓存当前this指向
+_LazyMan.prototype.next = function() {
+    // 取出任务队列的任务存入变量
+    var _fn = this.tasks.shift();
+    // 如果当前任务存在，就执行当前任务。（&&左边为真在会去执行右边，有点if语句的感觉）
+    _fn && _fn();
+}
+_LazyMan.prototype.sleep = function(_time) {
+    var _this = this;
+    _this.tasks.push(function() {
         setTimeout(function() {
-            _this.next(); // 执行下一个任务
-        }, 0);
-    }
-
-    // push函数里面的this和setTimeout函数里面的this都指向全局作用域，所以要缓存当前this指向
-    _LazyMan.prototype.next = function() {
-        // 取出任务队列的任务存入变量
-        var _fn = this.tasks.shift();
-        // 如果当前任务存在，就执行当前任务。（&&左边为真在会去执行右边，有点if语句的感觉）
-        _fn && _fn();
-    }
-    _LazyMan.prototype.sleep = function(_time) {
-        var _this = this;
-        _this.tasks.push(function() {
-            setTimeout(function() {
-                console.log('Wake up after ' + _time);
-                _this.next();
-            }, _time);
-        });
-        return _this;
-    }
-    _LazyMan.prototype.sleepFirst = function(_time) {
-        var _this = this;
-        // sleepFirst和sleep原理一样，只是在新增任务时插队了，把当前任务放在了队列的最前面
-        _this.tasks.unshift(function() {
-            setTimeout(function() {
-                console.log('Wake up after ' + _time);
-                _this.next();
-            }, _time);
-        });
-        return _this;
-    }
-    _LazyMan.prototype.eat = function(_eat) {
-        var _this = this;
-        _this.tasks.push(function() {
-            console.log('Eat ' + _eat);
+            console.log('Wake up after ' + _time);
             _this.next();
-        });
-        return _this;
-    }
+        }, _time);
+    });
+    return _this;
+}
+_LazyMan.prototype.sleepFirst = function(_time) {
+    var _this = this;
+    // sleepFirst和sleep原理一样，只是在新增任务时插队了，把当前任务放在了队列的最前面
+    _this.tasks.unshift(function() {
+        setTimeout(function() {
+            console.log('Wake up after ' + _time);
+            _this.next();
+        }, _time);
+    });
+    return _this;
+}
+_LazyMan.prototype.eat = function(_eat) {
+    var _this = this;
+    _this.tasks.push(function() {
+        console.log('Eat ' + _eat);
+        _this.next();
+    });
+    return _this;
+}
 
-    // 封装对象
-    var LazyMan = function(_name) {
-        return new _LazyMan(_name);
-    }
+// 封装对象
+var LazyMan = function(_name) {
+    return new _LazyMan(_name);
+}
 
-    // 运行测试
-    LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
-    // 结果:
-    // "Wake up after 2000"(2s后输出)
-    // "Hi! This is hangyangws!"
-    // "Eat apple" "Wake up after 1000"(1s后输出)
-    ```
+// 运行测试
+LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
+// 结果:
+// "Wake up after 2000"(2s后输出)
+// "Hi! This is hangyangws!"
+// "Eat apple" "Wake up after 1000"(1s后输出)
+```
 
 - ### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况。
     > widow.getComputedStyle (获取css中设置的样式，'准浏览器'。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有。
@@ -184,6 +186,9 @@
         - 只支持get请求，不支持post请求。
         - 服务端需要根据客户端传过来函数名返回数据。
         - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题。
+
+- ### 跨域访问之POST
+>
 
 - ### 获取元素距离页面的top、left
     ```javascript
