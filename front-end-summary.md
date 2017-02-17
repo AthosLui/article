@@ -3,7 +3,7 @@
 # front-end-summary
 
 ### LazyMan
-> 典型的流程控制解决方案。什么是LazyMan？请自行google。
+> 典型的流程控制解决方案什么是LazyMan？请自行google
 
 ```javascript
 function _LazyMan(_name) {
@@ -14,9 +14,9 @@ function _LazyMan(_name) {
         // 当前匿名函数，没有明确的执行对象，所以函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
         _this.next();
     });
-    // setTimeout会开辟另一个执行临时队列，在当前线程（js是单线程）执行完成后才会执行此临时队列的任务。
-    // 在执行此临时队列时，会按照先前设置时间延迟。
-    // 如果延迟时间设置为0，就以为着不延迟执行。
+    // setTimeout会开辟另一个执行临时队列，在当前线程（js是单线程）执行完成后才会执行此临时队列的任务
+    // 在执行此临时队列时，会按照先前设置时间延迟
+    // 如果延迟时间设置为0，就以为着不延迟执行
     // 这样做的意义在于：让当前任务脱离当前执行的线程（有点异步执行的感觉）
     setTimeout(function() {
         _this.next(); // 执行下一个任务
@@ -27,7 +27,7 @@ function _LazyMan(_name) {
 _LazyMan.prototype.next = function() {
     // 取出任务队列的任务存入变量
     var _fn = this.tasks.shift();
-    // 如果当前任务存在，就执行当前任务。（&&左边为真在会去执行右边，有点if语句的感觉）
+    // 如果当前任务存在，就执行当前任务（&&左边为真在会去执行右边，有点if语句的感觉）
     _fn && _fn();
 }
 _LazyMan.prototype.sleep = function(_time) {
@@ -72,11 +72,11 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 // "Eat apple" "Wake up after 1000"(1s后输出)
 ```
 
-### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况。
+### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
 > JS获取元素样式方式：
-> - widow.getComputedStyle (标准浏览器中获取CSS文件中设置的样式。返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)。
-> - element.style (获取的是元素行间设置的样式)。
-> - element.currentStyle (ie低版本)。
+> - widow.getComputedStyle (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
+> - element.style (获取的是元素行间设置的样式)
+> - element.currentStyle (ie低版本)
 
 ```javascript
 // 获取指定元素的某个CSS样式，兼容IE
@@ -101,7 +101,8 @@ var getBG = function($el) {
 ```
 
 ### 前端优化简述
-> 应用优化涉及各个方面，前端优化只是冰山一角。有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”，我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远。
+> 应用优化涉及各个方面，前端优化只是冰山一角  
+> 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”，我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远
 
 - 优化目的
     1. 用户角度：页面加载更快、操作响应更快、体验更好
@@ -122,7 +123,7 @@ var getBG = function($el) {
     1. 代码优化
         - DOM操作优化
             1. 减少DOM操作，减少`Reflow和Repaint`
-            1. HTML Collection（类数组集合。并不是一个静态的结果，表示的仅是特定的查询，每次访问时会重新执行查询。需要遍历 HTML Collection时，将它转为数组再访问，以提高性能。）
+            1. HTML Collection（类数组集合并不是一个静态的结果，表示的仅是特定的查询，每次访问时会重新执行查询需要遍历 HTML Collection时，将它转为数组再访问，以提高性能）
         - JavaScript
             1. 减少作用域链查找（example：缓存全局变量）
             1. 慎用 `with、eval、Function`
@@ -142,52 +143,49 @@ var getBG = function($el) {
             1. 避免使用`<br />、<hr />`
 
 ### 跨域访问之JSONP
-> - 同源策略`same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制。
-> - 同源：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可。
-> - 所以在JS代码中访问不同源的数据会提示”跨域警告“，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域。
-> - JSONP（JSON with Padding）的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域。
+> 同源策略`same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制  
+> 同源：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
+> 所以在JS代码中访问不同源的数据会提示”跨域警告“，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域
+> JSONP（JSON with Padding）的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域  
 
 - HTML页面中创建`<script>`节点
-
     ```javascript
     var script = document.createElement('script'); // 创建<script>节点
     script.src = 'http://example.com/getData'; // 添加src属性
     document.getElementsByTagName('HEAD')[0].appendChild(script); // 插入节点到head头
     ```
-- 数据返回
-    - 我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容。
-    - 但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用。
+- 获取数据返回
+    - 我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容
+    - 但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用
     - 解决方案是：
-        1. 创建一个函数，函数参数为服务端板返回的数据。
-
+        1. 创建一个函数，函数参数为服务端板返回的数据
             ```javascript
             function callBack(responseText) {
                 // 操作responseText
             }
             ```
-        1. 给script的src属性设置一个参数。比如：`http://example.com/getData?name="callBack"`。
-        1. 服务端接受到GET数据：`name="callBack"`，得到`callBack`函数名。
+        1. 给script的src属性设置一个参数比如：`http://example.com/getData?name="callBack"`
+        1. 服务端接受到GET数据：`name="callBack"`，得到`callBack`函数名
         1. 服务端以**函数调用**的方式返回数据：
-
             ```javascript
             callBack({example: 123})
             ```
-        1. 浏览器端得到数据：`callBack({example: 123})`。
-        1. 浏览器执行数据：`callBack({example: 123})`。
-        1. 这个时候我们预先设置好的`callBack`函数就被已“回调函数”的方式调用了。
+        1. 浏览器端得到数据：`callBack({example: 123})`
+        1. 浏览器执行数据：`callBack({example: 123})`
+        1. 这个时候我们预先设置好的`callBack`函数就被已“回调函数”的方式调用了
 - JSONP优点
-    - 与`XMLHttpRequest`不同，JSONP不受同源策略限制。
-    - IE支持良好。
-    - 在请求完成后可通过callback的方式传回结果。
+    - 与`XMLHttpRequest`不同，JSONP不受同源策略限制
+    - IE支持良好
+    - 在请求完成后可通过callback的方式传回结果
 - JSONP不足
-    - 只支持get请求，不支持post请求。
-    - 服务端需要根据客户端传过来函数名返回数据。
-    - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题。
+    - 只支持get请求，不支持post请求
+    - 服务端需要根据客户端传过来函数名返回数据
+    - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题
 
 ### 跨域访问之POST
 
 ### 获取元素距离页面的top、left
-> 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容。
+> 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容
 
 ```javascript
 function getRec(ele) {
@@ -227,7 +225,7 @@ console.table(arr);
 ```
 
 ### 冒泡排序法
-> 排序中的经典方法，用js实现感觉又不一样。
+> 排序中的经典方法，用js实现感觉又不一样
 
 ```javascript
 function bubbleSort(_arr) {
@@ -321,9 +319,9 @@ function binarySearch(_arr, _wantVal) {
 
 ### margin重叠现象与BFC
 
-### bootstrap的基本原理，bootstrap的grid系统。
+### bootstrap的基本原理，bootstrap的grid系统
 
-### 浅复制 && 深复制。
+### 浅复制 && 深复制
 - 有什么区别
 - 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 

@@ -3,7 +3,7 @@
 # javascript
 
 - ### 数据类型
-    - 6种原始值（不可变。“除非重置当前变量，否则不能改变元素值。”）
+    - 6种原始值（不可变“除非重置当前变量，否则不能改变元素值”）
         1. Null(只有一个值： null)
         1. Undefined(一个没有被赋值的变量会有个默认值 undefined)
         1. Number
@@ -34,41 +34,41 @@
     var name = 'hangyang'; // 返回：undefined
     name = 'ws'; // 返回：ws
     ```
-    > 结语：定义变量的时候赋值返回:undefined。
-    > 给已声明变量赋值时候返回当前赋值。
+    > 结语：定义变量的时候赋值返回:undefined
+    > 给已声明变量赋值时候返回当前赋值
 
 - ### defer && async
 
     > - 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？
-    > - 长话短说就是：`<script src="xxx.js">`加载JS会堵塞`DOM`树的解析与构建，解析到`<script src="xxx.js">`浏览器就去下载当前JS文件，这段时间`DOM`树的构建是停止的。
-    > - 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**。
+    > - 长话短说就是：`<script src="xxx.js">`加载JS会堵塞`DOM`树的解析与构建，解析到`<script src="xxx.js">`浏览器就去下载当前JS文件，这段时间`DOM`树的构建是停止的
+    > - 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**
 
     - defer（翻译：推迟）
 
         > 添加`defer`属性：`<script src="xxx.js" defer>`
 
         作用：  
-        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`。  
-        当`JS`下载完成后，并不会马上执行。  
-        而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容。
+        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+        当`JS`下载完成后，并不会马上执行  
+        而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容
 
     - async（翻译：异步）
 
         > 添加`async`属性：`<script src="xxx.js" async>`
 
         作用：  
-        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`。  
-        当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析。  
-        当`JS`执行完成后，又开始解析`DOM`。
+        当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+        当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
+        当`JS`执行完成后，又开始解析`DOM`
 
     - 总结
 
-        `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步。  
-        它俩的差别在于`JS`下载完之后何时执行。  
-        `defer`执行顺序是和脚本放置位置一样。  
-        `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行。  
-        `defer`最接近**把脚本放在`<body>`闭合标签前**的效果。
-        `async`用到的场景比较少。
+        `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
+        它俩的差别在于`JS`下载完之后何时执行  
+        `defer`执行顺序是和脚本放置位置一样  
+        `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
+        `defer`最接近**把脚本放在`<body>`闭合标签前**的效果
+        `async`用到的场景比较少
 
 - ### arguments、callee、caller
     ```javascript
@@ -94,15 +94,15 @@
 
         function Son(name, age) {
             this.Father = Father; // Son内部的Father属性指向Father函数（类）
-            this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍，因而实现“继承”。
+            this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍，因而实现“继承”
         }
         var me = new Son('hangyangws', 21);
         me.name; // hangyangws
         me.show(); // hangyangws 21
         ```
     - 重载
-        > js从常理来说是不支持重载的，但是又可以说是天然支持重载，因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理。
-        > 目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起。
+        > js从常理来说是不支持重载的，但是又可以说是天然支持重载，因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理
+        > 目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
 
         ```javascript
         // 重载简单示范
@@ -125,7 +125,7 @@
 - ### promise及原理
 
 - ### 闭包
-    > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的。
+    > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
     ```javascript
     ```
