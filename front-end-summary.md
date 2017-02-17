@@ -206,7 +206,7 @@ function getRec(ele) {
 var arr = [ // 定义一个矩阵（二维数据）
     [1, 2, 3],
     [4, 5, 6],
-    [7, 8, 9],
+    [7, 8, 9]
 ];
 
 function changeArr(arr) { // 矩阵转置函数
@@ -230,7 +230,7 @@ console.table(arr);
 ```
 
 ### 冒泡排序法
-> 排序中的经典方法，用js实现感觉又不一样
+> 排序中的经典方法，用JS实现感觉又不一样
 
 ```javascript
 function bubbleSort(_arr) {
@@ -272,6 +272,7 @@ function bubbleSort(_arr) {
  */
 function binarySearch(_arr, _wantVal) {
     // 二分查找的前提是数组应该是有序的
+    // 初始时，左边从0开始查找，右边从数组的最右边开始查找
     var _left = typeof arguments[2] !== 'undefined' ? arguments[2] : 0,
         _right = typeof arguments[3] !== 'undefined' ? arguments[3] : _arr.length - 1;
     if (_left > _right) {
@@ -295,6 +296,9 @@ function binarySearch(_arr, _wantVal) {
 ### 快排算法
 ```javascript
 ```
+### 浅复制 && 深复制
+- 有什么区别
+- 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 
 ### CSS下载解析会不会阻塞DOM树渲
 
@@ -325,9 +329,5 @@ function binarySearch(_arr, _wantVal) {
 ### margin重叠现象与BFC
 
 ### bootstrap的基本原理，bootstrap的grid系统
-
-### 浅复制 && 深复制
-- 有什么区别
-- 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 
 ### xss和csrf
