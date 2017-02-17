@@ -60,8 +60,7 @@ _LazyMan.prototype.eat = function(_eat) {
     return _this;
 }
 
-// 封装对象
-var LazyMan = function(_name) {
+var LazyMan = function(_name) { // 封装对象
     return new _LazyMan(_name);
 }
 
@@ -90,11 +89,13 @@ var getStyle = function($el, _attr) {
     return $el.style[_attr];
 }
 
-var getBG = function($el) {
+var getFinalBackground = function($el) {
     var color = getStyle($el, 'backgroundColor');
-    if(color === 'rgba(0, 0, 0, 0)' || color === 'transparent') { // 判断是否透明
-        return $el.tagName === 'HTML' ? 'rgb(255, 255, 255)' : arguments.callee($el.parentNode, 'backgroundColor');
-    } else {
+    if(color === 'rgba(0, 0, 0, 0)' || color === 'transparent') { // 判断当前元素背景透明，则查询父元素
+        return $el.tagName === 'HTML' ?
+            'rgb(255, 255, 255)' : // 遇到根节点就返回白色
+            arguments.callee($el.parentNode, 'backgroundColor'); // 不是根节点就继续向上找父节点
+    } else { // 当前元素背景不透明，则返回颜色值
         return color;
     }
 }
@@ -102,7 +103,8 @@ var getBG = function($el) {
 
 ### 前端优化简述
 > 应用优化涉及各个方面，前端优化只是冰山一角  
-> 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”，我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远
+> 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”
+> 我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远
 
 - 优化目的
     1. 用户角度：页面加载更快、操作响应更快、体验更好
@@ -116,6 +118,8 @@ var getBG = function($el) {
             1. Inline Images（将图片嵌入到页面或style文件）
             1. Lazy Load Images
             1. 避免重复的资源请求
+        - 资源优化
+            1. 图片格式的选择（非透明大图尽量不用png、PS保存图片为`web格式`且勾选`连续`选项）
         - 资源的无阻塞加载
             1. CSS放在HEAD中
             1. JavaScript置底
@@ -132,8 +136,6 @@ var getBG = function($el) {
             1. 减少字符串拼接`+`使用
         - CSS选择符优化
             1. 减少层级，多用class（浏览器解析CSS是从右往左）
-        - 资源优化
-            1. 图片格式的选择（非透明大图尽量不用png、PS保存图片为`web格式`且勾选`连续`选项）
         -  HTML结构优化
             1. 使用HTML5 DOCTYPE
             1. 标签闭合、结构分离
@@ -143,10 +145,10 @@ var getBG = function($el) {
             1. 避免使用`<br />、<hr />`
 
 ### 跨域访问之JSONP
-> 同源策略`same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制  
-> 同源：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
-> 所以在JS代码中访问不同源的数据会提示”跨域警告“，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域
-> JSONP（JSON with Padding）的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域  
+> **同源策略`same-Origin-Policy`**：指浏览器对不同源的脚本或文本的访问方式进行的限制  
+> **同源**：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
+> 所以在JS代码中访问不同源的数据会提示*跨域警告*，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域  
+> **JSONP（JSON with Padding）**的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域
 
 - HTML页面中创建`<script>`节点
     ```javascript
