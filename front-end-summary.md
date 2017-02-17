@@ -203,25 +203,29 @@ function getRec(ele) {
 
 ### 矩阵的转置
 ```javascript
-var arr = [ // 定义一个矩阵（二维数据）
+function transMatrix(_matrix) { // 矩阵转置函数
+    var _l = _matrix.length,
+        _index_in,
+        _temp;
+    while (--_l > 0) {
+        _index_in = _l;
+        while (_index_in--) {
+            // 互换值
+            _temp = _matrix[_l][_index_in];
+            _matrix[_l][_index_in] = _matrix[_index_in][_l];
+            _matrix[_index_in][_l] = _temp;
+        }
+    }
+}
+
+// 测试
+var _matrix = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ];
-
-function changeArr(arr) { // 矩阵转置函数
-    var c;
-    for (var i = 1; i < arr.length; i++) {
-        for (var j = 0; j < i; j++) {
-            c = arr[i][j];
-            arr[i][j] = arr[j][i];
-            arr[j][i] = c;
-        }
-    }
-}
-// 测试
-changeArr(arr);
-console.table(arr);
+transMatrix(_matrix);
+console.table(_matrix);
 // [
 //   [1, 4, 7],
 //   [2, 5, 8],
@@ -236,9 +240,9 @@ console.table(arr);
 function bubbleSort(_arr) {
     var _len = _arr.length - 1,
         _index_out = 0,
-        _index_in,
-        _temp,
-        _flag;
+        _index_in, // 内层循环索引
+        _temp, // 存放临时数据
+        _flag; // 判断循环是否要继续
     if (_len > 0) {
         while (_index_out < _len) {
             _flag = false;
