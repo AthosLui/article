@@ -183,9 +183,12 @@ var getFinalBackground = function($el) {
     - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题
 
 ### 跨域访问之POST
+> 虽然`JSONP`可以解决跨域问题，但是`JSONP`是`GET`类型，传输数据大小不及`POST`类型  
+> 如果需要传递大量数据的跨域，就得了解**POST跨域**
 > [原文](http://blog.csdn.net/doraeimo/article/details/7329779)
 
-- CORS
+- CORS(Cross Origin Resource Sharing，跨域资源共享)
+
 - invisible iframe
 - server proxy 
 - flash proxy
