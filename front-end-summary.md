@@ -188,6 +188,23 @@ var getFinalBackground = function($el) {
 > [原文](http://blog.csdn.net/doraeimo/article/details/7329779)
 
 - CORS(Cross Origin Resource Sharing，跨域资源共享)
+    
+    由于跨域访问会有安全问题，所以有了同源策略  
+    我们换位思考，被请求数据的服务器如果同意来自*不同源*的请求，是不是意味着“我信任这个源的请求”  
+    那么，同源策略这个时候会“失效”，就达成了“跨域”  
+    所以只要服务端设置了http响应头`Access-Control-Allow-Origin`应许请求即可
+    比如：
+
+    ```php
+    // PHP举例
+
+    header("Access-Control-Allow-Origin: *");
+    // 或者
+    header("Access-Control-Allow-Origin: http://www.hangyagnws.win");
+    ```
+
+    — 优点：同时支持`GET`、`POST`请求
+    - 缺点：需要服务端设置`Access-Control-Allow-Origin`
 
 - invisible iframe
 - server proxy 
