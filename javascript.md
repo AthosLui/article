@@ -97,6 +97,17 @@ name = 'ws'; // 返回：ws
     ```
 - getClientRects
 
+    > 主要用于内联(inline)元素（如：<a>…）  
+    > 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
+
+    - 用法：`element.getClientRects()`
+    - 返回值：`一个TextRectangle对象（一个类数组对象）`
+    ```javascript
+    var test = element.getClientRects();
+    test.length; // 如果element是非inline元素，test.length为1，否则为元素的行数
+    // test[0]、test[0]…返回的值与getBoundingClientRect类似
+    ```
+
 - elementFromPoint
 
 ### arguments、callee、caller
