@@ -110,6 +110,12 @@ name = 'ws'; // 返回：ws
 
 - elementFromPoint
 
+    > 查看视口中指定位置是什么元素  
+    > 注意：返回的元素是指定坐标的最上层（z-index最大）和最里层（最里层的子元素）的Element对象
+
+    - 用法：`document.elementFromPoint(x, y)`
+    - 返回值：`Element对象`
+
 ### arguments、callee、caller
 ```javascript
 ```
