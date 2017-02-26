@@ -75,7 +75,7 @@ name = 'ws'; // 返回：ws
     `defer`最接近**把脚本放在`<body>`闭合标签前**的效果  
     `async`用到的场景比较少
 
-### 元素视图方法：getBoundingClientRect()、getClientRects()、elementFromPoint()
+### 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
 - getBoundingClientRect
 
     > 用于判断元素尺寸和位置
@@ -96,6 +96,7 @@ name = 'ws'; // 返回：ws
     }
     ```
 - getClientRects
+
 - elementFromPoint
 
 ### arguments、callee、caller
