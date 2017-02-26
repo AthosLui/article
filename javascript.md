@@ -30,7 +30,7 @@ typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一
 1. object - 引用类型 或 Null类型
 
 上面的返回值中的前5种都好理解，但是后2种：什么时候返回object，什么时候返回function  
-列子：
+请看列子与解释：
 ```javascript
 typeof Function // 返回：function (Function是函数对象)
 
