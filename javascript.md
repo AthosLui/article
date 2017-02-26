@@ -4,7 +4,7 @@
 
 ### 数据类型
 > 6种原始类型、引用类型  
-> 记住没有数组（array）类型
+> 记住没有array（数组）类型
 
 - 原始类型（特点：不可变“除非重置当前变量，否则不能改变变量值”）
     1. Null(只有一个值： null)
@@ -26,14 +26,29 @@ typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一
 1. function - 函数对象([[Call]]在ECMA-262条款中实现了)
 1. object - 引用类型 或 Null类型
 
-
-
+上面的返回值中的前5种都好理解，但是后2种：什么时候返回object，什么时候返回function  
+列子：
 ```javascript
-typeof Function // function (Function是函数对象)
-typeof new Function // function (new Function也是是函数对象，同等：var func = function(){})
-typeof new new Function // object (new Function也是是“构造函数（类）”，new new Function就是“实例（对象）”)
-typeof Array // function (Array是函数对象)
-typeof new Array // object（实例化的Array就是object）
+typeof Function // 返回：function (Function是函数对象)
+
+typeof new Function // 返回：function (new Function是函数对象)
+
+var func = function(){};
+typeof func // function (func是函数对象，和上一个列子一样的意思)
+
+typeof new new Function // 返回：object (第一次new返回函数对象，第二次new返回实例“引用类型”)
+
+typeof Array // 返回：function (Array是函数对象)
+
+typeof new Array // 返回：object（实例化的Array是“引用类型”）
+
+typeof [1, 2] // 返回：obejct （[1 ,2]是“引用类型”，和上一个列子一样的意思）
+
+typeof Object // 返回：function（Object是函数对象，你可以理解为浏览器定义了一个函数:"var Object = function() {}"）
+
+typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
+
+// 综上所述，开发者要注意了：数组并不是数组，对象并不是对象。^_^，容我幽默一下。
 ```
 
 ### 变量赋值时候的返回值
