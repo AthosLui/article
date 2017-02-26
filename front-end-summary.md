@@ -198,7 +198,7 @@ var getFinalBackground = function($el) {
     ```php
     // PHP举例
     header("Access-Control-Allow-Origin: *");
-    // 或者
+    // 或者(推荐方式)
     header("Access-Control-Allow-Origin: http://www.hangyagnws.win");
     ```
     - 优点：同时支持`GET`、`POST`请求
