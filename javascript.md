@@ -97,7 +97,7 @@ name = 'ws'; // 返回：ws
     ```
 - getClientRects
 
-    > 主要用于内联(inline)元素（如：`<a>`…）  
+    > 主要用于行内(inline)元素（如：`<a>`…）  
     > 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
 
     - 用法：`element.getClientRects()`
