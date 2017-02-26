@@ -1,6 +1,6 @@
-[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
-
 # front-end-summary
+
+[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
 ## LazyMan
 > 典型的流程控制解决方案什么是LazyMan？请自行google

@@ -1,6 +1,6 @@
-[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
-
 # JavaScript
+
+[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
 ## 数据类型
 > 注意：没有array（数组）类型
