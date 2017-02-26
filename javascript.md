@@ -31,6 +31,7 @@ typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一
 
 上面的返回值中的前5种都好理解，但是后2种：什么时候返回object，什么时候返回function  
 请看列子与解释：
+
 ```javascript
 typeof Function // 返回：function (Function是函数对象)
 
@@ -52,15 +53,6 @@ typeof Object // 返回：function（Object是函数对象，你可以理解为�
 typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 
 // 综上所述，开发者要注意了：数组并不是数组，对象并不是对象。^_^，容我幽默一下。
-```
-
-## 变量赋值时候的返回值
-> 定义变量的时候赋值返回:undefined  
-> 给已声明变量赋值时候返回当前赋值
-
-```javascript
-var name = 'hangyang'; // 返回：undefined
-name = 'ws'; // 返回：ws
 ```
 
 ## defer && async
@@ -135,14 +127,6 @@ name = 'ws'; // 返回：ws
     - 用法：`document.elementFromPoint(x, y)`
     - 返回值：`Element对象`
 
-## arguments、callee、caller
-```javascript
-```
-
-## call、bind、apply
-```javascript
-```
-
 ## 函数（类）的继承与重载
 - 继承
     ```javascript
@@ -187,6 +171,10 @@ name = 'ws'; // 返回：ws
     }
     ```
 
+## arguments、callee、caller
+
+## call、bind、apply
+
 ## promise及原理
 
 ## fetch
@@ -197,11 +185,8 @@ name = 'ws'; // 返回：ws
 ## 闭包
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
-```javascript
-```
-
 ## 数组相关
-- length
+- length的另一面
 
     ```javascript
     // 数组的长度是根据下标的最大而确定的

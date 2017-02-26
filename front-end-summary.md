@@ -307,8 +307,7 @@ function binarySearch(_arr, _wantVal) {
 ```
 
 ## 快排算法
-```javascript
-```
+
 ## 浅复制 && 深复制
 - 有什么区别
 - 如何实现Object的深复制`递归的方法进行复制/循环的方法`
