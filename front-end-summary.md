@@ -102,8 +102,8 @@ var getFinalBackground = function($el) {
 ```
 
 ### 前端优化简述
-> 应用优化涉及各个方面，前端优化只是冰山一角  
-> 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”
+> 优化涉及各个方面，前端优化只是冰山一角  
+> 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”  
 > 我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远
 
 - 优化目的
@@ -207,26 +207,8 @@ var getFinalBackground = function($el) {
     - 缺点：需要服务端设置`Access-Control-Allow-Origin`
 
 - invisible iframe
-- server proxy 
+- server proxy
 - flash proxy
-
-
-### 获取元素距离页面的top、left
-> 注意：IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素，我们需要做个兼容
-
-```javascript
-function getRec(ele) {
-    var _t = document.documentElement.clientTop,
-        _l = document.documentElement.clientLeft,
-        rect = ele.getBoundingClientRect();
-    return {
-        top: rect.top - _t,
-        right: rect.right - _l,
-        bottom: rect.bottom - _t,
-        left: rect.left - _l
-    }
-}
-```
 
 ### 矩阵的转置
 ```javascript
