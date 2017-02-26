@@ -16,7 +16,6 @@
 - Object(对象指内存中的可以被标识符引用的一块区域，数组、对象…)
 
 ### 数据类型检测之`typeof`
-
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
 
 1. undefined - Undefined类型
@@ -26,6 +25,8 @@ typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一
 1. symbol - Symbol类型(ECMAScript6新增)
 1. function - 函数对象([[Call]]在ECMA-262条款中实现了)
 1. object - 引用类型 或 Null类型
+
+
 
 ```javascript
 typeof Function // function (Function是函数对象)
