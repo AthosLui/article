@@ -78,19 +78,21 @@ name = 'ws'; // 返回：ws
 ### 元素视图方法：getBoundingClientRect()、getClientRects()、elementFromPoint()
 - getBoundingClientRect
 
-    > 用于判断元素尺寸和位置  
+    > 用于判断元素尺寸和位置
 
+    - 用法：`element.getBoundingClientRect()`
     - 返回值：
     ```javascript
     {
         // 下面的值除了width、height外都可能为负数（元素不在视图内的时候）
-        // 注意在IE7-浏览器，视口的左边默认是(2, 2)，开发者注意
-        top: , // 元素上border相对于视口上边的纵坐标
-        bottom: , // 元素下border相对于视口上边的纵坐标
-        left: , // 元素左border相对视口左边的横坐标
-        right: , // 元素右border相对视口左边的横坐标
-        width: , // 元素宽度（border+padding+width）
-        height: , // 元素高度（border+padding+width）
+        // 以下值，都是number类型
+        // 注意：IE7以下浏览器，视口的左边默认是(2, 2)，开发者注意
+        top: 0, // 元素上border相对于视口上边的纵坐标
+        bottom: 0, // 元素下border相对于视口上边的纵坐标
+        left: 0, // 元素左border相对视口左边的横坐标
+        right: 0, // 元素右border相对视口左边的横坐标
+        width: 0, // 元素宽度（border+padding+width）
+        height: 0 // 元素高度（border+padding+width）
     }
     ```
 - getClientRects
