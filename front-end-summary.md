@@ -201,8 +201,7 @@ var getFinalBackground = function($el) {
     // 或者
     header("Access-Control-Allow-Origin: http://www.hangyagnws.win");
     ```
-
-    — 优点：同时支持`GET`、`POST`请求
+    - 优点：同时支持`GET`、`POST`请求
     - 缺点：需要服务端设置`Access-Control-Allow-Origin`
 
 - invisible iframe
