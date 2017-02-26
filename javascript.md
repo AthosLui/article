@@ -2,7 +2,7 @@
 
 # JavaScript
 
-### 数据类型
+## 数据类型
 > 注意：没有array（数组）类型
 
 **6种原始类型**（特点：不可变“除非重置当前变量，否则不能改变变量值”）
@@ -18,7 +18,7 @@
 
 1. Object
 
-### 数据类型检测之`typeof`
+## 数据类型检测之`typeof`
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
 
 1. undefined - Undefined类型
@@ -54,7 +54,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 // 综上所述，开发者要注意了：数组并不是数组，对象并不是对象。^_^，容我幽默一下。
 ```
 
-### 变量赋值时候的返回值
+## 变量赋值时候的返回值
 > 定义变量的时候赋值返回:undefined  
 > 给已声明变量赋值时候返回当前赋值
 
@@ -63,7 +63,7 @@ var name = 'hangyang'; // 返回：undefined
 name = 'ws'; // 返回：ws
 ```
 
-### defer && async
+## defer && async
 > 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？  
 > 因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
 > 解析到`<script src="xxx.js">`时，浏览器会下载当前JS文件，这段时间`DOM`树的构建是停止的  
@@ -94,7 +94,7 @@ name = 'ws'; // 返回：ws
     `defer`最接近**把脚本放在`<body>`闭合标签前**的效果  
     `async`用到的场景比较少
 
-### 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
+## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
 - getBoundingClientRect
 
     > 用于判断元素尺寸和位置
@@ -135,15 +135,15 @@ name = 'ws'; // 返回：ws
     - 用法：`document.elementFromPoint(x, y)`
     - 返回值：`Element对象`
 
-### arguments、callee、caller
+## arguments、callee、caller
 ```javascript
 ```
 
-### call、bind、apply
+## call、bind、apply
 ```javascript
 ```
 
-### 函数（类）的继承与重载
+## 函数（类）的继承与重载
 - 继承
     ```javascript
     // js可以使用对象冒充实现继承的（平时少用）
@@ -187,20 +187,20 @@ name = 'ws'; // 返回：ws
     }
     ```
 
-### promise及原理
+## promise及原理
 
-### fetch
+## fetch
 
-### 位运算符
+## 位运算符
 > & |
 
-### 闭包
+## 闭包
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
 ```javascript
 ```
 
-### 数组相关
+## 数组相关
 - length
 
     ```javascript

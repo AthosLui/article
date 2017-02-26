@@ -2,7 +2,7 @@
 
 # front-end-summary
 
-### LazyMan
+## LazyMan
 > 典型的流程控制解决方案什么是LazyMan？请自行google
 
 ```javascript
@@ -71,7 +71,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 // "Eat apple" "Wake up after 1000"(1s后输出)
 ```
 
-### 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
+## 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
 > JS获取元素样式方式：
 > - widow.getComputedStyle (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
 > - element.style (获取的是元素行间设置的样式)
@@ -101,7 +101,7 @@ var getFinalBackground = function($el) {
 }
 ```
 
-### 前端优化简述
+## 前端优化简述
 > 优化涉及各个方面，前端优化只是冰山一角  
 > 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”  
 > 我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远
@@ -144,7 +144,7 @@ var getFinalBackground = function($el) {
             1. 减少文本和元素混合，并作为另一元素的子元素
             1. 避免使用`<br />、<hr />`
 
-### 跨域访问之JSONP
+## 跨域访问之JSONP
 > **同源策略`same-Origin-Policy`**：指浏览器对不同源的脚本或文本的访问方式进行的限制  
 > **同源**：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
 > 所以在JS代码中访问不同源的数据会提示*跨域警告*，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域  
@@ -182,7 +182,7 @@ var getFinalBackground = function($el) {
     - 服务端需要根据客户端传过来函数名返回数据
     - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题
 
-### 跨域访问之POST
+## 跨域访问之POST
 > 虽然`JSONP`可以解决跨域问题，但是`JSONP`是`GET`类型，传输数据大小不及`POST`类型  
 > 如果需要传递大量数据的跨域，就得了解**POST跨域**
 > [原文](http://blog.csdn.net/doraeimo/article/details/7329779)
@@ -210,7 +210,7 @@ var getFinalBackground = function($el) {
 - server proxy
 - flash proxy
 
-### 矩阵的转置
+## 矩阵的转置
 ```javascript
 function transMatrix(_matrix) { // 矩阵转置函数
     var _l = _matrix.length,
@@ -242,7 +242,7 @@ console.table(_matrix);
 // ]
 ```
 
-### 冒泡排序法
+## 冒泡排序法
 > 排序中的经典方法，用JS实现感觉又不一样
 
 ```javascript
@@ -277,7 +277,7 @@ function bubbleSort(_arr) {
 }
 ```
 
-### 二分查找法
+## 二分查找法
 ```javascript
 /**
  * @param  {[Array]}  _arr         [查找的数组]
@@ -306,23 +306,23 @@ function binarySearch(_arr, _wantVal) {
 }
 ```
 
-### 快排算法
+## 快排算法
 ```javascript
 ```
-### 浅复制 && 深复制
+## 浅复制 && 深复制
 - 有什么区别
 - 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 
-### CSS下载解析会不会阻塞DOM树渲
+## CSS下载解析会不会阻塞DOM树渲
 
-### 以什么为基准去衡量什么时候使用base64
+## 以什么为基准去衡量什么时候使用base64
 
-### HTTPS和HTTP有什么区别
+## HTTPS和HTTP有什么区别
 
-### 网络请求头部
+## 网络请求头部
 - POST请求头部
 
-### new一个对象需要注意的
+## new一个对象需要注意的
 ```javascript
 function person(_name) {
     this.name = typeof _name !== 'undefined' ? _name : 'testNameOne';
@@ -349,28 +349,28 @@ new person('hangyangws').speak(); // hangyangws 四川
 但是，“new person.speak()”调用方式会报错：“person.speak is not a constructor”  
 因为“.”的优先级大于“new”，类似于：“new (person.speak())”  
 
-### SSL四次握手过程
+## SSL四次握手过程
 
-### TCP三次握手过程
+## TCP三次握手过程
 
-### SSL握手时有对称加密和非对称加密吗
+## SSL握手时有对称加密和非对称加密吗
 
-### CSS inline
+## CSS inline
 
-### 盒模型(W3C和IE)
+## 盒模型(W3C和IE)
 
-### flex的使用
+## flex的使用
 
-### CSS hack技术
+## CSS hack技术
 
-### 从输入url到渲染的整个过程?
+## 从输入url到渲染的整个过程?
 
-### 懒加载&&预加载
+## 懒加载&&预加载
 
-### 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
+## 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
 
-### margin重叠现象与BFC
+## margin重叠现象与BFC
 
-### bootstrap的基本原理，bootstrap的grid系统
+## bootstrap的基本原理，bootstrap的grid系统
 
-### xss和csrf
+## xss和csrf
