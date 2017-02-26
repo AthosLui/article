@@ -1,6 +1,6 @@
 [查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
-# javascript
+# JavaScript
 
 ### 数据类型
 > 6种原始类型、引用类型  
