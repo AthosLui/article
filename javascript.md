@@ -3,17 +3,17 @@
 # JavaScript
 
 ### 数据类型
-> 6种原始类型、引用类型  
-> 记住没有array（数组）类型
+> 6种原始类型、1种引用类型  
+> 注意：没有array（数组）类型
 
 - 原始类型（特点：不可变“除非重置当前变量，否则不能改变变量值”）
     1. Null(只有一个值： null)
-    1. Undefined(一个没有被赋值的变量会有个默认值 undefined)
+    1. Undefined(一个没有被赋值的变量会有个默认值undefined)
     1. Number
-    1. Boolean(两个值：true 和 false)
+    1. Boolean(只有两个值：true 和 false)
     1. String
     1. [Symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)（ES6新增）
-- Object(对象指内存中的可以被标识符引用的一块区域，数组、对象…)
+- Object(对象指内存中的可以被标识符引用的一块区域：数组、对象…)
 
 ### 数据类型检测之`typeof`
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
