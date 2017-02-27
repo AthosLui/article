@@ -55,6 +55,8 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 // 综上所述，开发者要注意了：数组并不是数组，对象并不是对象。^_^，容我幽默一下。
 ```
 
+## 数据类型检测之`instanceof`
+
 ## defer && async
 > 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？  
 > 因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
@@ -172,6 +174,11 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
     ```
 
 ## arguments、callee、caller
+**arguments**
+    
+    在和
+**callee**
+**caller**
 
 ## call、bind、apply
 
