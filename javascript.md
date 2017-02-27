@@ -80,10 +80,10 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 - 总结
 
     `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
-    它俩的差别在于`JS`下载完之后何时执行  
+    它俩的差别在于：`JS`下载完之后何时执行  
     `defer`执行顺序是和脚本放置位置一样  
     `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
-    `defer`最接近**把脚本放在`<body>`闭合标签前**的效果  
+    `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**” 
     `async`用到的场景比较少
 
 ## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
