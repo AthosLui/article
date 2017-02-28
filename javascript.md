@@ -209,7 +209,7 @@ numAdd(3); // 返回：6
 看得出来，callee是arguments对象的参数  
 arguments.callee就是当前执行的函数  
 可以借助arguments.callee实现**自身调用**或者**递归调用**  
-切记：不要弄成死循环咯^_^
+切记：不要弄成死循环咯^_^  
 **caller**  
 
 ## call、bind、apply
