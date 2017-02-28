@@ -176,7 +176,13 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 ## arguments、callee、caller
 **arguments**
     
-    在和
+    在函数调用时，内部会创建一个类似数组的**对象**  
+    它存储的传递给函数的参数，并不局限于函数声明的参数列表  
+    列子：
+
+    ```javascript
+    
+    ```
 **callee**
 **caller**
 
