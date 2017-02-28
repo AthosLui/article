@@ -194,7 +194,7 @@ func2(1, 2, 3); // 打印：[1, 2, 3]
 ```
 
 **callee**  
-```callee```是```arguments```的一个属性，值是：当前执行的函数  
+`callee`是`arguments`的一个属性，值是：当前执行的函数  
 列子：
 
 ```javascript
@@ -213,6 +213,31 @@ arguments.callee就是当前执行的函数
 切记：不要弄成死循环咯^_^  
 
 **caller**  
+每个函数在**执行过程中**都有一个`caller`属性  
+返回是：当前函数执行上下文所在的函数，如果没有则返回`null`  
+列子：
+
+```javascript
+(function() {
+    function child() {
+        // 返回外层的匿名函数，毕竟匿名函数也是函数^_^
+        console.log(child.caller);
+    }
+    child();
+})();
+
+function parent() {
+    function child() {
+        // 返回parent函数，因为child是在parent内部执行的
+        console.log(child.caller);
+    }
+    child();
+
+    // 返回null，因为parent在全局环境执行，并没有“父函数”
+    console.log(parent.caller);
+};
+parent();
+```
 
 
 ## call、bind、apply
