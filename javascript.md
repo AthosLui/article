@@ -174,27 +174,42 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
     ```
 
 ## arguments、callee、caller
-**arguments**
-    
-    在函数调用时，内部会创建一个类似数组的**对象**  
-    列子：
+**arguments**  
+在函数调用时，内部会创建一个类似数组的**对象**  
+列子：
 
-    ```javascript
-    function func1() {
-        console.log(arguments);
+```javascript
+function func1() {
+    console.log(arguments);
+}
+function func2(param) {
+    console.log(arguments);
+}
+func1(); // 打印：[]
+func1(1, 2); // 打印：[1, 2]
+func2(); // 打印：[]
+func2(1, 2, 3); // 打印：[1, 2, 3]
+// 总结：arguments“长得像数组”
+// arguments存储的是：传递给函数的参数，并不局限于函数声明的参数列表，即使没有声明参数也可以
+```
+**callee**  
+```callee```是```arguments```的一个属性，值是：当前执行的函数  
+列子：
+
+```javascript
+function numAdd(num) {
+    if (num < 1) {
+        return 0;
     }
-    function func2(param) {
-        console.log(arguments);
-    }
-    func1(); // 打印：[]
-    func1(1, 2); // 打印：[1, 2]
-    func2(); // 打印：[]
-    func2(1, 2, 3); // 打印：[1, 2, 3]
-    // 总结：arguments“长得像数组”
-    // arguments存储的是：传递给函数的参数，并不局限于函数声明的参数列表，即使没有声明参数也可
-    ```
-**callee**
-**caller**
+    return num + arguments.callee(--num);
+}
+numAdd(3); // 返回：6
+```
+看得出来，callee是arguments对象的参数  
+arguments.callee就是当前执行的函数  
+可以借助arguments.callee实现**自身调用**或者**递归调用**  
+切记：不要弄成死循环咯^_^
+**caller**  
 
 ## call、bind、apply
 
