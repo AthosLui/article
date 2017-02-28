@@ -192,9 +192,10 @@ func2(1, 2, 3); // 打印：[1, 2, 3]
 // 总结：arguments“长得像数组”
 // arguments存储的是：传递给函数的参数，并不局限于函数声明的参数列表，即使没有声明参数也可以
 ```
+
 **callee**  
 ```callee```是```arguments```的一个属性，值是：当前执行的函数  
-列子：  
+列子：
 
 ```javascript
 function numAdd(num) {
@@ -210,7 +211,9 @@ numAdd(3); // 返回：6
 arguments.callee就是当前执行的函数  
 可以借助arguments.callee实现**自身调用**或者**递归调用**  
 切记：不要弄成死循环咯^_^  
+
 **caller**  
+
 
 ## call、bind、apply
 
