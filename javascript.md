@@ -177,11 +177,21 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 **arguments**
     
     在函数调用时，内部会创建一个类似数组的**对象**  
-    它存储的传递给函数的参数，并不局限于函数声明的参数列表  
     列子：
 
     ```javascript
-    
+    function func1() {
+        console.log(arguments);
+    }
+    function func2(param) {
+        console.log(arguments);
+    }
+    func1(); // 打印：[]
+    func1(1, 2); // 打印：[1, 2]
+    func2(); // 打印：[]
+    func2(1, 2, 3); // 打印：[1, 2, 3]
+    // 总结：arguments“长得像数组”
+    // arguments存储的是：传递给函数的参数，并不局限于函数声明的参数列表，即使没有声明参数也可
     ```
 **callee**
 **caller**
