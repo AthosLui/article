@@ -194,7 +194,7 @@ func2(1, 2, 3); // 打印：[1, 2, 3]
 ```
 **callee**  
 ```callee```是```arguments```的一个属性，值是：当前执行的函数  
-列子：
+列子：  
 
 ```javascript
 function numAdd(num) {
@@ -205,6 +205,7 @@ function numAdd(num) {
 }
 numAdd(3); // 返回：6
 ```
+
 看得出来，callee是arguments对象的参数  
 arguments.callee就是当前执行的函数  
 可以借助arguments.callee实现**自身调用**或者**递归调用**  
