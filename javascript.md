@@ -249,6 +249,10 @@ parent();
 ## 位运算符
 > & |
 
+
+## IIFE
+> IIFE（immediately invoked function expression，立即执行函数表达式）
+
 ## 闭包
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
