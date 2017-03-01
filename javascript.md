@@ -254,7 +254,8 @@ parent();
 > IIFE（immediately invoked function expression）  
 > 又称为**自执行函数**、**立即执行函数**
 > 我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`  
-> 如何
+
+http://rensanning.iteye.com/blog/2080429
 
 
 ## 闭包
