@@ -241,7 +241,8 @@ parent();
 
 
 ## this
-
+> [参考链接](http://blog.crimx.com/2016/05/12/understanding-this/)  
+> 我对this的定义：拥有当前**执行上下文**（context）的一个对象。
 
 ## call、bind、apply
 
