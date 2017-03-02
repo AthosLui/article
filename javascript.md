@@ -174,6 +174,8 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
     ```
 
 ## arguments、callee、caller
+> 这三种都在严格模式（use strict）下禁用了，开发者请注意 [查看](https://zhidao.baidu.com/question/1385936076596542060.html)
+
 **arguments**  
 在函数调用时，内部会创建一个类似数组的**对象**  
 列子：
