@@ -240,6 +240,9 @@ parent();
 ```
 
 
+## this
+
+
 ## call、bind、apply
 
 ## promise及原理
