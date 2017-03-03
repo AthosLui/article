@@ -244,7 +244,14 @@ parent();
 
 ## this
 > [参考链接](http://blog.crimx.com/2016/05/12/understanding-this/)  
-> 我对this的定义：拥有当前**执行上下文**（context）的一个对象。
+> 我对this的定义：拥有当前**执行上下文**（context）的一个对象。  
+> 开发者需要知道的是：当前的this是哪一个对象。
+
+下面我从几种情况探讨一下怎么找到this  
+1. **全局环境中**通常为window  
+```javascript
+    console.log(this); // 返回：window
+```
 
 ## call、bind、apply
 
