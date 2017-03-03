@@ -251,7 +251,15 @@ parent();
 1. **全局环境中**通常为window  
 ```javascript
     console.log(this); // 返回：window
+    function test() {
+        'use strict';
+        console.log(this); // 返回：undefined
+        // 备注：在严格模式下，全局环境this为undefined
+        // 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
+    }
+    test();
 ```
+1. 在执行语句前面有`.`的情况
 
 ## call、bind、apply
 
