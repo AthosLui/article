@@ -248,7 +248,9 @@ parent();
 > 开发者需要知道的是：当前的this是哪一个对象。
 
 下面我从几种情况探讨一下怎么找到this  
-1. **全局环境中**通常为window  
+1. 全局环境中
+> 通常为`window`  
+
 ```javascript
     console.log(this); // 返回：window
     function test() {
