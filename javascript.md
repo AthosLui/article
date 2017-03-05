@@ -262,6 +262,10 @@ parent();
     test();
 ```
 1. 在执行语句前面有`.`的情况
+> 是谁在执行语句，thiss就是谁
+
+```javascript
+```
 
 ## call、bind、apply
 
