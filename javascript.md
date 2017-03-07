@@ -241,7 +241,6 @@ function parent() {
 parent();
 ```
 
-
 ## this
 > [参考链接](http://blog.crimx.com/2016/05/12/understanding-this/)  
 > 我对this的定义：拥有当前**执行上下文**（context）的一个对象。  
@@ -262,9 +261,25 @@ parent();
     test();
 ```
 1. 在执行语句前面有`.`的情况
-> 是谁在执行语句，thiss就是谁
+> 是谁在执行语句，语句内部的this就是谁
 
 ```javascript
+    var father = {
+        getThis: function() {
+            console.log(this);
+        }
+    };
+
+    father.getThis(); // 返回：father对象
+
+    // 注意下面的情况
+
+    var myThis = father.getThis;
+
+    myThis();// 返回：window
+    // “var myThis = father.getThis;”可以理解为：
+    // 定义个myThis变量（注意，myThis属于window），这个变量指向father.getThis函数
+    // 然后执行myThis，因为myThis属于window，所以内部this就为window
 ```
 
 ## call、bind、apply
