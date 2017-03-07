@@ -249,20 +249,22 @@ parent();
 下面我从几种情况探讨一下怎么找到this  
 
 1. 全局环境中
-    > 通常为`window`  
+    > 通常为`window`
+
     ```javascript
         console.log(this); // 返回：window
+
         function test() {
             'use strict';
-            console.log(this); // 返回：undefined
-            // 备注：在严格模式下，全局环境this为undefined
-            // 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
+            console.log(this);
         }
-        test();
+        test(); // 返回：undefined
+
+        // 备注：在严格模式下，全局环境this为undefined
+        // 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
     ```
 
-1. 在执行语句前面有`.`的情况
-
+1. 在执行语句前面有`.`、有明确父级执行对象的情况
     > 是谁在执行语句，语句内部的this就是谁
 
     ```javascript
@@ -272,16 +274,15 @@ parent();
             }
         };
 
-        father.getThis(); // 返回：father对象
+        father.getThis(); // 返回：father对象（因为是father在执行getThis函数）
 
         // 注意下面的情况
-
         var myThis = father.getThis;
-
         myThis();// 返回：window
-        // “var myThis = father.getThis;”可以理解为：
-        // 定义个myThis变量（注意，myThis属于window），这个变量指向father.getThis函数
-        // 然后执行myThis，因为myThis属于window，所以内部this就为window
+
+        // 上面二行代码可以理解为：
+        // 定义个全局（window）myThis变量，这个变量指向father.getThis函数
+        // 在执行myThis时，myThis的父级执行对象是window，所以内部this就为window
     ```
 
 ## call、bind、apply
