@@ -285,6 +285,10 @@ parent();
         // 在执行myThis时，myThis的父级执行对象是window，所以内部this就为window
     ```
 
+## 正则：test、exec和match
+> 我自己经常把这几个关于正则的方法考混淆，所以这里总结一下  
+> [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
+
 ## call、bind、apply
 
 ## promise及原理
