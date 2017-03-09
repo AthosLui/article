@@ -250,37 +250,55 @@ parent();
 **全局环境中找this**通常为`window`
 
 ```javascript
-    console.log(this); // 返回：window
+console.log(this); // 返回：window
 
-    function test() {
-        'use strict';
-        console.log(this);
-    }
-    test(); // 返回：undefined
+function test() {
+    'use strict';
+    console.log(this);
+}
+test(); // 返回：undefined
 
-    // 备注：在严格模式下，全局环境this为undefined
-    // 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
+// 备注：在严格模式下，全局环境this为undefined
+// 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
 ```
 
 **在执行语句前面有点`•`、 有明确父级执行对象的情况找this**
 > 是谁在执行语句，语句内部的this就是谁
 
 ```javascript
-    var father = {
-        getThis: function() {
-            console.log(this);
-        }
-    };
+var father = {
+    getThis: function() {
+        console.log(this);
+    }
+};
 
-    father.getThis(); // 返回：father对象（因为是father在执行getThis函数）
+father.getThis(); // 返回：father对象（因为是father在执行getThis函数）
 
-    // 注意下面的情况
-    var myThis = father.getThis;
-    myThis();// 返回：window
+// 注意下面的情况
+var myThis = father.getThis;
+myThis();// 返回：window
 
-    // 上面二行代码可以理解为：
-    // 定义个全局（window）myThis变量，这个变量指向father.getThis函数
-    // 在执行myThis时，myThis的父级执行对象是window，所以内部this就为window
+// 上面二行代码可以理解为：
+// 定义个全局（window）myThis变量，这个变量指向father.getThis函数
+// 在执行myThis时，myThis的父级执行对象是window，所以内部this就为window
+```
+
+**存在call、apply和bind的情况找this**
+
+```javascript
+function getThis() {
+    console.log(this);
+}
+
+getThis(); // 普通情况，返回：window
+
+var Test = { test: 'test' }; // 定义一个对象：Test
+
+getThis.call(Test); // 返回：Test
+getThis.apply(Test); // 返回：Test
+
+var myGetThis = getThis.bind(Test);
+myGetThis(); // 返回：Test
 ```
 
 ## 正则：test、exec和match
