@@ -64,28 +64,28 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 > 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**
 
 **defer**（翻译：推迟）  
-使用方式：  
-添加`defer`属性：`<script src="xxx.js" defer>`  
-作用效果：  
-当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
-当`JS`下载完成后，并不会马上执行  
-而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容  
+    使用方式：  
+    添加`defer`属性：`<script src="xxx.js" defer>`  
+    作用效果：  
+    当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+    当`JS`下载完成后，并不会马上执行  
+    而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容  
 
 **async**（翻译：异步）  
-使用方式：  
-添加`async`属性：`<script src="xxx.js" async>`  
-作用效果：  
-当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
-当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
-当`JS`执行完成后，又开始解析`DOM`  
+    使用方式：  
+    添加`async`属性：`<script src="xxx.js" async>`  
+    作用效果：  
+    当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+    当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
+    当`JS`执行完成后，又开始解析`DOM`  
 
 **总结**  
-`defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
-它俩的差别在于：`JS`下载完之后何时执行  
-`defer`执行顺序是和脚本放置位置一样  
-`async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
-`defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
-`async`用到的场景比较少
+    `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
+    它俩的差别在于：`JS`下载完之后何时执行  
+    `defer`执行顺序是和脚本放置位置一样  
+    `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
+    `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
+    `async`用到的场景比较少
 
 ## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
 **getBoundingClientRect**
