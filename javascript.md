@@ -38,7 +38,7 @@ typeof Function // 返回：function (Function是函数对象)
 typeof new Function // 返回：function (new Function是函数对象)
 
 var func = function(){};
-typeof func // function (func是函数对象，和上一个列子一样的意思)
+typeof func // 返回：function (func是函数对象，和上一个列子一样的意思)
 
 typeof new new Function // 返回：object (第一次new返回函数对象，第二次new返回实例“引用类型”)
 
@@ -63,38 +63,36 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 > 解析到`<script src="xxx.js">`时，浏览器会下载当前JS文件，这段时间`DOM`树的构建是停止的  
 > 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**
 
-- defer（翻译：推迟）
-
-    使用方式：  
-    添加`defer`属性：`<script src="xxx.js" defer>`  
-    作用效果：  
-    当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
-    当`JS`下载完成后，并不会马上执行  
-    而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容
-- async（翻译：异步）
-
-    使用方式：  
-    添加`async`属性：`<script src="xxx.js" async>`  
-    作用效果：  
-    当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
-    当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
-    当`JS`执行完成后，又开始解析`DOM`
-- 总结
-
-    `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
-    它俩的差别在于：`JS`下载完之后何时执行  
-    `defer`执行顺序是和脚本放置位置一样  
-    `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
-    `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
-    `async`用到的场景比较少
+**defer**（翻译：推迟）  
+使用方式：  
+添加`defer`属性：`<script src="xxx.js" defer>`  
+作用效果：  
+当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+当`JS`下载完成后，并不会马上执行  
+而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容  
+**async**（翻译：异步）  
+使用方式：  
+添加`async`属性：`<script src="xxx.js" async>`  
+作用效果：  
+当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
+当`JS`执行完成后，又开始解析`DOM`  
+**总结**  
+`defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
+它俩的差别在于：`JS`下载完之后何时执行  
+`defer`执行顺序是和脚本放置位置一样  
+`async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
+`defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
+`async`用到的场景比较少
 
 ## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
-- getBoundingClientRect
+**getBoundingClientRect**
 
     > 用于判断元素尺寸和位置
 
     - 用法：`element.getBoundingClientRect()`
     - 返回值：
+
     ```javascript
     {
         // 下面的值除了width、height外都可能为负数（元素不在视图内的时候）
@@ -108,20 +106,21 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
         height: 0 // 元素高度（border+padding+width）
     }
     ```
-- getClientRects
+**getClientRects**
 
     > 主要用于行内(inline)元素（如：`<a>`…）  
     > 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
 
     - 用法：`element.getClientRects()`
     - 返回值：`一个TextRectangle对象（一个类数组对象）`
+
     ```javascript
     var test = element.getClientRects();
     test.length; // 如果element是非inline元素，test.length为1，否则为元素的行数
     // test[0]、test[0]…返回的值与getBoundingClientRect类似
     ```
 
-- elementFromPoint
+**elementFromPoint**
 
     > 查看视口中指定位置是什么元素  
     > 注意：返回的元素是指定坐标的最上层（z-index最大）和最里层（最里层的子元素）的Element对象
@@ -130,7 +129,8 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
     - 返回值：`Element对象`
 
 ## 函数（类）的继承与重载
-- 继承
+**继承**
+
     ```javascript
     // js可以使用对象冒充实现继承的（平时少用）
     function Father(name, age) {
@@ -151,12 +151,14 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
     me.name; // hangyangws
     me.show(); // hangyangws 21
     ```
-- 重载
-    > js从常理来说是不支持重载的，但是又可以说是天然支持重载，因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理
+
+**重载**
+
+    > js从常理来说是不支持重载的，但是又可以说是天然支持重载  
+    > 因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理  
     > 目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
 
     ```javascript
-    // 重载简单示范
     function argumentsTest() {
         var _paraLenth = arguments.length;
         switch(_paraLenth) {
@@ -339,7 +341,7 @@ new myGetThis; // 返回：getThis
 ```
 
 **ES6的箭头函数找this**
-> 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象
+> 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象  
 > 箭头函数this指向的固定化，不是因为箭头函数内部有绑定this机制  
 > 而是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this  
 > 正是因为它没有this，所以箭头函数不能用作构造函数
