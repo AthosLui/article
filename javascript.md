@@ -1,24 +1,29 @@
-# JavaScript
+> JavaScript相关知识  
+> [查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
-[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
-## 数据类型
-> 注意：没有array（数组）类型
+# 数据类型
 
-**6种原始类型**（特点：不可变“除非重置当前变量，否则不能改变变量值”）
+### 6种原始类型
 
-1. Null(只有一个值： null)
-1. Undefined(一个没有被赋值的变量会有个默认值undefined)
-1. Number
-1. Boolean(只有两个值：true 和 false)
-1. String
-1. [Symbol](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)（ES6新增）
+> 原始类型特点：不可变  
+除非重置当前变量，否则不能改变变量值
 
-**1种引用类型**(对象指内存中的可以被标识符引用的一块区域：数组、对象…)
+1. **Null** (只有一个值： null)
+1. **Undefined** (一个没有被赋值的变量会有个默认值undefined)
+1. **Number**
+1. **Boolean** (只有两个值：true 和 false)
+1. **String**
+1. [**Symbol**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol) （ES6新增）
 
-1. Object
+**1种引用类型**
 
-## 数据类型检测之`typeof`
+> 对象指内存中的可以被标识符引用的一块区域  
+比如：数组、对象…
+
+1. **Object**
+
+# 数据类型检测之`typeof`
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
 
 1. undefined - Undefined类型
@@ -55,9 +60,9 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 // 综上所述，开发者要注意了：数组并不是数组，对象并不是对象 ^_^，容我幽默一下
 ```
 
-## 数据类型检测之`instanceof`
+# 数据类型检测之`instanceof`
 
-## defer && async
+# defer && async
 > 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？  
 > 因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
 > 解析到`<script src="xxx.js">`时，浏览器会下载当前JS文件，这段时间`DOM`树的构建是停止的  
@@ -87,7 +92,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
 `async`用到的场景比较少
 
-## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
+# 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
 **getBoundingClientRect**
 > 用于判断元素尺寸和位置
 
@@ -128,7 +133,7 @@ test.length; // 如果element是非inline元素，test.length为1，否则为元
 - 用法：`document.elementFromPoint(x, y)`
 - 返回值：`Element对象`
 
-## 函数（类）的继承与重载
+# 函数（类）的继承与重载
 **继承**
 
 ```javascript
@@ -174,7 +179,7 @@ function argumentsTest() {
 }
 ```
 
-## arguments、callee、caller
+# arguments、callee、caller
 > 这三种都在严格模式（use strict）下禁用了，开发者请[注意](https://zhidao.baidu.com/question/1385936076596542060.html)
 
 **arguments**  
@@ -242,7 +247,7 @@ function parent() {
 parent();
 ```
 
-## 怎么找到this
+# 怎么找到this
 > [参考链接](http://blog.crimx.com/2016/05/12/understanding-this/)  
 > 我对this的定义：拥有当前**执行上下文**（context）的一个对象  
 > 开发者需要知道的是：当前的this是哪一个对象  
@@ -366,21 +371,21 @@ Test.getThis2(); // 返回：window
 // setTimeout的回调参数是箭头函数 (this在定义时指向Test)
 ```
 
-## 正则：test、exec和match
+# 正则：test、exec和match
 > 我自己经常把这几个关于正则的方法考混淆，所以这里总结一下  
 > [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
 
-## call、bind、apply
+# call、bind、apply
 
-## promise及原理
+# promise及原理
 
-## fetch
+# fetch
 
-## 位运算符
+# 位运算符
 > & |
 
 
-## IIFE
+# IIFE
 > IIFE（immediately invoked function expression）  
 > 又称为**自执行函数**、**立即执行函数**
 > 我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`  
@@ -388,10 +393,10 @@ Test.getThis2(); // 返回：window
 http://rensanning.iteye.com/blog/2080429
 
 
-## 闭包
+# 闭包
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
-## 数组相关
+# 数组相关
 - length的另一面
 
     ```javascript
