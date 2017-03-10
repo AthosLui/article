@@ -70,6 +70,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
 当`JS`下载完成后，并不会马上执行  
 而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容  
+
 **async**（翻译：异步）  
 使用方式：  
 添加`async`属性：`<script src="xxx.js" async>`  
@@ -77,6 +78,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
 当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
 当`JS`执行完成后，又开始解析`DOM`  
+
 **总结**  
 `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
 它俩的差别在于：`JS`下载完之后何时执行  
