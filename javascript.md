@@ -414,13 +414,14 @@ Test.getThis2(); // 返回：window
 
 # IIFE
 
-> [参考](http://rensanning.iteye.com/blog/2080429)
+> [参考](http://rensanning.iteye.com/blog/2080429)  
 IIFE（immediately invoked function expression）  
-又称为**自执行函数**、**立即执行函数**
-我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`  
+IIFE又称为**自执行函数**、**立即执行函数**  
+我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`
 
 
 # 闭包
+
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
 # 数组相关
