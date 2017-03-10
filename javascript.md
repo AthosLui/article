@@ -26,13 +26,13 @@
 # 数据类型检测之`typeof`
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
 
-1. undefined - Undefined类型
-1. number - Number类型
-1. boolean - Boolean类型
-1. string - String类型
-1. symbol - Symbol类型(ECMAScript6新增)
-1. function - 函数对象([[Call]]在ECMA-262条款中实现了)
-1. object - 引用类型 或 Null类型
+1. **undefined** (Undefined类型)
+1. **number** (Number类型)
+1. **boolean** (Boolean类型)
+1. **string** (String类型)
+1. **symbol** (Symbol类型 - ECMAScript6新增)
+1. **function** (函数对象 - ECMA-262条款中实现了)
+1. **object** (引用类型 或 Null类型)
 
 上面的返回值中的前5种都好理解，但是后2种：什么时候返回object，什么时候返回function  
 请看列子与解释：
@@ -62,11 +62,11 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 
 # 数据类型检测之`instanceof`
 
-# defer && async
-> 现在很多开发者包括我都喜欢把JS文件放在body闭合标签之前，这是问什么呢？  
+# defer和async
+> 开发者喜欢把JS文件放在body闭合标签之前，这是问什么呢  
 > 因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
-> 解析到`<script src="xxx.js">`时，浏览器会下载当前JS文件，这段时间`DOM`树的构建是停止的  
-> 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**
+> 解析到`<script src="xxx.js">`时，浏览器会停止`DOM`树的构建，而去下载当前JS文件  
+> 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6秒加载，出现6秒白屏
 
 **defer**（翻译：推迟）  
 使用方式：  
