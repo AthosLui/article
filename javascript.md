@@ -1,6 +1,5 @@
 > JavaScript相关知识  
-> [查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
-
+[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
 # 数据类型
 
@@ -16,7 +15,7 @@
 1. **String**
 1. [**Symbol**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol) （ES6新增）
 
-**1种引用类型**
+### 1种引用类型
 
 > 对象指内存中的可以被标识符引用的一块区域  
 比如：数组、对象…
@@ -24,6 +23,7 @@
 1. **Object**
 
 # 数据类型检测之`typeof`
+
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
 
 1. **undefined** (Undefined类型)
@@ -63,28 +63,34 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 # 数据类型检测之`instanceof`
 
 # defer和async
-> 开发者喜欢把JS文件放在body闭合标签之前，这是问什么呢  
-> 因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
-> 解析到`<script src="xxx.js">`时，浏览器会停止`DOM`树的构建，而去下载当前JS文件  
-> 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6秒加载，出现6秒白屏
 
-**defer**（翻译：推迟）  
-使用方式：  
-添加`defer`属性：`<script src="xxx.js" defer>`  
-作用效果：  
+> 开发者喜欢把JS文件放在body闭合标签之前，这是问什么呢  
+因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
+解析到`<script src="xxx.js">`时，浏览器会停止`DOM`树的构建，而去下载当前JS文件  
+如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6秒加载，出现6秒白屏
+
+### defer（翻译：推迟）
+
+**使用方式**：  
+添加`defer`属性：`<script src="xxx.js" defer>`
+
+**作用效果**：  
 当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
 当`JS`下载完成后，并不会马上执行  
-而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容  
+而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容
 
-**async**（翻译：异步）  
-使用方式：  
-添加`async`属性：`<script src="xxx.js" async>`  
-作用效果：  
+### async（翻译：异步）
+
+**使用方式**：  
+添加`async`属性：`<script src="xxx.js" async>`
+
+**作用效果**：  
 当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
 当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
-当`JS`执行完成后，又开始解析`DOM`  
+当`JS`执行完成后，又开始解析`DOM`
 
-**总结**  
+### 总结
+
 `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
 它俩的差别在于：`JS`下载完之后何时执行  
 `defer`执行顺序是和脚本放置位置一样  
@@ -93,11 +99,15 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 `async`用到的场景比较少
 
 # 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
-**getBoundingClientRect**
+
+### getBoundingClientRect
+
 > 用于判断元素尺寸和位置
 
-- 用法：`element.getBoundingClientRect()`
-- 返回值：
+**用法**：  
+`element.getBoundingClientRect()`
+
+**返回值**：
 
 ```javascript
 {
@@ -113,12 +123,16 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 }
 ```
 
-**getClientRects**
-> 主要用于行内(inline)元素（如：`<a>`…）  
-> 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
+### getClientRects  
 
-- 用法：`element.getClientRects()`
-- 返回值：`一个TextRectangle对象（一个类数组对象）`
+> 主要用于行内(inline)元素（如：`<a>`…）  
+可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
+
+**用法**：  
+`element.getClientRects()`
+
+**返回值**：
+`一个TextRectangle对象（一个类数组对象）`
 
 ```javascript
 var test = element.getClientRects();
@@ -126,15 +140,20 @@ test.length; // 如果element是非inline元素，test.length为1，否则为元
 // test[0]、test[0]…返回的值与getBoundingClientRect类似
 ```
 
-**elementFromPoint**
-> 查看视口中指定位置是什么元素  
-> 注意：返回的元素是指定坐标的最上层（z-index最大）和最里层（最里层的子元素）的Element对象
+### elementFromPoint
 
-- 用法：`document.elementFromPoint(x, y)`
-- 返回值：`Element对象`
+> 查看视口中指定位置是什么元素  
+注意：返回的元素是指定坐标的最上层（z-index最大）和最里层（最里层的子元素）的Element对象
+
+**用法**：
+`document.elementFromPoint(x, y)`
+
+**返回值**：
+`Element对象`
 
 # 函数（类）的继承与重载
-**继承**
+
+### 继承
 
 ```javascript
 // js可以使用对象冒充实现继承的（平时少用）
@@ -157,10 +176,11 @@ me.name; // hangyangws
 me.show(); // hangyangws 21
 ```
 
-**重载**
+### 重载
+
 > js从常理来说是不支持重载的，但是又可以说是天然支持重载  
-> 因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理  
-> 目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
+因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理  
+目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
 
 ```javascript
 function argumentsTest() {
@@ -180,11 +200,12 @@ function argumentsTest() {
 ```
 
 # arguments、callee、caller
+
 > 这三种都在严格模式（use strict）下禁用了，开发者请[注意](https://zhidao.baidu.com/question/1385936076596542060.html)
 
-**arguments**  
-在函数调用时，内部会创建一个类似数组的**对象**  
-列子：
+### arguments
+
+> 在函数调用时，内部创建的一个类似数组的对象
 
 ```javascript
 function func1() {
@@ -201,9 +222,9 @@ func2(1, 2, 3); // 打印：[1, 2, 3]
 // arguments存储的是：传递给函数的参数，并不局限于函数声明的参数列表，即使没有声明参数也可以
 ```
 
-**callee**  
-`callee`是`arguments`的一个属性，值是：当前执行的函数  
-列子：
+### callee
+
+> `callee`是`arguments`的一个属性，表示当前执行的函数
 
 ```javascript
 function numAdd(num) {
@@ -220,10 +241,10 @@ numAdd(3); // 返回：6
 // 切记：不要弄成死循环咯^_^
 ```
 
-**caller**  
-每个函数在**执行过程中**都有一个`caller`属性  
-值是：当前函数执行上下文所在的函数，如果没有则返回`null`  
-列子：
+## caller
+
+> 每个函数在**执行过程中**都有一个`caller`属性  
+表示当前函数执行上下文所在的函数，如果没有则返回`null`
 
 ```javascript
 (function() {
@@ -248,12 +269,14 @@ parent();
 ```
 
 # 怎么找到this
-> [参考链接](http://blog.crimx.com/2016/05/12/understanding-this/)  
-> 我对this的定义：拥有当前**执行上下文**（context）的一个对象  
-> 开发者需要知道的是：当前的this是哪一个对象  
-> 下面我从几种情况探讨一下怎么找到this
 
-**全局环境中找this**通常为`window`
+> [参考链接](http://blog.crimx.com/2016/05/12/understanding-this/)  
+我对this的定义：拥有当前**执行上下文**（context）的一个对象  
+开发者需要知道的是：当前的this是哪一个对象  
+
+### 全局环境中找this
+
+> 通常为`window`
 
 ```javascript
 console.log(this); // 返回：window
@@ -268,7 +291,8 @@ getThis(); // 返回：undefined
 // 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
 ```
 
-**在执行语句前面有点`•`、 有明确父级执行对象的情况找this**
+### 在执行语句前面有点`•`、 有明确父级执行对象的情况找this
+
 > 是谁在执行语句，语句内部的this就是谁
 
 ```javascript
@@ -289,7 +313,8 @@ myThis();// 返回：window
 // 在执行myThis时，myThis的父级执行对象是window，所以内部this就为window
 ```
 
-**函数内部的函数找this**
+### 函数内部的函数找this
+
 > 函数内部的函数，没有明确的父级执行对象，this默认绑定到全局
 
 ```javascript
@@ -306,7 +331,7 @@ var test = {
 test.getThis(); // 依次返回：test、window
 ```
 
-**存在call、apply和bind的情况找this**
+### 存在call、apply和bind的情况找this
 
 ```javascript
 function getThis() {
@@ -324,9 +349,10 @@ var myGetThis = getThis.bind(Test);
 myGetThis(); // 返回：Test
 ```
 
-**有`new`关键字的情况找this**
+### 有`new`关键字的情况找this
+
 > new一个对象，对象内部的this就是当前对象  
-> new的权级要高于bind
+new的权级要高于bind
 
 ```javascript
 function getThis() {
@@ -344,11 +370,12 @@ new myGetThis; // 返回：getThis
 // 但是在new过后，内部this还是getThis
 ```
 
-**ES6的箭头函数找this**
+### ES6的箭头函数找this
+
 > 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象  
-> 箭头函数this指向的固定化，不是因为箭头函数内部有绑定this机制  
-> 而是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this  
-> 正是因为它没有this，所以箭头函数不能用作构造函数
+箭头函数this指向的固定化，不是因为箭头函数内部有绑定this机制  
+而是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this  
+正是因为它没有this，所以箭头函数不能用作构造函数
 
 ```javascript
 var Test = {
@@ -372,7 +399,7 @@ Test.getThis2(); // 返回：window
 ```
 
 # 正则：test、exec和match
-> 我自己经常把这几个关于正则的方法考混淆，所以这里总结一下  
+
 > [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
 
 # call、bind、apply
@@ -382,34 +409,36 @@ Test.getThis2(); // 返回：window
 # fetch
 
 # 位运算符
+
 > & |
 
 
 # IIFE
-> IIFE（immediately invoked function expression）  
-> 又称为**自执行函数**、**立即执行函数**
-> 我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`  
 
-http://rensanning.iteye.com/blog/2080429
+> [参考](http://rensanning.iteye.com/blog/2080429)
+IIFE（immediately invoked function expression）  
+又称为**自执行函数**、**立即执行函数**
+我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`  
 
 
 # 闭包
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
 # 数组相关
-- length的另一面
 
-    ```javascript
-    // 数组的长度是根据下标的最大而确定的
-    var arr = new Array();
-    arr['one'] = 'one';
-    arr['two'] = 'two';
-    arr.length; // 返回：0
-    arr[100] = 100;
-    arr.length; // 返回：101
+### length的另一面
 
-    // 手动赋值数组长度可以删减多余元素
-    var arr = [1, 2, 3, 4];
-    arr.length = 2;
-    console.log(arr); // [1, 2]
-    ```
+```javascript
+// 数组的长度是根据下标的最大而确定的
+var arr = new Array();
+arr['one'] = 'one';
+arr['two'] = 'two';
+arr.length; // 返回：0
+arr[100] = 100;
+arr.length; // 返回：101
+
+// 手动赋值数组长度可以删减多余元素
+var arr = [1, 2, 3, 4];
+arr.length = 2;
+console.log(arr); // [1, 2]
+```
