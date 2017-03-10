@@ -252,11 +252,11 @@ parent();
 ```javascript
 console.log(this); // 返回：window
 
-function test() {
+function getThis() {
     'use strict';
     console.log(this);
 }
-test(); // 返回：undefined
+getThis(); // 返回：undefined
 
 // 备注：在严格模式下，全局环境this为undefined
 // 另外，nodejs环境下，this既不是window也不是undefined，开发者可以自行谷歌
@@ -281,6 +281,23 @@ myThis();// 返回：window
 // 上面二行代码可以理解为：
 // 定义个全局（window）myThis变量，这个变量指向father.getThis函数
 // 在执行myThis时，myThis的父级执行对象是window，所以内部this就为window
+```
+
+**函数内部的函数找this**
+> 函数内部的函数，没有明确的父级执行对象，this默认绑定到全局
+
+```javascript
+var test = {
+    getThis: function() {
+        var _getThis = function() {
+            console.log(this);
+        }
+        console.log(this);
+        _getThis();
+    }
+}
+
+test.getThis(); // 依次返回：test、window
 ```
 
 **存在call、apply和bind的情况找this**
