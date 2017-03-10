@@ -62,6 +62,30 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 
 # 数据类型检测之`instanceof`
 
+> 语法`object instanceof constructor`  
+instanceof通过原型链来判断对象时候属于它的父类型  
+查找object的`__proto__`链，一次查找constructor的`prototype`链，如果二者相等，就返回true
+
+
+```javascript
+function Func() {};
+var obj = new Func;
+obj instanceof Func; // 返回：true （因为 obj.__proto__ === Func.prototype）
+
+Func.prototype = {}; // 重定向Func的prototype
+
+var  obj2 = new Func;
+obj instanceof Func; // 返回：false (因为Func的prototype指向一个空对象，这个空对象不在obj的原型链上)
+obj2 instanceof Func; // 返回：true
+
+function Func2() {};
+Func2.prototype = new Func();
+
+var obj3 = new Func2();
+obj3 instanceof Func; // 返回：true （因为obj3.__proto__.__proto__ === Func.prototype）
+obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.prototype）
+```
+
 # defer和async
 
 > 开发者喜欢把JS文件放在body闭合标签之前，这是问什么呢  
@@ -426,19 +450,20 @@ IIFE又称为**自执行函数**、**立即执行函数**
 
 # 数组相关
 
-### length的另一面
+### 数组的长度是根据下标的最大而确定的
 
 ```javascript
-// 数组的长度是根据下标的最大而确定的
-var arr = new Array();
-arr['one'] = 'one';
-arr['two'] = 'two';
-arr.length; // 返回：0
-arr[100] = 100;
-arr.length; // 返回：101
+var arr = [];
+arr['test'] = 'test'; // 数组的下标可以死字符串
+arr.length; // 返回：0 // 字符串下标不计入数组长度
+arr[10] = 10;
+arr.length; // 返回：11
+```
 
-// 手动赋值数组长度可以删减多余元素
+### 手动赋值数组长度可以删减多余元素
+
+```javascript
 var arr = [1, 2, 3, 4];
 arr.length = 2;
-console.log(arr); // [1, 2]
+console.log(arr); // 返回：[1, 2]
 ```
