@@ -89,93 +89,90 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 
 ## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
 **getBoundingClientRect**
+> 用于判断元素尺寸和位置
 
-    > 用于判断元素尺寸和位置
+- 用法：`element.getBoundingClientRect()`
+- 返回值：
 
-    - 用法：`element.getBoundingClientRect()`
-    - 返回值：
+```javascript
+{
+    // 下面的值除了width、height外都可能为负数（元素不在视图内的时候）
+    // 以下值，都是number类型
+    // 注意：IE7以下浏览器，视口的左边默认是(2, 2)，开发者注意
+    top: 0, // 元素上border相对于视口上边的纵坐标
+    bottom: 0, // 元素下border相对于视口上边的纵坐标
+    left: 0, // 元素左border相对视口左边的横坐标
+    right: 0, // 元素右border相对视口左边的横坐标
+    width: 0, // 元素宽度（border+padding+width）
+    height: 0 // 元素高度（border+padding+width）
+}
+```
 
-    ```javascript
-    {
-        // 下面的值除了width、height外都可能为负数（元素不在视图内的时候）
-        // 以下值，都是number类型
-        // 注意：IE7以下浏览器，视口的左边默认是(2, 2)，开发者注意
-        top: 0, // 元素上border相对于视口上边的纵坐标
-        bottom: 0, // 元素下border相对于视口上边的纵坐标
-        left: 0, // 元素左border相对视口左边的横坐标
-        right: 0, // 元素右border相对视口左边的横坐标
-        width: 0, // 元素宽度（border+padding+width）
-        height: 0 // 元素高度（border+padding+width）
-    }
-    ```
 **getClientRects**
+> 主要用于行内(inline)元素（如：`<a>`…）  
+> 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
 
-    > 主要用于行内(inline)元素（如：`<a>`…）  
-    > 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
+- 用法：`element.getClientRects()`
+- 返回值：`一个TextRectangle对象（一个类数组对象）`
 
-    - 用法：`element.getClientRects()`
-    - 返回值：`一个TextRectangle对象（一个类数组对象）`
-
-    ```javascript
-    var test = element.getClientRects();
-    test.length; // 如果element是非inline元素，test.length为1，否则为元素的行数
-    // test[0]、test[0]…返回的值与getBoundingClientRect类似
-    ```
+```javascript
+var test = element.getClientRects();
+test.length; // 如果element是非inline元素，test.length为1，否则为元素的行数
+// test[0]、test[0]…返回的值与getBoundingClientRect类似
+```
 
 **elementFromPoint**
+> 查看视口中指定位置是什么元素  
+> 注意：返回的元素是指定坐标的最上层（z-index最大）和最里层（最里层的子元素）的Element对象
 
-    > 查看视口中指定位置是什么元素  
-    > 注意：返回的元素是指定坐标的最上层（z-index最大）和最里层（最里层的子元素）的Element对象
-
-    - 用法：`document.elementFromPoint(x, y)`
-    - 返回值：`Element对象`
+- 用法：`document.elementFromPoint(x, y)`
+- 返回值：`Element对象`
 
 ## 函数（类）的继承与重载
 **继承**
 
-    ```javascript
-    // js可以使用对象冒充实现继承的（平时少用）
-    function Father(name, age) {
-        // 代码A(承上)
-        this.name = name;
-        this.age = age;
-        this.show = function() {
-            console.log(this.name, this.age);
-        }
-        // 代码B(启下)
+```javascript
+// js可以使用对象冒充实现继承的（平时少用）
+function Father(name, age) {
+    // 代码A(承上)
+    this.name = name;
+    this.age = age;
+    this.show = function() {
+        console.log(this.name, this.age);
     }
+    // 代码B(启下)
+}
 
-    function Son(name, age) {
-        this.Father = Father; // Son内部的Father属性指向Father函数（类）
-        this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍，因而实现“继承”
-    }
-    var me = new Son('hangyangws', 21);
-    me.name; // hangyangws
-    me.show(); // hangyangws 21
-    ```
+function Son(name, age) {
+    this.Father = Father; // Son内部的Father属性指向Father函数（类）
+    this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍，因而实现“继承”
+}
+var me = new Son('hangyangws', 21);
+me.name; // hangyangws
+me.show(); // hangyangws 21
+```
 
 **重载**
+> js从常理来说是不支持重载的，但是又可以说是天然支持重载  
+> 因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理  
+> 目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
 
-    > js从常理来说是不支持重载的，但是又可以说是天然支持重载  
-    > 因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理  
-    > 目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
-
-    ```javascript
-    function argumentsTest() {
-        var _paraLenth = arguments.length;
-        switch(_paraLenth) {
-            case 0:
-                // 0个参数时，函数做什么…
-                ;break;
-            case 1:
-                // 1个参数时，函数做什么…
-                ;break;
-            default:
-                // 其他参数个数时，函数做什么…
-                ;
-        }
+```javascript
+function argumentsTest() {
+    var _paraLenth = arguments.length;
+    switch(_paraLenth) {
+        case 0:
+            // 0个参数时，函数做什么…
+            ;break;
+        case 1:
+            // 1个参数时，函数做什么…
+            ;break;
+        default:
+            // 其他参数个数时，函数做什么…
+            ;
     }
-    ```
+}
+```
 
 ## arguments、callee、caller
 > 这三种都在严格模式（use strict）下禁用了，开发者请[注意](https://zhidao.baidu.com/question/1385936076596542060.html)
