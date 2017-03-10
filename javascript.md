@@ -338,6 +338,33 @@ new myGetThis; // 返回：getThis
 // 但是在new过后，内部this还是getThis
 ```
 
+**ES6的箭头函数找this**
+> 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象
+> 箭头函数this指向的固定化，不是因为箭头函数内部有绑定this机制  
+> 而是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this  
+> 正是因为它没有this，所以箭头函数不能用作构造函数
+
+```javascript
+var Test = {
+    getThis: function() {
+        setTimeout(() => {
+            console.log(this);
+        }, 100);
+    },
+    getThis2: function() {
+        setTimeout(function() {
+            console.log(this);
+        }, 100);
+    }
+}
+
+Test.getThis(); // 返回：Test
+Test.getThis2(); // 返回：window
+
+// setTimeout的回调参数是普通函数（this在调用时指向全局）
+// setTimeout的回调参数是箭头函数 (this在定义时指向Test)
+```
+
 ## 正则：test、exec和match
 > 我自己经常把这几个关于正则的方法考混淆，所以这里总结一下  
 > [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
