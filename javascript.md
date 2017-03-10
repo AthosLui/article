@@ -2,6 +2,7 @@
 
 [查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
+
 ## 数据类型
 > 注意：没有array（数组）类型
 
@@ -17,6 +18,7 @@
 **1种引用类型**(对象指内存中的可以被标识符引用的一块区域：数组、对象…)
 
 1. Object
+
 
 ## 数据类型检测之`typeof`
 typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
@@ -54,6 +56,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 
 // 综上所述，开发者要注意了：数组并不是数组，对象并不是对象 ^_^，容我幽默一下
 ```
+
 
 ## 数据类型检测之`instanceof`
 
@@ -393,6 +396,7 @@ http://rensanning.iteye.com/blog/2080429
 
 ## 闭包
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
+
 
 ## 数组相关
 - length的另一面
