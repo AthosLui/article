@@ -85,7 +85,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
     它俩的差别在于：`JS`下载完之后何时执行  
     `defer`执行顺序是和脚本放置位置一样  
     `async`执行则是乱序，不管脚本放置顺序如何，只要加载完了就会立刻执行  
-    `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**” 
+    `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
     `async`用到的场景比较少
 
 ## 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
@@ -299,6 +299,26 @@ getThis.apply(Test); // 返回：Test
 
 var myGetThis = getThis.bind(Test);
 myGetThis(); // 返回：Test
+```
+
+**有`new`关键字的情况找this**
+> new一个对象，对象内部的this就是当前对象  
+> new的权级要高于bind
+
+```javascript
+function getThis() {
+    console.log(this);
+}
+
+new getThis; // 返回：getThis
+
+var myGetThis = getThis.bind(window);
+myGetThis(); // 返回：window
+new myGetThis; // 返回：getThis
+
+// 注意上面2行代码
+// myGetThis的内部this已经绑定了widnow
+// 但是在new过后，内部this还是getThis
 ```
 
 ## 正则：test、exec和match
