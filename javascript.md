@@ -64,6 +64,7 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 > 如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6面加载，出现6秒**白屏**
 
 **defer**（翻译：推迟）  
+
     使用方式：  
     添加`defer`属性：`<script src="xxx.js" defer>`  
     作用效果：  
