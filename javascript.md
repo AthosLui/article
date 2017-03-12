@@ -182,25 +182,57 @@ test.length; // 如果element是非inline元素，test.length为1，否则为元
 > 我们知道，JS不同于C++这类语言，支持继承，但是我们可以“模仿”
 
 ```javascript
-// 定义一个简单的父级函数
+// 定义一个简单的父类
 function Father(name) {
-    this.name = name;
+    this.name = name || 'noName';
     this.show = function() {
         console.log(this.name);
     }
 }
 
-// 方法一：使用对象冒充实现继承
-function Son1(name) {
+
+// 方法一：“原型链”实现继承
+function Son1() {}
+Son1.prototype = new Father;
+// 代码测试
+var son1 = new Son1();
+son1.show(); // 返回：noName
+son1.prototype.name = 'hangyangws';
+son1.show(); // 返回：hangyangws
+// 分析：（缺点）创建子类实例时，无法向父类构造函数传参
+//      （缺点）无法实现多重继承
+
+
+// 方法二：使用“对象冒充”实现继承（也叫“构造继承”）
+function Son2(name) {
+    Father.call(this, name);
+}
+// 上面函数还有另一种写法
+function Son2(name) {
     this.Father = Father; // Son内部的Father属性指向Father函数
     this.Father(name); // 执行Son内部的Father函数
 }
+// 代码测试
+var son2 = new Son2('hangyangws');
+son2.show(); // 返回：hangyangws
+// 分析：（缺点）不能继承父类原型链上的方法
+//      （缺点）实例并不是父类的实例，只是子类的实例
 
-var me = new Son1('hangyangws');
-me.name; // hangyangws
-me.show(); // hangyangws 21
 
+// 方法三：组合继承
+function Son3(name) {
+    Father.call(this, name);
+}
+Son3.prototype = new Father;
+// 分析：（优点）在方法二的基础上，消除“不能继承父类原型链上的方法”缺点
+//      （缺点）调用两次父类构造函数，生成两份实例（子类实例将子类原型上的那份屏蔽了）
 
+// 方法四：升级版组合继承（我也不知道叫什么名字了好了^_^）
+function Son4(name) {
+    Father.call(this, name);
+}
+Son4.prototype = (new Father()).__proto__;
+// 分析：（优点）在方法三的基础上，消除“调用两次父类构造函数”缺点
 ```
 
 ### 重载
