@@ -179,8 +179,10 @@ test.length; // 如果element是非inline元素，test.length为1，否则为元
 
 ### 继承
 
+> 我们知道，JS不同于C++这类语言，支持继承，但是我们可以“模仿”
+
 ```javascript
-// 父级函数
+// 定义一个简单的父级函数
 function Father(name) {
     this.name = name;
     this.show = function() {
@@ -188,7 +190,7 @@ function Father(name) {
     }
 }
 
-// 继承方法一：js可以使用对象冒充实现继承的
+// 方法一：使用对象冒充实现继承
 function Son1(name) {
     this.Father = Father; // Son内部的Father属性指向Father函数
     this.Father(name); // 执行Son内部的Father函数
@@ -197,6 +199,8 @@ function Son1(name) {
 var me = new Son1('hangyangws');
 me.name; // hangyangws
 me.show(); // hangyangws 21
+
+
 ```
 
 ### 重载
