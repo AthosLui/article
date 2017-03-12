@@ -113,7 +113,7 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
 当`JS`执行完成后，又开始解析`DOM`
 
-### 总结
+### 总结defer、async
 
 `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
 它俩的差别在于：`JS`下载完之后何时执行  
