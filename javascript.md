@@ -180,22 +180,21 @@ test.length; // 如果element是非inline元素，test.length为1，否则为元
 ### 继承
 
 ```javascript
-// js可以使用对象冒充实现继承的（平时少用）
-function Father(name, age) {
-    // 代码A(承上)
+// 父级函数
+function Father(name) {
     this.name = name;
-    this.age = age;
     this.show = function() {
-        console.log(this.name, this.age);
+        console.log(this.name);
     }
-    // 代码B(启下)
 }
 
-function Son(name, age) {
-    this.Father = Father; // Son内部的Father属性指向Father函数（类）
-    this.Father(name, age); // 执行Son内部的Father函数，等同于吧代码A和代码B之间的代码执行了一遍，因而实现“继承”
+// 继承方法一：js可以使用对象冒充实现继承的
+function Son1(name) {
+    this.Father = Father; // Son内部的Father属性指向Father函数
+    this.Father(name); // 执行Son内部的Father函数
 }
-var me = new Son('hangyangws', 21);
+
+var me = new Son1('hangyangws');
 me.name; // hangyangws
 me.show(); // hangyangws 21
 ```
