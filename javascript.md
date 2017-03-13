@@ -562,7 +562,14 @@ str.match(); // 返回：[""]
 > 如果match参数为非RegExp对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
 如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引。否则，返回 -1
 
-# call、bind、apply
+# call、apply和bind
+
+### call
+
+### apply
+
+### bind
+
 
 # promise及原理
 
