@@ -359,8 +359,14 @@ var father = {
         console.log(this);
     }
 };
-
 father.getThis(); // 返回：father对象（因为是father在执行getThis函数）
+
+function getThis() {
+    'use strict'; // 启动严格模式
+    console.log(this);
+}
+getThis(); // 返回：undefined
+window.getThis(); // 返回：window
 
 // 注意下面的情况
 var myThis = father.getThis;
