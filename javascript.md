@@ -1,7 +1,7 @@
 > JavaScript相关知识  
 [查看其他文章](https://github.com/hangyangws/myArticles#文章列表)
 
-# JS的几种数据类型
+# JS的7种数据类型
 
 ### 6种原始类型
 
@@ -455,7 +455,7 @@ Test.getThis2(); // 返回：window
 // setTimeout的回调参数是箭头函数 (this在定义时指向Test)
 ```
 
-# 正则：test、exec和match
+# 正则之exec和test
 > 开发者要记住：只有`match`是字符串的方法，`test`和`exec`都是正则的方法  
 提示：正则表达式有个属性：`lastIndex`，表示从字符串的哪一个下标开始匹配，默认为`0`
 
@@ -496,9 +496,21 @@ reg.exec(str); // 返回：["abb", "bb"]
 
 ### RegExp.prototype.test
 
-> test方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配，返回 true 或 false
+> test方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配，返回 true 或 false  
+test类似于 `String.prototype.search()` 方法）  
+差别在于test返回一个布尔值，而 search 返回索引（如果找到）或者-1（如果没找到)
 
-### match
+```javascript
+var str = 'xxabxxabbxx';
+var reg = /ab*/;
+reg.test(str); // 返回：true
+
+// 注意：
+/undefined/.test(); // 返回：true
+/undefined/.test('undefined'); // 返回：true
+```
+
+# 字符串子match和search
 
 
 [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
