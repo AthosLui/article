@@ -149,7 +149,8 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 ### getClientRects  
 
 > 主要用于行内(inline)元素（如：`<a>`…）  
-可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移
+可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移  
+可以用于读取行内元素的行数
 
 **用法**：  
 `element.getClientRects()`
