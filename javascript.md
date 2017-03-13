@@ -564,8 +564,8 @@ str.match(); // 返回：[""]
 
 # call、apply和bind
 > 三者都是改变函数内部this指向  
-区别一：call与apply只是传递函数的的参数的时候有区别  
-区别二：call与apply立即执行，bind不是立即执行
+区别一：apply传递参数为数组形式，call与bind为枚举形式  
+区别二：call与apply立即执行，而bind不是
 
 ### Function.prototype.call
 
@@ -604,8 +604,24 @@ getName.apply(obj, ['apply1', 'apply2']); // 返回："obj", "apply1", "apply2"
 
 ### Function.prototype.bind
 
-> IE6,7,8不支持
+> IE6,7,8不支持bind
 
+```javascript
+var obj = {
+        name: 'obj'
+    };
+function getName(_param1, _param2) {
+    console.log(this.name, _param1, _param2);
+}
+
+// 传参方式1：(绑定时传)
+var tempGetName1 = getName.bind(obj, 'bind1', 'bind2');
+tempGetName1(); // 返回："obj", "bind1", "bind2"
+
+// 传参方式2：（执行时传）
+var tempGetName2 = getName.bind(obj);
+tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
+```
 
 # promise及原理
 
