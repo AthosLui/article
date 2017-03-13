@@ -515,9 +515,9 @@ reg.test(str); // 返回：true
 ### String.prototype.match
 
 > match返回的是数组，如果没有匹配返回为null（注意：不是空数组）  
-正则没有`g`标志，则 str.match() 会返回和 RegExp.exec() 相同的结果  
-正则没有`g`标志，返回的 Array 有一个 input 属性（解析的原始字符串）  
-正则没有`g`标志，返回的 Array 有一个 index 属性（匹配结果在原字符串中的索引“以0开始”）
+正则没有`g`标志，str.match() 返回和 RegExp.exec() 相同  
+正则没有`g`标志，返回的 Array 有一个 `input` 属性（解析的原始字符串）  
+正则没有`g`标志，返回的 Array 有一个 `index` 属性（匹配结果在原字符串中的索引“以0开始”）
 
 ```javascript
 ```
