@@ -463,7 +463,8 @@ Test.getThis2(); // 返回：window
 
 ### exec
 
-> exec返回的是数组，如果没有匹配返回为null（注意：不是空数组）
+> exec返回的是数组，如果没有匹配返回为null（注意：不是空数组）  
+正则的lastIndex只有全局匹配才改变
 
 ```javascript
 var str = 'xxabxxabbxx';
@@ -471,19 +472,26 @@ var str = 'xxabxxabbxx';
 // 普通正则的情况
 var reg = /ab*/;
 reg.lastIndex; // 返回：0
-reg.exec(str); // 返回：["ab"]（从下标0开始匹配，找到“ab”即返回）
-reg.lastIndex; // 返回：0     （因为正则没有定义全局匹配，所以lastIndex不会改变）
+// 从下标0开始匹配，找到“ab”即返回
+reg.exec(str); // 返回：["ab"]
+// 因为正则没有定义全局匹配，所以lastIndex不会改变，依旧为0
+reg.lastIndex; // 返回：0
 
 var reg = /a(b*)/;
 reg.lastIndex; // 返回：0
-reg.exec(str); // 返回：["ab", "b"]（从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素）
-reg.lastIndex; // 返回：0          （因为正则没有定义全局匹配，所以lastIndex不会改变）
+// 从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素
+reg.exec(str); // 返回：["ab", "b"]
+// 因为正则没有定义全局匹配，所以lastIndex不会改变，依旧为0
+reg.lastIndex; // 返回：0
 
 var reg = /a(b*)/g;
 reg.lastIndex; // 返回：0
-reg.exec(str); // 返回：["ab", "b"]  （从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素）
-reg.lastIndex; // 返回：4            （因为正则定义了全局匹配，所以lastIndex改为下一次开始匹配的下标）
-reg.exec(str); // 返回：["abb", "bb"]（从下标4开始匹配，找到“abb”，数组存入第一个元素；找到“bb”，数组存入第二个元素）
+// 从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素
+reg.exec(str); // 返回：["ab", "b"]
+// 因为正则定义了全局匹配，所以lastIndex改为下一次开始匹配的下标
+reg.lastIndex; // 返回：4
+// 从下标4开始匹配，找到“abb”，数组存入第一个元素；找到“bb”，数组存入第二个元素
+reg.exec(str); // 返回：["abb", "bb"]
 ```
 
 ### match
