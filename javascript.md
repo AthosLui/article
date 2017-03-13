@@ -563,12 +563,48 @@ str.match(); // 返回：[""]
 如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引。否则，返回 -1
 
 # call、apply和bind
+> 三者都是改变函数内部this指向  
+区别一：call与apply只是传递函数的的参数的时候有区别  
+区别二：call与apply立即执行，bind不是立即执行
 
-### call
+### Function.prototype.call
 
-### apply
+```javascript
+function getThis() {
+    console.log(this);
+}
 
-### bind
+getThis.call(); // 返回：window。严格模式下返回：undefined
+getThis.call(null); // 返回：window。严格模式下返回：null
+getThis.call(undefined); // 返回：window。严格模式下返回：undefined
+
+var name = 'window',
+    obj = {
+        name: 'obj'
+    };
+
+function getName(_name) {
+    console.log(this.name, _name);
+}
+getName(); // 返回："window", undefined
+getName.call(obj, 'call'); // 返回："obj", "call"
+```
+
+### Function.prototype.apply
+
+```javascript
+var obj = {
+        name: 'obj'
+    };
+function getName(_param1, _param2) {
+    console.log(this.name, _param1, _param2);
+}
+getName.apply(obj, ['apply1', 'apply2']); // 返回："obj", "apply1", "apply2"
+```
+
+### Function.prototype.bind
+
+> IE6,7,8不支持
 
 
 # promise及原理
