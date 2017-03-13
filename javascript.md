@@ -458,8 +458,17 @@ Test.getThis2(); // 返回：window
 ```
 
 # 正则：test、exec和match
-> 这三个方法中，只有`match`是字符串的方法，`test`和`exec`都是正则的方法  
-> [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
+> 开发者要记住：只有`match`是字符串的方法，`test`和`exec`都是正则的方法  
+
+### exec
+
+
+
+### match
+
+### test
+
+[参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
 
 # call、bind、apply
 
