@@ -161,7 +161,7 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 ```javascript
 var test = element.getClientRects();
 test.length; // 如果element是非inline元素，test.length为1，否则为元素的行数
-// test[0]、test[0]…返回的值与getBoundingClientRect类似
+// test[0]、test[1]…返回的值与getBoundingClientRect类似
 ```
 
 ### elementFromPoint
