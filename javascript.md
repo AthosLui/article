@@ -527,10 +527,10 @@ var str = 'OK abc 1.2.3',
 console.log(str.match(reg));
 // 返回：
 // [
-//    "abc 1.2.3", // 整个匹配
+//    "abc 1.2.3", // 整个匹配结果
 //    "1.2.3",     // 被 (\d+(\.\d)*) 捕获
 //    ".3",        // 被 (\.\d) 捕获的最后一个值
-//    "index",     // 值为：3。 是整个匹配从 0 开始的索引
+//    "index",     // 值为：3。 整个匹配从 0 开始的索引
 //    "input"      // 值为：'OK abc 1.2.3'。被解析的原始字符串
 // ]
 
@@ -541,7 +541,7 @@ console.log(str.match(reg));
 // 返回：["A", "B", "C", "a", "b", "c"]
 ```
 
-> 如果match参数为非正则表达式对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
+> 如果match参数为非RegExp对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
 如未提供参数，那么你会得到一个包含空字符串的 Array ：[""]
 
 ```javascript
@@ -552,9 +552,8 @@ str.match(); // 返回：[""]
 ```
 
 ### String.prototype.search
-
-
-[参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
+> 如果match参数为非RegExp对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
+如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引。否则，返回 -1
 
 # call、bind、apply
 
