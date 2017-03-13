@@ -462,7 +462,7 @@ Test.getThis2(); // 返回：window
 ### RegExp.prototype.exec
 
 > exec返回的是数组，如果没有匹配返回为null（注意：不是空数组）  
-正则的lastIndex只有全局匹配才改变
+正则有个属性：lastIndex（默认为0），只有在全局匹配模式才改变
 
 ```javascript
 var str = 'xxabxxabbxx';
@@ -511,6 +511,28 @@ reg.test(str); // 返回：true
 ```
 
 # 字符串子match和search
+
+### String.prototype.match
+
+> match返回的是数组，如果没有匹配返回为null（注意：不是空数组）  
+正则没有`g`标志，则 str.match() 会返回和 RegExp.exec() 相同的结果  
+正则没有`g`标志，返回的 Array 有一个 input 属性（解析的原始字符串）  
+正则没有`g`标志，返回的 Array 有一个 index 属性（匹配结果在原字符串中的索引“以0开始”）
+
+```javascript
+```
+
+> 如果match参数为非正则表达式对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
+如未提供参数，那么你会得到一个包含空字符串的 Array ：[""]
+
+```javascript
+var str = "+Infinity 10";
+str.match(Infinity); // 返回：["Infinity"]
+str.match(+10); // 返回：["10"]
+str.match(); // 返回：[""]
+```
+
+### String.prototype.search
 
 
 [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
