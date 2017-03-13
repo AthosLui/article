@@ -286,7 +286,7 @@ function bubbleSort(_arr) {
 }
 ```
 
-# 二分查找法
+# 用JS实现二分查找法
 ```javascript
 /**
  * @param  {[Array]}  _arr         [查找的数组]
@@ -315,22 +315,24 @@ function binarySearch(_arr, _wantVal) {
 }
 ```
 
-# 快排算法
+# 用JS实现快排算法
 
-# 浅复制 && 深复制
-- 有什么区别
-- 如何实现Object的深复制`递归的方法进行复制/循环的方法`
+# JS中的浅复制和深复制
 
-# CSS下载解析会不会阻塞DOM树渲
+### 浅复制和深复制的区别
 
-# 以什么为基准去衡量什么时候使用base64
+### 如何实现Object的深复制`递归的方法进行复制/循环的方法`
+
+# CSS下载与DOM树渲
 
 # HTTPS和HTTP有什么区别
 
-# 网络请求头部
-- POST请求头部
+# 网络请求头部的相关解释
+
+### POST请求头部
 
 # new一个对象需要注意的
+
 ```javascript
 function person(_name) {
     this.name = _name;
@@ -349,18 +351,18 @@ new person('hangyangws').say(); // 返回：hangyangw
 
 (new person).say(); // 返回：undefined
 ```
+
 在查找当前实例对象的属性或者方法时候，如果没有找到，会到原型链`__proto__`上找  
 观察仔细的同学应该发现了`new person()`和`new person`都可以实例化对象  
 区别就是要传参数就必须带小括号  
-不带小括号就表示不传参数（浏览器会自动加上小括号）  
+不带小括号就表示不传参数（浏览器会自动加上小括号）
+
 **提醒**：  
 虽然“new”一个对象的时候可以不带小括号  
 但是，“new person.speak()”调用方式会报错：“person.speak is not a constructor”  
 因为“.”的优先级大于“new”，类似于：“new (person.speak())”  
 
-# SSL四次握手过程
-
-# TCP三次握手过程
+# SSL四次握手和TCP三次握手
 
 # SSL握手时有对称加密和非对称加密吗
 
