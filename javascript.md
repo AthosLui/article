@@ -456,8 +456,8 @@ Test.getThis2(); // 返回：window
 ```
 
 # 正则之exec和test
-> 开发者要记住：只有`match`是字符串的方法，`test`和`exec`都是正则的方法  
-提示：正则表达式有个属性：`lastIndex`，表示从字符串的哪一个下标开始匹配，默认为`0`
+
+>提示：正则表达式有个属性：`lastIndex`，表示从字符串的哪一个下标开始匹配，默认为`0`
 
 ### RegExp.prototype.exec
 
