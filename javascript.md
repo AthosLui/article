@@ -333,7 +333,8 @@ parent();
 
 ### 全局环境中找this
 
-> 通常为`window`
+> 全局函数内部this指向undefined  
+在非严格模式中，当this指向undefined时，它会被自动指向全局对象
 
 ```javascript
 console.log(this); // 返回：window
