@@ -1,7 +1,7 @@
 > JavaScript相关知识  
 [查看其他文章](https://github.com/hangyangws/myArticles#文章列表)
 
-# 数据类型
+# JS的几种数据类型
 
 ### 6种原始类型
 
