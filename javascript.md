@@ -174,9 +174,7 @@ test.length; // 如果element是非inline元素，test.length为1，否则为元
 **返回值**：
 `Element对象`
 
-# 函数（类）的继承与重载
-
-### 继承
+# 函数继承
 
 > 我们知道，JS不同于C++这类语言，支持继承，但是我们可以“模仿”
 
@@ -235,11 +233,12 @@ Son4.prototype = (new Father()).__proto__;
 // 分析：（优点）在方法三的基础上，消除“调用两次父类构造函数”缺点
 ```
 
-### 重载
+# 函数重载
 
 > js从常理来说是不支持重载的，但是又可以说是天然支持重载  
 因为js天然支持可变参数，而且我们在函数内部可以通过arguments对象的length属性，而做出相应的处理  
-目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起
+目前[函数式编程](http://baike.baidu.com/link?url=K_XE6rft1YiCQ9tMPac33DgqW_wdyd6WhjhKR37AbEMCp_Avfnb2oojydKBq4WqrqTSNy9Hjo0giLsK5SO95Top5QUQj0ZVC5ZM4nSK-mysX2qOvoGyFr-Ua2Ne7VAEEdCLId79H_9TkbfqdZFbya_)比较火，所以“重载”已经不再兴起  
+在平时项目用得甚少
 
 ```javascript
 function argumentsTest() {
@@ -460,7 +459,7 @@ Test.getThis2(); // 返回：window
 > 开发者要记住：只有`match`是字符串的方法，`test`和`exec`都是正则的方法  
 提示：正则表达式有个属性：`lastIndex`，表示从字符串的哪一个下标开始匹配，默认为`0`
 
-### exec
+### RegExp.prototype.exec
 
 > exec返回的是数组，如果没有匹配返回为null（注意：不是空数组）  
 正则的lastIndex只有全局匹配才改变
@@ -476,6 +475,7 @@ reg.exec(str); // 返回：["ab"]
 // 因为正则没有定义全局匹配，所以lastIndex不会改变，依旧为0
 reg.lastIndex; // 返回：0
 
+// 带有子元素正则情况
 var reg = /a(b*)/;
 reg.lastIndex; // 返回：0
 // 从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素
@@ -483,6 +483,7 @@ reg.exec(str); // 返回：["ab", "b"]
 // 因为正则没有定义全局匹配，所以lastIndex不会改变，依旧为0
 reg.lastIndex; // 返回：0
 
+// 带有子元素且全局配备的情况
 var reg = /a(b*)/g;
 reg.lastIndex; // 返回：0
 // 从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素
@@ -493,9 +494,12 @@ reg.lastIndex; // 返回：4
 reg.exec(str); // 返回：["abb", "bb"]
 ```
 
+### RegExp.prototype.test
+
+> test方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配，返回 true 或 false
+
 ### match
 
-### test
 
 [参考地址](http://blog.csdn.net/z69183787/article/details/17886369)
 
