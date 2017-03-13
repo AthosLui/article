@@ -459,10 +459,32 @@ Test.getThis2(); // 返回：window
 
 # 正则：test、exec和match
 > 开发者要记住：只有`match`是字符串的方法，`test`和`exec`都是正则的方法  
+提示：正则表达式有个属性：`lastIndex`，表示从字符串的哪一个下标开始匹配，默认为`0`
 
 ### exec
 
+> exec返回的是数组，如果没有匹配返回为null（注意：不是空数组）
 
+```javascript
+var str = 'xxabxxabbxx';
+
+// 普通正则的情况
+var reg = /ab*/;
+reg.lastIndex; // 返回：0
+reg.exec(str); // 返回：["ab"]（从下标0开始匹配，找到“ab”即返回）
+reg.lastIndex; // 返回：0     （因为正则没有定义全局匹配，所以lastIndex不会改变）
+
+var reg = /a(b*)/;
+reg.lastIndex; // 返回：0
+reg.exec(str); // 返回：["ab", "b"]（从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素）
+reg.lastIndex; // 返回：0          （因为正则没有定义全局匹配，所以lastIndex不会改变）
+
+var reg = /a(b*)/g;
+reg.lastIndex; // 返回：0
+reg.exec(str); // 返回：["ab", "b"]  （从下标0开始匹配，找到“ab”，数组存入第一个元素；找到“b”，数组存入第二个元素）
+reg.lastIndex; // 返回：4            （因为正则定义了全局匹配，所以lastIndex改为下一次开始匹配的下标）
+reg.exec(str); // 返回：["abb", "bb"]（从下标4开始匹配，找到“abb”，数组存入第一个元素；找到“bb”，数组存入第二个元素）
+```
 
 ### match
 
