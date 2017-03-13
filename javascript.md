@@ -510,7 +510,7 @@ reg.test(str); // 返回：true
 /undefined/.test('undefined'); // 返回：true
 ```
 
-# 字符串子match和search
+# 字符串之match和search
 
 ### String.prototype.match
 
@@ -528,10 +528,10 @@ console.log(str.match(reg));
 // 返回：
 // [
 //    "abc 1.2.3", // 整个匹配
-//    "1.2.3", // 被 (\d+(\.\d)*) 捕获
-//    ".3", // 被 (\.\d) 捕获的最后一个值
-//    "index", // 值为：3。 是整个匹配从 0 开始的索引
-//    "input" // 值为：'OK abc 1.2.3'。被解析的原始字符串
+//    "1.2.3",     // 被 (\d+(\.\d)*) 捕获
+//    ".3",        // 被 (\.\d) 捕获的最后一个值
+//    "index",     // 值为：3。 是整个匹配从 0 开始的索引
+//    "input"      // 值为：'OK abc 1.2.3'。被解析的原始字符串
 // ]
 
 // 有g的列子
