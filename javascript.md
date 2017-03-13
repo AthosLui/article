@@ -1,5 +1,5 @@
 > JavaScript相关知识  
-[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
+[查看其他文章](https://github.com/hangyangws/myArticles#文章列表)
 
 # 数据类型
 
