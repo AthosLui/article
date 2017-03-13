@@ -514,12 +514,31 @@ reg.test(str); // 返回：true
 
 ### String.prototype.match
 
-> match返回的是数组，如果没有匹配返回为null（注意：不是空数组）  
-正则没有`g`标志，str.match() 返回和 RegExp.exec() 相同  
+> 正则没有`g`标志，str.match() 返回和 RegExp.exec() 相同  
 正则没有`g`标志，返回的 Array 有一个 `input` 属性（解析的原始字符串）  
-正则没有`g`标志，返回的 Array 有一个 `index` 属性（匹配结果在原字符串中的索引“以0开始”）
+正则没有`g`标志，返回的 Array 有一个 `index` 属性（匹配结果在原字符串中的索引“以0开始”）  
+正则有`g`标志，match返回的是数组，如果没有匹配返回为null（注意：不是空数组）
 
 ```javascript
+// 没有g的列子
+var str = 'OK abc 1.2.3',
+    reg = /abc (\d+(\.\d)*)/i;
+
+console.log(str.match(reg));
+// 返回：
+// [
+//    "abc 1.2.3", // 整个匹配
+//    "1.2.3", // 被 (\d+(\.\d)*) 捕获
+//    ".3", // 被 (\.\d) 捕获的最后一个值
+//    "index", // 值为：3。 是整个匹配从 0 开始的索引
+//    "input" // 值为：'OK abc 1.2.3'。被解析的原始字符串
+// ]
+
+// 有g的列子
+var str = 'ABCDabcd',
+    reg = /[A-C]/gi;
+console.log(str.match(reg));
+// 返回：["A", "B", "C", "a", "b", "c"]
 ```
 
 > 如果match参数为非正则表达式对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
