@@ -63,9 +63,8 @@ typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 # 数据类型检测之`instanceof`
 
 > 语法`object instanceof constructor`  
-instanceof通过原型链来判断对象时候属于它的父类型  
-查找object的`__proto__`链，一次查找constructor的`prototype`链，如果二者相等，就返回true
-
+instanceof通过原型链来判断对象时候属于它的父类型，判断原则：  
+先查找object的`__proto__`链，同步查找constructor的`prototype`链，如果两者相等，就返回true
 
 ```javascript
 function Func() {};
