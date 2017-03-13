@@ -1,9 +1,10 @@
-# front-end-summary
-
+> Web前端相关知识  
 [查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
 
-## LazyMan
-> 典型的流程控制解决方案什么是LazyMan？请自行google
+# LazyMan的实现
+
+> LazyMan是典型的流程控制解决方案的列子  
+如果不知道什么是LazyMan，请自行google
 
 ```javascript
 function _LazyMan(_name) {
@@ -71,11 +72,12 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 // "Eat apple" "Wake up after 1000"(1s后输出)
 ```
 
-## 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
-> JS获取元素样式方式：
-> - widow.getComputedStyle (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
-> - element.style (获取的是元素行间设置的样式)
-> - element.currentStyle (ie低版本)
+# 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
+
+> JS获取元素样式方式：  
+**widow.getComputedStyle** (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
+**element.style** (获取的是元素行间设置的样式)
+**element.currentStyle** (ie低版本)
 
 ```javascript
 // 获取指定元素的某个CSS样式，兼容IE
@@ -101,54 +103,59 @@ var getFinalBackground = function($el) {
 }
 ```
 
-## 前端优化简述
-> 优化涉及各个方面，前端优化只是冰山一角  
-> 有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”  
-> 我觉得，我们各司其职，做好前端本职工作就好，不要好高骛远
+# 前端优化简述
 
-- 优化目的
-    1. 用户角度：页面加载更快、操作响应更快、体验更好
-    1. 服务端角度：减少请求数、减小请求带宽
-- 优化方法
-    1. 页面优化
-        - HTTP请求数
-            1. 从设计实现层面简化页面
-            1. 合理设置`HTTP`缓存
-            1. 资源合并与压缩(example：`CSS Sprites`)
-            1. Inline Images（将图片嵌入到页面或style文件）
-            1. Lazy Load Images
-            1. 避免重复的资源请求
-        - 资源优化
-            1. 图片格式的选择（非透明大图尽量不用png、PS保存图片为`web格式`且勾选`连续`选项）
-        - 资源的无阻塞加载
-            1. CSS放在HEAD中
-            1. JavaScript置底
-            1. Lazy Load Javascript（example：`AMD`）
-    1. 代码优化
-        - DOM操作优化
-            1. 减少DOM操作，减少`Reflow和Repaint`
-            1. HTML Collection（类数组集合并不是一个静态的结果，表示的仅是特定的查询，每次访问时会重新执行查询需要遍历 HTML Collection时，将它转为数组再访问，以提高性能）
-        - JavaScript
-            1. 减少作用域链查找（example：缓存全局变量）
-            1. 慎用 `with、eval、Function`
-            1. 减少闭包的使用（易内存浪费，不仅仅是常驻内存，重要的是，使用不当会造成无效内存的产生）
-            1. 直接量、局部变量的使用（对象属性以及数组的访问需要更大的开销）
-            1. 减少字符串拼接`+`使用
-        - CSS选择符优化
-            1. 减少层级，多用class（浏览器解析CSS是从右往左）
-        -  HTML结构优化
-            1. 使用HTML5 DOCTYPE
-            1. 标签闭合、结构分离
-            1. Boolean 属性不需要赋值，如果存在则为True（example：`checked、selected`）
-            1. 语义化、标签统一整洁
-            1. 减少文本和元素混合，并作为另一元素的子元素
-            1. 避免使用`<br />、<hr />`
+> 应用优化涉及各个方面，前端优化只是冰山一角  
+有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”  
+我觉得，我们各司其职，做好前端本职工作就好，想太多有时不一定是好事
 
-## 跨域访问之JSONP
+### 优化目的
+
+1. 用户角度：页面加载更快、操作响应更快、体验更好
+1. 服务端角度：减少请求数、减小请求带宽
+
+### 优化方法
+
+1. 页面优化
+    - HTTP请求数
+        1. 从设计实现层面简化页面
+        1. 合理设置`HTTP`缓存
+        1. 资源合并与压缩(example：`CSS Sprites`)
+        1. Inline Images（将图片嵌入到页面或style文件）
+        1. Lazy Load Images
+        1. 避免重复的资源请求
+    - 资源优化
+        1. 图片格式的选择（非透明大图尽量不用png、PS保存图片为`web格式`且勾选`连续`选项）
+    - 资源的无阻塞加载
+        1. CSS放在HEAD中
+        1. JavaScript置底
+        1. Lazy Load Javascript（example：`AMD`）
+1. 代码优化
+    - DOM操作优化
+        1. 减少DOM操作，减少`Reflow和Repaint`
+        1. HTML Collection（类数组集合并不是一个静态的结果，表示的仅是特定的查询，每次访问时会重新执行查询需要遍历 HTML Collection时，将它转为数组再访问，以提高性能）
+    - JavaScript
+        1. 减少作用域链查找（example：缓存全局变量）
+        1. 慎用 `with、eval、Function`
+        1. 减少闭包的使用（易内存浪费，不仅仅是常驻内存，重要的是，使用不当会造成无效内存的产生）
+        1. 直接量、局部变量的使用（对象属性以及数组的访问需要更大的开销）
+        1. 减少字符串拼接`+`使用
+    - CSS选择符优化
+        1. 减少层级，多用class（浏览器解析CSS是从右往左）
+    -  HTML结构优化
+        1. 使用HTML5 DOCTYPE
+        1. 标签闭合、结构分离
+        1. Boolean 属性不需要赋值，如果存在则为True（example：`checked、selected`）
+        1. 语义化、标签统一整洁
+        1. 减少文本和元素混合，并作为另一元素的子元素
+        1. 避免使用`<br />、<hr />`
+
+# 跨域之JSONP
+
 > **同源策略`same-Origin-Policy`**：指浏览器对不同源的脚本或文本的访问方式进行的限制  
-> **同源**：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
-> 所以在JS代码中访问不同源的数据会提示*跨域警告*，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域  
-> **JSONP（JSON with Padding）**的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域
+**同源**：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
+所以在JS代码中访问不同源的数据会提示*跨域警告*，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域  
+**JSONP（JSON with Padding）**的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域
 
 - HTML页面中创建`<script>`节点
 
@@ -182,13 +189,14 @@ var getFinalBackground = function($el) {
     - 服务端需要根据客户端传过来函数名返回数据
     - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题
 
-## 跨域访问之POST
+# 跨域之POST
+
 > 虽然`JSONP`可以解决跨域问题，但是`JSONP`是`GET`类型，传输数据大小不及`POST`类型  
-> 如果需要传递大量数据的跨域，就得了解**POST跨域**
+如果需要传递大量数据的跨域，就得了解**POST跨域**
 
 - CORS(Cross Origin Resource Sharing，跨域资源共享)
-    
-    由于跨域访问会有安全问题，所以有了同源策略  
+
+    > 由于跨域访问会有安全问题，所以有了同源策略  
     我们换位思考，被请求数据的服务器如果同意来自*不同源*的请求，是不是意味着“我信任这个源的请求”  
     那么，同源策略这个时候会“失效”，就达成了“跨域”  
     所以只要服务端设置了http响应头`Access-Control-Allow-Origin`应许请求即可
@@ -200,14 +208,18 @@ var getFinalBackground = function($el) {
     // 或者(推荐方式)
     header("Access-Control-Allow-Origin: http://www.hangyagnws.win");
     ```
+
     - 优点：同时支持`GET`、`POST`请求
     - 缺点：需要服务端设置`Access-Control-Allow-Origin`
 
 - invisible iframe
+
 - server proxy
+
 - flash proxy
 
-## 矩阵的转置
+# 用JS实现矩阵的转置
+
 ```javascript
 function transMatrix(_matrix) { // 矩阵转置函数
     var _l = _matrix.length,
@@ -239,7 +251,7 @@ console.table(_matrix);
 // ]
 ```
 
-## 冒泡排序法
+# 用JS冒泡排序法
 > 排序中的经典方法，用JS实现感觉又不一样
 
 ```javascript
@@ -274,7 +286,7 @@ function bubbleSort(_arr) {
 }
 ```
 
-## 二分查找法
+# 二分查找法
 ```javascript
 /**
  * @param  {[Array]}  _arr         [查找的数组]
@@ -303,22 +315,22 @@ function binarySearch(_arr, _wantVal) {
 }
 ```
 
-## 快排算法
+# 快排算法
 
-## 浅复制 && 深复制
+# 浅复制 && 深复制
 - 有什么区别
 - 如何实现Object的深复制`递归的方法进行复制/循环的方法`
 
-## CSS下载解析会不会阻塞DOM树渲
+# CSS下载解析会不会阻塞DOM树渲
 
-## 以什么为基准去衡量什么时候使用base64
+# 以什么为基准去衡量什么时候使用base64
 
-## HTTPS和HTTP有什么区别
+# HTTPS和HTTP有什么区别
 
-## 网络请求头部
+# 网络请求头部
 - POST请求头部
 
-## new一个对象需要注意的
+# new一个对象需要注意的
 ```javascript
 function person(_name) {
     this.name = _name;
@@ -346,28 +358,28 @@ new person('hangyangws').say(); // 返回：hangyangw
 但是，“new person.speak()”调用方式会报错：“person.speak is not a constructor”  
 因为“.”的优先级大于“new”，类似于：“new (person.speak())”  
 
-## SSL四次握手过程
+# SSL四次握手过程
 
-## TCP三次握手过程
+# TCP三次握手过程
 
-## SSL握手时有对称加密和非对称加密吗
+# SSL握手时有对称加密和非对称加密吗
 
-## CSS inline
+# CSS inline
 
-## 盒模型(W3C和IE)
+# 盒模型(W3C和IE)
 
-## flex的使用
+# flex的使用
 
-## CSS hack技术
+# CSS hack技术
 
-## 从输入url到渲染的整个过程?
+# 从输入url到渲染的整个过程?
 
-## 懒加载&&预加载
+# 懒加载&&预加载
 
-## 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
+# 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
 
-## margin重叠现象与BFC
+# margin重叠现象与BFC
 
-## bootstrap的基本原理，bootstrap的grid系统
+# bootstrap的基本原理，bootstrap的grid系统
 
-## xss和csrf
+# xss和csrf
