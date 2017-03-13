@@ -265,7 +265,7 @@ function argumentsTest() {
 
 ### arguments
 
-> 在函数调用时，内部创建的一个类似数组的对象
+> arguments是：函数在调用时，内部创建的一个类似数组的对象
 
 ```javascript
 function func1() {
