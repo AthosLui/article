@@ -624,17 +624,11 @@ var tempGetName2 = getName.bind(obj);
 tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 ```
 
-# promise及原理
-
-> [参考](http://es6.ruanyifeng.com/#docs/promise#Promise-的含义)
-[参考2](http://liubin.org/promises-book/#introduction)
-
 # fetch
 
 # 位运算符
 
 > & |
-
 
 # IIFE
 
@@ -642,7 +636,6 @@ tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 IIFE（immediately invoked function expression）  
 IIFE又称为**自执行函数**、**立即执行函数**  
 我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`
-
 
 # 闭包
 
