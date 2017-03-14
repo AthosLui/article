@@ -626,6 +626,9 @@ tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 
 # promise及原理
 
+> [参考](http://es6.ruanyifeng.com/#docs/promise#Promise-的含义)
+[参考2](http://liubin.org/promises-book/#introduction)
+
 # fetch
 
 # 位运算符
