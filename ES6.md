@@ -53,14 +53,39 @@ reject方法可以将Pending改为`Rejected`
 
 ### Promise原型链方法
 
-> 又称`实例方法`
+> 原型链方法又称`实例方法`
 
-- Promise.prototype.then()
+**Promise.prototype.then()**
 
-- Promise.prototype.catch()
+then方法接受2个函数参数，状态变为*Resolved*调用第一个函数参数，状态变为*Rejected*调用第二个函数参数  
+then方法内部必须返回新的`Promise`对象，如果then内部没有显示return语句，那么会返回`undefined`  
+所以then后面可以继续调用其他实例方法，实现链式调用
+
+**Promise.prototype.catch()**
+
+catch与then一样，返回值是**新的Promise 对象**
+我们知道，then的第二个函数参数，可以看做*接受错误的*方法，我们还知道then可以链式调用  
+试想一下，当链式调用多个then方法时，难道要写多个错误处理方法，不会显得臃肿么  
+那么，catch方法就是为此而生  
+所以，catch方法可以充当then方法的第二个函数参数，并且建议使用catch方法  
+请看下面的详细分析
 
 ```javascript
+
 ```
+
+还有：catch方法是`then(null, rejection)`的别名  
+
+```javascript
+promiseObj
+    .then(_success => console.log(_success))
+    .catch(_error => console.log(_error));
+// 等同于
+promiseObj
+    .then(_success => console.log(_success))
+    .then(null, _error => console.log(_error));
+```
+
 
 ### Promise的静态方法
 
