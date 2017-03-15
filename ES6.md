@@ -195,7 +195,16 @@ _promise.then(_data => console.log(_data)); // 打印：I am promise
 
 **Promise.reject()**
 
-和`Promise.resolve()`一样，只是返回的Promise实例的状态为`rejected`
+和`Promise.resolve()`一样，只是返回的Promise实例的状态为`rejected`  
+即使传入的参数是状态为resolved的Promise实例，返回的实例状态依旧是`rejected`
+
+```javascript
+var _promise = Promise.reject('error');
+// 等同于
+// var _promise = new Promise((resolve, reject) => reject('I am error'));
+
+_promise.catch(_errpr => console.log('I am error')); // 打印：I am error
+```
 
 **Promise.all()**
 
