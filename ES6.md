@@ -8,7 +8,7 @@
 回调是很好的异步解决方案，不过“嵌套多了”就惹得人心烦，且代码难以阅读  
 Promises并非解决具体问题的算法，而已代码组织更好的模式
 
-**一个列子**，说明Promise的简单用法
+### 一个Promise列子
 
 ```javascript
 // 注意：为什么要用函数把“new Promise”包起来，因为new Promise时，也会执行函数内部代码
@@ -44,30 +44,33 @@ imageLoad('这是图片地址') // 执行imageLoad方法，会返回一个Promis
 认真看了上面的典型的简单的Promise例子，开发者应该对Promise不陌生了，至少对then方法不陌生^_^  
 下面，进一步揭开Promise的面纱
 
-**Promise实例的状态**
+### Promise实例的状态
 
 每个Promise实例都有一个状态，初始为`Pending`  
 resolve方法可以将Pending改为`Resolved`  
 reject方法可以将Pending改为`Rejected`  
 注意：没有其他方式可以修改Promise实例的状态，且状态不可逆
 
-**Promise原型链方法**（又称实例方法）
+### Promise原型链方法
+
+> 又称`实例方法`
 
 - Promise.prototype.then()
-    
 
 - Promise.prototype.catch()
 
 ```javascript
 ```
 
-**Promise的静态方法**
+### Promise的静态方法
 
 - Promise.resolve()
-- Promise.reject()
-- Promise.all()
-- Promise.race()
 
+- Promise.reject()
+
+- Promise.all()
+
+- Promise.race()
 
 > [参考](http://es6.ruanyifeng.com/#docs/promise#Promise-的含义)  
 [参考2](http://liubin.org/promises-book/#introduction)  
