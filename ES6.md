@@ -58,7 +58,7 @@ reject方法可以将Pending改为`Rejected`
 **Promise.prototype.then()**
 
 then方法接受2个函数参数，状态变为*Resolved*调用第一个函数参数，状态变为*Rejected*调用第二个函数参数  
-then方法内部必须返回新的`Promise`对象，如果then内部没有显示return语句，那么会返回`undefined`  
+then方法内部必须返回新的`Promise`对象，如果then内部没有显示return语句，那么会自动返回一个新的`Promise`对象  
 所以then后面可以继续调用其他实例方法，实现链式调用
 
 **Promise.prototype.catch()**
@@ -112,7 +112,11 @@ new Promise(resolve => {
     .catch(_error => console.log(_error)); // 捕获错误：unnamed is not defined
 ```
 
-还有：catch方法是`then(null, rejection)`的别名  
+看过上面的代码分析后，至少可以总结出：  
+Promise错误具有冒泡性质，错误会不断的向后传递，直到 .catch() 捕获  
+如果then方法遇到没有捕获的储物，就不会执行  
+
+还有：catch方法是`then(null, rejection)`的别名（如下代码）
 
 ```javascript
 Promise.resolve()
