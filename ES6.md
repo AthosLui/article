@@ -57,11 +57,45 @@ reject方法可以将Pending改为`Rejected`
 
 **Promise.prototype.then()**
 
-then方法接受2个函数参数，状态变为*Resolved*调用第一个函数参数，状态变为*Rejected*调用第二个函数参数  
-then方法内部必须返回全新的`Promise`对象  
-如果then方法内部return的不是一个`Promise`对象，或者没有显示return语句  
-那么会自动返回一个全新的`Promise`对象  
-所以then后面可以继续调用其他实例方法，实现链式调用
+then方法接受2个函数参数，第一个函数参数将状态变为*Resolved*，调用第二个函数参数将状态变为*Rejected*  
+
+then方法内部return详解：  
+如果then方法内部return的不是一个`Promise`对象  
+那么return的值将作为下一个then的形参  
+如果没有return语句，等同于return undefined  
+如果then方法内部return是一个`Promise`对象，那么下一个then的形参就是这个Promise对象执行方法的实参  
+文字有点绕，不是很好理解，请看看如下代码
+
+```javascript
+function newPromise() {
+    return new Promise(resolve => resolve('I am resolve'));
+}
+
+new Promise(resolve => {
+        resolve();
+    })
+    .then(() => {
+        return '我只是一个字符串';
+        // return一个字符串
+    })
+    .then(_data => {
+        console.log(_data); // 打印：'我只是一个字符串'
+        // 没有显式的return语句
+    })
+    .then(_data => {
+        console.log(_data); // 打印：undefined
+        // return一个Promise实例
+        return newPromise();
+    })
+    .then(_data => {
+        console.log(_data); // 打印：I am resolve
+    });
+
+// 观察上面的代码
+// 发现，then内部无论返回什么都可以链式调用
+// 证明，then执行的结果依旧是Promise对象
+// 还发现，then内部的return是下一个then的形参
+```
 
 **Promise.prototype.catch()**
 
