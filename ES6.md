@@ -76,8 +76,8 @@ new Promise(resolve => {
         resolve();
     })
     .then(() => {
-        return '我只是一个字符串';
         // return一个字符串
+        return '我只是一个字符串';
     })
     .then(_data => {
         console.log(_data); // 打印：'我只是一个字符串'
