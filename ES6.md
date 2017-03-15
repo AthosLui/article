@@ -58,7 +58,9 @@ reject方法可以将Pending改为`Rejected`
 **Promise.prototype.then()**
 
 then方法接受2个函数参数，状态变为*Resolved*调用第一个函数参数，状态变为*Rejected*调用第二个函数参数  
-then方法内部必须返回全新的`Promise`对象，如果then内部没有显示return语句，那么会自动返回一个全新新的`Promise`对象  
+then方法内部必须返回全新的`Promise`对象  
+如果then方法内部return的不是一个`Promise`对象，或者没有显示return语句  
+那么会自动返回一个全新的`Promise`对象  
 所以then后面可以继续调用其他实例方法，实现链式调用
 
 **Promise.prototype.catch()**
