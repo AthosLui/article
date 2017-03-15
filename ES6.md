@@ -71,19 +71,59 @@ catch与then一样，返回值是**新的Promise 对象**
 请看下面的详细分析
 
 ```javascript
+new Promise(resolve => {
+        resolve(msg); // 抛出错误：msg is not defined
+    })
+    .then(_data => console.log(_data)) // 不会执行，因为then之前的错误没有捕获
+    .catch(_error => console.log(_error)); // 捕获错误： msg is not defined
 
+// 上面的then方法未执行，是因为错误没有被捕获，如果把catch放在then之前（如下代码）
+
+new Promise(resolve => {
+        resolve(msg); // 抛出错误：msg is not defined
+    })
+    .catch(_error => console.log(_error)) // 捕获错误： msg is not defined。如果没有错误，直接跳过catch方法
+    .then(_data => console.log(_data)); // 执行，打印：undefined
+
+
+// catch可以还可以捕获then方法中的错误（如下代码）
+
+new Promise(resolve => {
+        resolve('OK');
+    })
+    .then(_data => {
+        var test = unnamed; // 抛出错误：unnamed is not defined
+    })
+    .catch(_error => console.log(_error)); // 捕获错误： unnamed is not defined
+
+// catch内部依旧可以抛出错误，但是需要另外一个catch来监听了（如下代码）
+
+new Promise(resolve => {
+        resolve('OK');
+    })
+    .then(_data => {
+        console.log(_data); // 执行，打印：Ok
+        var test = unnamed_one; // 抛出错误：unnamed_one is not defined
+    })
+    .catch(_error => {
+        console.log(_error); // 捕获错误：unnamed_one is not defined
+        var test = unnamed_two; // 抛出错误：unnamed is not defined
+    })
+    .catch(_error => console.log(_error)); // 捕获错误：unnamed is not defined
 ```
 
 还有：catch方法是`then(null, rejection)`的别名  
 
 ```javascript
-promiseObj
+Promise.resolve()
     .then(_success => console.log(_success))
     .catch(_error => console.log(_error));
 // 等同于
-promiseObj
+Promise.resolve()
     .then(_success => console.log(_success))
     .then(null, _error => console.log(_error));
+
+// 建议第一种方式，实现更简洁，代码更具语义性
 ```
 
 
