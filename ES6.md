@@ -8,7 +8,7 @@
 回调是很好得解决方案，不过“嵌套多了”就看得人心烦，代码难以阅读  
 Promises并非解决具体问题的算法，而已代码组织更好的模式
 
-先给出一个列子，说明Promise的简单用法
+**一个列子**，说明Promise的简单用法
 
 ```javascript
 // 注意：为什么要用函数把“new Promise”包起来，因为new Promise时，也会执行函数内部代码
@@ -38,20 +38,20 @@ imageLoad('https://avatars2.githubusercontent.com/u/9067839') // 执行imageLoad
 // 同理，
 // 创建Promise实例时传入函数的第二个参数指向的就是“Promise实例的then方法的第二个参数”
 // 所以，
-// resolve执行时等同执行then的第一个函数参数；reject执行时等同执行then的第二个函数参数
+// resolve函数执行时等同执行then方法第一个函数参数；reject函数执行时等同执行then方法第二个函数参数
 ```
 
 认真看了上面的典型的简单的Promise例子，开发者应该对Promise不陌生了，至少对then方法不陌生^_^  
-下面，我们就开始了解then方法之外的其他方法
+下面，我们就开始了解then方法之外的其他方法，进一步揭开Promise的面纱
 
-Promise的静态方法
+**Promise的静态方法**
 
 - Promise.resolve()
 - Promise.reject()
 - Promise.all()
 - Promise.race()
 
-Promise原型链方法（又称实例方法）
+**Promise原型链方法**（又称实例方法）
 
 - Promise.prototype.then()
 - Promise.prototype.catch()
