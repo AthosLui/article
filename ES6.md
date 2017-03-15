@@ -13,7 +13,7 @@ Promises并非解决具体问题的算法，而已代码组织更好的模式
 ```javascript
 function imageLoad(_url) {
     return new Promise(function(resolve, reject) {
-        var _image = new _Image(); // 新建Image对象
+        var _image = new Image(); // 新建Image对象
         _image.onload = function() { // 定义Image对象的加载事件
             resolve('加载成功'); // 如果图片加载成功调用resolve方法
         };
@@ -24,12 +24,11 @@ function imageLoad(_url) {
     });
 }
 
-imageLoad() // 执行imageLoad方法，会返回一个Promise实例
+imageLoad('https://avatars2.githubusercontent.com/u/9067839') // 执行imageLoad方法，会返回一个Promise实例
     .then( // 注册Promise的回调时间
         _success => console.log(_success), // 加载成功调用的方法
         _error => console.log(_error) // 加载失败调用的方法
     );
-
 ```
 
 Promise的静态方法
