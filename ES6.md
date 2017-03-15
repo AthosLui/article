@@ -27,8 +27,8 @@ function imageLoad(_url) {
     });
 }
 
-imageLoad('https://avatars2.githubusercontent.com/u/9067839') // 执行imageLoad方法，会返回一个Promise实例
-    .then( // 注册Promise的回调事件
+imageLoad('这是图片地址') // 执行imageLoad方法，会返回一个Promise实例
+    .then( // 注册Promise的状态改变时的回调事件
         _success => console.log(_success), // 加载成功调用的方法
         _error => console.log(_error) // 加载失败时调用的方法（比如当图片地址不存在的时候）
     );
@@ -44,6 +44,20 @@ imageLoad('https://avatars2.githubusercontent.com/u/9067839') // 执行imageLoad
 认真看了上面的典型的简单的Promise例子，开发者应该对Promise不陌生了，至少对then方法不陌生^_^  
 下面，我们就开始了解then方法之外的其他方法，进一步揭开Promise的面纱
 
+**Promise原型链方法**（又称实例方法）
+
+- Promise.prototype.then()
+    
+    > 每个Promise实例都有一个状态，初始为`Pending`  
+    resolve方法可以将Pending改为`Resolved`  
+    reject方法可以将Pending改为`Rejected`  
+    注意：没有其他方式可以修改Promise实例的状态，且状态不可逆
+
+- Promise.prototype.catch()
+
+```javascript
+```
+
 **Promise的静态方法**
 
 - Promise.resolve()
@@ -51,14 +65,7 @@ imageLoad('https://avatars2.githubusercontent.com/u/9067839') // 执行imageLoad
 - Promise.all()
 - Promise.race()
 
-**Promise原型链方法**（又称实例方法）
 
-- Promise.prototype.then()
-- Promise.prototype.catch()
-
-```javascript
-```
-
-> [参考](http://es6.ruanyifeng.com/#docs/promise#Promise-的含义)
-[参考2](http://liubin.org/promises-book/#introduction)
+> [参考](http://es6.ruanyifeng.com/#docs/promise#Promise-的含义)  
+[参考2](http://liubin.org/promises-book/#introduction)  
 [参考3](http://coderlt.coding.me/2016/12/03/promise-in-depth-an-introduction-1/#comments)
