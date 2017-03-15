@@ -329,7 +329,7 @@ function binarySearch(_arr, _wantVal) {
 
 # 网络请求头部的相关解释
 
-### POST请求头部
+# POST请求头部
 
 # new一个对象需要注意的
 
