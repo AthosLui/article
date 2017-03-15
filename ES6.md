@@ -70,7 +70,7 @@ then方法内部return详解：
 
 ```javascript
 function newPromise() {
-    return new Promise(resolve => resolve('I am resolve'));
+    return new Promise(resolve => resolve('I was resolved'));
 }
 
 new Promise(resolve => {
@@ -90,7 +90,7 @@ new Promise(resolve => {
         return newPromise();
     })
     .then(_data => {
-        console.log(_data); // 打印：I am resolve
+        console.log(_data); // 打印：I was resolved
     });
 
 // 观察上面的代码
@@ -169,17 +169,34 @@ Promise.resolve()
 // 建议第一种方式，实现更简洁，代码更具语义性
 ```
 
-
 ### Promise的静态方法
 
-- Promise.resolve()
+**Promise.resolve(_param)**
 
-- Promise.reject()
+```javascript
+// 1，如果_param为空，直接返回状态为‘Resolved’的Promise实例
 
-- Promise.all()
+// 2，如果_param为Promise实例，直接原封不动的返回。即使原来的实例是“rejected”状态，也是原封不动的返回
 
-- Promise.race()
+// 3，如果_param为“thenable”对象，线将“thenable”对象转为Promise对象，然后就立即执行“thenable”对象的then方法
+// “thenable”对象指的是具有then方法的对象，比如：
+let thenable = {
+    then: function(resolve, reject) {
+        resolve('I was resolved');
+    }
+};
+var _promise = Promise.resolve(thenable);
+_promise.then(_data => console.log(_data)); // 打印：I was resolved
 
-> [参考](http://es6.ruanyifeng.com/#docs/promise#Promise-的含义)  
-[参考2](http://liubin.org/promises-book/#introduction)  
-[参考3](http://coderlt.coding.me/2016/12/03/promise-in-depth-an-introduction-1/#comments)
+// 4，_param不是“thenable”对象，或根本就不是对象
+var _promise = Promise.resolve('I am promise');
+_promise.then(_data => console.log(_data)); // 打印：I am promise
+```
+
+**Promise.reject()**
+
+和`Promise.resolve()`一样，只是返回的Promise实例的状态为`rejected`
+
+**Promise.all()**
+
+**Promise.race()**
