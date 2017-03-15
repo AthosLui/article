@@ -15,6 +15,7 @@ Promises并非解决具体问题的算法，而已代码组织更好的模式
 // 为什么要用函数把“new Promise”包起来，因为new Promise时，也会执行函数内部代码
 // 所以通常用一个函数把“new Promise”包起来，在函数内部return Promise的实例
 
+// 用Promise实现图片异步加载
 function imageLoad(_url) {
     return new Promise(function(resolve, reject) {
         var _image = new Image(); // 新建Image对象
