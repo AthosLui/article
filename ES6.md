@@ -42,16 +42,19 @@ imageLoad('这是图片地址') // 执行imageLoad方法，会返回一个Promis
 ```
 
 认真看了上面的典型的简单的Promise例子，开发者应该对Promise不陌生了，至少对then方法不陌生^_^  
-下面，我们就开始了解then方法之外的其他方法，进一步揭开Promise的面纱
+下面，进一步揭开Promise的面纱
+
+**Promise实例的状态**
+
+每个Promise实例都有一个状态，初始为`Pending`  
+resolve方法可以将Pending改为`Resolved`  
+reject方法可以将Pending改为`Rejected`  
+注意：没有其他方式可以修改Promise实例的状态，且状态不可逆
 
 **Promise原型链方法**（又称实例方法）
 
 - Promise.prototype.then()
     
-    > 每个Promise实例都有一个状态，初始为`Pending`  
-    resolve方法可以将Pending改为`Resolved`  
-    reject方法可以将Pending改为`Rejected`  
-    注意：没有其他方式可以修改Promise实例的状态，且状态不可逆
 
 - Promise.prototype.catch()
 
