@@ -58,13 +58,14 @@ reject方法可以将Pending改为`Rejected`
 **Promise.prototype.then()**
 
 then方法接受2个函数参数，状态变为*Resolved*调用第一个函数参数，状态变为*Rejected*调用第二个函数参数  
-then方法内部必须返回新的`Promise`对象，如果then内部没有显示return语句，那么会自动返回一个新的`Promise`对象  
+then方法内部必须返回全新的`Promise`对象，如果then内部没有显示return语句，那么会自动返回一个全新新的`Promise`对象  
 所以then后面可以继续调用其他实例方法，实现链式调用
 
 **Promise.prototype.catch()**
 
 catch与then一样，返回值是**新的Promise 对象**
-我们知道，then的第二个函数参数，可以看做*接受错误的*方法，我们还知道then可以链式调用  
+我们知道，then的第二个函数参数，可以看做捕获错误的方法  
+我们还知道then可以链式调用  
 试想一下，当链式调用多个then方法时，难道要写多个错误处理方法，不会显得臃肿么  
 那么，catch方法就是为此而生  
 所以，catch方法可以充当then方法的第二个函数参数，并且建议使用catch方法  
