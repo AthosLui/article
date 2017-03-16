@@ -169,6 +169,36 @@ Promise.resolve()
 // 建议第一种方式，实现更简洁，代码更具语义性
 ```
 
+注意：catch不能捕获`异步错误`，请看如下代码：
+
+```javascript
+let _promise1 = () => new Promise(() => {
+        throw new TypeError('I am a error'); // 抛出错误
+    }),
+    _promise2 = () => new Promise(() => {
+        setTimeout(() => {
+            throw new TypeError('I am a error'); // 抛出错误
+        }, 0);
+    }),
+    _promise3 = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('I am a error'); // 主动执行错误情况
+        }, 0);
+    });
+
+// 普通错误抛出情况
+_promise1()
+    .catch(_error => console.log(_error)); // 捕获错误，打印：I am a error
+// 异步错误抛出情况
+_promise2()
+    .catch(_error => console.log(_error)); // 未捕获错误，执行环境报错
+// 异步reject情况
+_promise3()
+    .catch(_error => console.log(_error)); // 执行错误，打印：I am a error
+
+// 所以，在Promise中，你不明确throw的正确方法，那么请使用reject
+```
+
 ### Promise的静态方法
 
 **Promise.resolve(_param)**
