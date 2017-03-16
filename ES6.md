@@ -189,9 +189,11 @@ let _promise1 = () => new Promise(() => {
 // 普通错误抛出情况
 _promise1()
     .catch(_error => console.log(_error)); // 捕获错误，打印：I am a error
+
 // 异步错误抛出情况
 _promise2()
     .catch(_error => console.log(_error)); // 未捕获错误，执行环境报错
+
 // 异步reject情况
 _promise3()
     .catch(_error => console.log(_error)); // 执行错误，打印：I am a error
