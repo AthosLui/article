@@ -196,7 +196,8 @@ _promise2()
 _promise3()
     .catch(_error => console.log(_error)); // 执行错误，打印：I am a error
 
-// 所以，在Promise中，你不明确throw的正确方法，那么请使用reject
+// 所以：在Promise中，你不明确throw的正确方法，那么请使用reject
+//      注意你的代码，不要出现意料之外的错误抛出，所有可能的错误都请用reject拒绝
 ```
 
 ### Promise的静态方法
