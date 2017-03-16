@@ -262,7 +262,7 @@ let _promise = _value => new Promise((resolve, reject) => {
 // 且返回实例的回调参数是一个数组，数组元素是每一个参数实例的回调参数
 Promise
     .all([_promise('resolveOne'), _promise('resolveTwo')])
-    .then(_success => console.log(_success)) // 因为成员状态都为resolve，返回：["resolveOne", "resolveTwo"]
+    .then(_success => console.log(_success)) // 因为成员状态都为resolve，打印：["resolveOne", "resolveTwo"]
     .catch(_error => console.log(_error)); // 因为成员状态都为resolve，所以不执行
 
 // all参数成员状态至少有一个reject
@@ -270,7 +270,26 @@ Promise
 Promise
     .all([_promise('resolveOne'), _promise('rejectOne')])
     .then(_success => console.log(_success)) // 因为成员状态有一个reject，所以不执行
-    .catch(_error => console.log(_error)); // 因为成员状态有一个reject，返回：rejectOne
+    .catch(_error => console.log(_error)); // 因为成员状态有一个reject，打印：rejectOne
 ```
 
 **Promise.race()**
+
+race方法和all方法用法一模一样，只是返回值有点差别  
+从字面理解就能看出来，race是比赛的意思  
+说明参数实例谁先状态发送改变就调用谁
+
+```javascrit
+// 定义一个获取Promise实例的方法，根据传入的第一个参数确定改变状态的快慢
+let _promise = (_time, _value) => new Promise((resolve, reject) => {
+    setTimeout(() => resolve(_value), _time);
+});
+
+// race参数成员状态都为resolve，返回实例状态也为resolve
+// 且返回实例的回调参数是一个数组，数组元素是每一个参数实例的回调参数
+Promise
+    .race([_promise(2000, 'resolveSlow'), _promise(1000, 'resolveFast')])
+    .then(_success => console.log(_success)); // 第二个参数实例更快改变状态，打印：resolveFast
+
+// 可以看出，第二个参数实例用时更快，先自行它的回调方法，且另一个参数实例回调方法不再执行
+```
