@@ -59,7 +59,7 @@ reject方法可以将Pending改为`Rejected`
 
 **Promise.prototype.then()**
 
-then方法接受2个函数参数，第一个函数参数将状态变为*Resolved*，调用第二个函数参数将状态变为*Rejected*  
+then方法接受2个函数参数，第一个函数参数将状态变为`Resolved`，调用第二个函数参数将状态变为`Rejected`  
 
 then方法内部return详解：  
 如果then方法内部return的不是一个`Promise`对象  
