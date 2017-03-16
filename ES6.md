@@ -241,4 +241,38 @@ _promise.catch(_errpr => console.log('I am error')); // 打印：I am error
 
 **Promise.all()**
 
+`all`方法可以接受一个具有Iterator接口的对象（一般为数组），且返回的每个成员都是Promise实例  
+`all`方法依旧返回一个新的Promise实例  
+当参数的所有Promise实例都为`resolved`时，all方法才返回`resolved`，反之则然
+
+```javascript
+// 定义一个获取Promise实例的方法，根据传入参数确定返回实例的状态
+let _promise = _value => new Promise((resolve, reject) => {
+    setTimeout(_value => {
+        // 如果传入的参数以“resolve”开头，这返回状态为resolve的实例，反之则然
+        if (/^resolve/.test(_value)) {
+            resolve(_value);
+            return;
+        }
+        reject(_value);
+    }, 1000, _value);
+});
+
+// all参数成员状态都为resolve，返回实例状态也为resolve
+// 且返回实例的回调参数是一个数组，数组元素是每一个参数实例的回调参数
+Promise
+    .all([_promise('resolveOne'), _promise('resolveTwo')])
+    .then(_success => console.log(_success)) // 因为成员状态都为resolve，返回：["resolveOne", "resolveTwo"]
+    .catch(_error => console.log(_error)); // 因为成员状态都为resolve，所以不执行
+
+// all参数成员状态至少有一个reject
+// 且返回实例的回调参数是第一个状态为reject的参数实例的回调参数
+Promise
+    .all([_promise('resolveOne'), _promise('rejectOne')])
+    .then(_success => console.log(_success)) // 因为成员状态有一个reject，所以不执行
+    .catch(_error => console.log(_error)); // 因为成员状态有一个reject，返回：rejectOne
+```
+
+
+
 **Promise.race()**
