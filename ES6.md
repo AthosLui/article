@@ -273,6 +273,4 @@ Promise
     .catch(_error => console.log(_error)); // 因为成员状态有一个reject，返回：rejectOne
 ```
 
-
-
 **Promise.race()**
