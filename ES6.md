@@ -279,7 +279,7 @@ race方法和all方法用法一模一样，只是返回值有点差别
 从字面理解就能看出来，race是比赛的意思  
 说明参数实例谁先状态发送改变就调用谁
 
-```javascrit
+```javascript
 // 定义一个获取Promise实例的方法，根据传入的第一个参数确定改变状态的快慢
 let _promise = (_time, _value) => new Promise((resolve, reject) => {
     setTimeout(() => resolve(_value), _time);
