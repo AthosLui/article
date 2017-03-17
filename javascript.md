@@ -663,5 +663,26 @@ console.log(arr); // 返回：[1, 2]
 
 ### Array.prototype.reduce()
 
-> reduce中文是减少的意思，reduce方法的作用在于把数组累加然后返回为一个数
+> reduce中文是减少的意思，reduce方法的作用在于把数组累计操作然后返回为一个数
+
+先来个累加的列子，一探究竟
+
+```javascript
+var result = [1, 2, 3].reduce(function(_count, _nowVal) {
+    console.log(_count, _nowVal);
+    return _count + _nowVal;
+});
+console.log(result);
+// 打印：
+// 1 2
+// 3 3
+// 6
+
+// 从打印结果分析，
+// reduce的第一个参数为函数，函数接受2个参数，_count为上一次计算return的结果，_nowVal为当前的值
+// reduce返回最后一个计算return的值
+```
+
+我们再看一个例子
+
 
