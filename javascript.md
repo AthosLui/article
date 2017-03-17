@@ -624,8 +624,6 @@ var tempGetName2 = getName.bind(obj);
 tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 ```
 
-# fetch
-
 # 位运算符
 
 > & |
@@ -685,7 +683,7 @@ console.log(result);
 // reduce方法返回最后一个计算return的值
 ```
 
-我们再看看和上面的相似的累加例子
+我们再看一个和上面的相似的累加例子
 
 ```javascript
 var result = [11, 22, 33].reduce(function(count, nowVal) {

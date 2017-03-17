@@ -303,3 +303,12 @@ Promise可以看做是回调函数的改进方案，解决了callback的回调�
 # Generator
 
 > [阮老师ES6入门](http://es6.ruanyifeng.com/#docs/generator)
+
+# fetch
+
+> fetch提供一个获取资源的接口(包括跨网络)
+fetch可看做ES6对`XMLHttpRequest`的升级方法  
+
+fetch请求默认不带cookie，需设置fetch(url, {credentials: 'include'})  
+当服务器返回`400、500`状态码时并不会reject  
+只有网络错误这些导致请求不能完成时，fetch才会被reject

@@ -360,7 +360,7 @@ new person('hangyangws').say(); // 返回：hangyangw
 **提醒**：  
 虽然“new”一个对象的时候可以不带小括号  
 但是，“new person.speak()”调用方式会报错：“person.speak is not a constructor”  
-因为“.”的优先级大于“new”，类似于：“new (person.speak())”  
+因为“.”的优先级大于“new”，类似于：“new (person.speak())”
 
 # SSL四次握手和TCP三次握手
 
