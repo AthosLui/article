@@ -293,3 +293,13 @@ Promise
 
 // 可以看出，第二个参数实例用时更快，先自行它的回调方法，且另一个参数实例回调方法不再执行
 ```
+
+### Promise总结
+
+Promise可以看做是回调函数的改进方案，解决了callback的回调深渊  
+使用then可以让异步操作更加清晰明了  
+不过原来的异步任务被Promise包装后，不管什么操作，放眼望去都是then，这导致原来的语义变得不那么清楚
+
+# Generator
+
+> [阮老师ES6入门](http://es6.ruanyifeng.com/#docs/generator)
