@@ -660,3 +660,8 @@ var arr = [1, 2, 3, 4];
 arr.length = 2;
 console.log(arr); // 返回：[1, 2]
 ```
+
+### Array.prototype.reduce()
+
+> reduce中文是减少的意思，reduce方法的作用在于把数组累加然后返回为一个数
+
