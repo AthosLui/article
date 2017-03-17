@@ -669,22 +669,38 @@ console.log(arr); // 返回：[1, 2]
 
 ```javascript
 var result = [11, 22, 32].reduce(function(count, nowVal) {
-    console.log(arguments);
+    console.log(...arguments);
     return count + nowVal;
 });
 console.log(result);
 // 打印：
-// [11, 22, 1, [11, 22, 32]]
-// [33, 32, 2, [11, 22, 32]]
+// 11, 22, 1, [11, 22, 32]
+// 33, 32, 2, [11, 22, 32]
 // 6
 
-// 从打印结果分析，
+// 从代码与打印结果分析，
 // reduce方法的第一个参数为函数，函数接受4个参数
 // 第一个参数“count”为上一次计算return的结果，第二个参数nowVal为当前的值
 // 第三参数为nowVal的下标索引，第四个参数为原来的数组
 // reduce方法返回最后一个计算return的值
 ```
 
-我们再看一个例子
+我们再看看和上面的相似的累加例子
+
+```javascript
+var result = [11, 22, 33].reduce(function(count, nowVal) {
+    console.log(...arguments);
+    return count + nowVal;
+}, 1);
+console.log(result);
+// 打印：
+// 1, 11, 0, [11, 22, 33]
+// 12, 22, 1, [11, 22, 33]
+// 34, 33, 2, [11, 22, 33]
+
+// 从代码与打印结果分析，
+// reduce方法还可以接受第二个参数
+// 这个参数作为计算初始值
+```
 
 
