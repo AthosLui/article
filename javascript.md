@@ -1,5 +1,4 @@
 > JavaScript相关知识  
-[查看其他文章](https://github.com/hangyangws/myArticles#文章列表)
 
 # JS的7种数据类型
 
@@ -714,5 +713,3 @@ console.log(result);
 // reduce方法还可以接受第二个参数
 // 这个参数作为计算初始值
 ```
-
-

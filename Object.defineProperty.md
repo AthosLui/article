@@ -1,24 +1,30 @@
+> 对原生JS的Object.defineProperty介绍
+
 # Object.defineProperty
 
-[查看其他文章](https://github.com/hangyangws/myArticles#articles-list)
+> [MDN链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
-## [MDN链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+### 意义与使用场景
 
-## 意义与使用场景
 > `Object.defineProperty`可以监听某个对象的属性的读写，并且可以自定义相关监听函数  
-> PS：对象初始化的值会被清空，定义初始值只能在函数内部定义
+PS：对象初始化的值会被清空，定义初始值只能在函数内部定义
 
-## 语法
+### 语法
+
 ```javascript
 Object.defineProperty(objName, propName, descriptor);
 ```
 
-## 参数
+### 参数
+
 > PS: 数据描述符和存取描述符不能混合使用。比如get 和 value不可以共存。
 
-1. objName：需要定义属性的对象
-1. propName：需定义或修改的属性的名字
-1. descriptor：将被定义或修改的属性的描述符：
+1. objName
+    需要定义属性的对象
+1. propName
+    需定义或修改的属性的名字
+1. descriptor
+    将被定义或修改的属性的描述符：
 
 ```javascript
 {
@@ -38,7 +44,6 @@ Object.defineProperty(objName, propName, descriptor);
 }
 ```
 
-## 返回值
-> 返回传入函数的对象，即第一个参数obj
+#### 返回值
 
-
+返回传入函数的对象，即第一个参数obj

@@ -1,5 +1,4 @@
 > Web前端相关知识  
-[查看其他文章](https://github.com/hangyangws/myArticles#文章列表)
 
 # LazyMan的实现
 
