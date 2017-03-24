@@ -435,6 +435,21 @@ new myGetThis; // 返回：getThis
 // 但是在new过后，内部this还是getThis
 ```
 
+### DOM绑定事件监听函数找this
+
+> 在DOM事件处理函数中，this始终指向这个处理函数绑定的DOM节点
+
+```javascript
+var $dom = document.querySelector('#test');
+
+$dom.addEventListener('click', function() {
+    console.log(this === $dom);
+});
+
+// 当$dom元素被点击的时候，打印：true
+
+```
+
 ### ES6的箭头函数找this
 
 > 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象  
