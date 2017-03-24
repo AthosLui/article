@@ -447,7 +447,6 @@ $dom.addEventListener('click', function() {
 });
 
 // 当$dom元素被点击的时候，打印：true
-
 ```
 
 ### ES6的箭头函数找this
