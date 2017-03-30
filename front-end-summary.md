@@ -71,7 +71,6 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 // "Eat apple" "Wake up after 1000"(1s后输出)
 ```
 
-
 # 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
 
 > JS获取元素样式方式：  
