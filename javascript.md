@@ -619,10 +619,70 @@ tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 
 # IIFE
 
-> [参考](http://rensanning.iteye.com/blog/2080429)  
-IIFE（immediately invoked function expression）  
+> IIFE（immediately invoked function expression）  
 IIFE又称为**自执行函数**、**立即执行函数**  
-我们知道函数需要“调用”，才能执行，比如`var func = function() {}; func(); // 调用`
+
+我们知道函数需要“调用”，才能执行，比如：
+
+```javascript
+var func = function(name) { // 定义一个函数
+    console.log(name);
+};
+
+func('hangyangws'); // 调用函数
+```
+
+执行普通的函数需要二个步骤：  
+第一，定义；第二，调用  
+IIFE函数调用和普通函数一样也需要这二个步骤  
+但是，是把这二个步骤合二为一了
+
+```javascript
+// 普通函数执行过程：
+// 定义一个变量，变量值是一个函数
+// 然后在以小括号"()"的形式调用这个变量
+// 我们试想一下，把小括号直接写在函数后面不就可以了么，不需要通过一个变量当做“中间组件”
+// 比如这样：
+
+function(name) { // 定义一个函数
+    console.log(name);
+}('hangyangws') // 直接在函数后面写上小括号，调用函数
+
+// 但是，这样是行不通的，会报错
+// 因为，前面定义的函数，不是可以自行的对象
+// 那么怎么办
+// 解决方案就是“强制转换”，把函数强制转换为可自行对象
+// 转换方法很多，最常用的还是小括号
+// 比如：
+
+(function(name) { // 定义一个函数，并且用小括号包起来，这样就把函数强制转换为可执行对象了
+    console.log(name);
+})('hangyangws') // 这样就可以安全的调研前面定义的函数
+
+// 然后我突然发现
+// 哟喂，竟然可以写函数名，直接调用一个函数
+// 感觉就像函数自己把自己执行了一样
+```
+
+其实“强制转换”的方式很多，比如  
+```javascript
+// 最外层用小括号包起来
+(function(name) {
+    console.log(name);
+}('hangyangws'))
+
+// 用加号（同理们可以用减号）
++function(name) {
+    console.log(name);
+}('hangyangws')
+
+// 用非（不建议用）
+!function(name) {
+    console.log(name);
+}('hangyangws')
+
+// 最建议开发者用的方式，还是小括号
+```
 
 # 闭包
 
