@@ -613,6 +613,77 @@ var tempGetName2 = getName.bind(obj);
 tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 ```
 
+# 设置元素样式
+
+### setAttribute方式设置元素样式
+
+```javascript
+// 只能用于某些属性（比如height）
+element.setAttribute('height', 100);
+element.setAttribute('height', '100px');
+
+// 直接设置style属性
+element.setAttribute('style', 'max-height: 100px !important');
+element.setAttribute('style', 'height: 100px');
+```
+
+### element.style方式设置元素样式
+
+使用**element.style**对象设置样式
+某些情况此方法设置`!important`值无效  
+如果属性有`-`号，就写成`驼峰`形式  
+如果想保留`-`号，就`中括号`的形式
+
+```javascript
+// 驼峰
+element.style.maxHeight = '100px';
+// 中括号
+element.style['max-height'] = '100px';
+```
+
+使用**element.style.setProperty**方法  
+此方式只能用`中括号`的形式这是样式
+
+```javascript
+// 第三个参数不是必须
+element.style.setProperty('max-height', '100px', 'important');
+// 注意：下面的方法无效
+element.style.setProperty('maxHeight', '100px', 'important');
+```
+
+使用**element.style.cssText**方法  
+
+```javascript
+element.style.cssText = 'height: 100px !important';
+element.style.cssText += 'max-height: 100px !important';
+```
+
+### className方式设置元素样式
+
+> 前提是已经定义好一些类名
+
+```javascript
+element.className = 'blue';
+element.className += 'red pink';
+```
+
+### 使用addRule、insertRule方式设置元素样式
+
+```javascript
+// 在原有样式操作
+document.styleSheets[0].addRule('.box', 'height: 100px');
+document.styleSheets[0].insertRule('.box {height: 100px}', 0);
+
+// 或者插入新样式时操作
+var styleEl = document.createElement('style'),
+    styleSheet = styleEl.sheet;
+
+styleSheet.addRule('.box', 'height: 100px');
+styleSheet.insertRule('.box {height: 100px}', 0);
+
+document.head.appendChild(styleEl);
+```
+
 # 位运算符
 
 > & |
@@ -621,7 +692,6 @@ tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 
 > IIFE（immediately invoked function expression）  
 IIFE又称为**自执行函数**、**立即执行函数**  
-
 我们知道函数需要“调用”，才能执行，比如：
 
 ```javascript
