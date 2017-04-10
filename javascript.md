@@ -546,10 +546,12 @@ str.match(); // 返回：[""]
 ```
 
 ### String.prototype.search
+
 > 如果match参数为非RegExp对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
 如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引。否则，返回 -1
 
 # call、apply和bind
+
 > 三者都是改变函数内部this指向  
 区别一：apply传递参数为数组形式，call与bind为枚举形式  
 区别二：call与apply立即执行，而bind不是
