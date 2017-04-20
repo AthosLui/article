@@ -1,5 +1,3 @@
-> 对原生JS的Object.defineProperty介绍
-
 # Object.defineProperty
 
 > [MDN链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)

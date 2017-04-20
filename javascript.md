@@ -1,15 +1,17 @@
-> JavaScript相关知识  
-
 # JS的7种数据类型
 
 ### 6种原始类型
 
-1. **Null** (只有一个值： null)
-1. **Undefined** (一个没有被赋值的变量会有个默认值undefined)
+1. **Null**  
+    只有一个值： null
+1. **Undefined**  
+    一个没有被赋值的变量会有个默认值undefined，也可以手动赋值为undefined
 1. **Number**
-1. **Boolean** (只有两个值：true 和 false)
+1. **Boolean**  
+    只存在两个值：true 和 false
 1. **String**
-1. [**Symbol**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol) （ES6新增）
+1. [**Symbol**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)  
+    ES6新增
 
 ### 1种引用类型
 
