@@ -64,11 +64,13 @@ typeof [1, 2] // 返回：obejct
 // [1 ,2]是“引用类型”，等同于：new Array(1, 2)
 
 typeof Object // 返回：function
-// Object是函数对象，你可以理解为浏览器定义了一个函数:"var Object = function() {}"
+// Object是函数对象，等同于默认存在：function Object() {…} 这么一个函数
 
-typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
+typeof {a: 'a'} // 返回：object
+// {a: 'a'}是“引用类型”，等同于：new Object({a: 'a'})
 
-// 综上所述，开发者要注意了：数组并不是数组，对象并不是对象 ^_^，容我幽默一下
+// 综上所述，开发者要注意了
+// 数组并不是数组，对象并不是对象 ^_^，容我幽默一下
 ```
 
 # 数据类型检测之`instanceof`
@@ -98,10 +100,10 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 
 # defer和async
 
-> 开发者喜欢把JS文件放在body闭合标签之前，这是问什么呢  
+> 开发者喜欢把JS文件放在body闭合标签之前，这是为什么呢  
 因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
 解析到`<script src="xxx.js">`时，浏览器会停止`DOM`树的构建，而去下载当前JS文件  
-如果`<script src="xxx.js">`下载需要6秒，并且放在`<head>`里面，那么页面会延迟6秒加载，出现6秒白屏
+如果`<script src="xxx.js">`下载需要6秒，下载时`DOM`树还没有构建完成，那么页面会延迟6秒加载，出现6秒白屏
 
 ### defer（翻译：推迟）
 
@@ -134,20 +136,16 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 
 # 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
 
-### getBoundingClientRect
+### HTMLElement.prototype.getBoundingClientRect
 
-> 用于判断元素尺寸和位置
-
-**用法**：  
-`element.getBoundingClientRect()`
-
+用于判断元素尺寸和位置  
 **返回值**：
 
 ```javascript
 {
-    // 下面的值除了width、height外都可能为负数（元素不在视图内的时候）
+    // 下面的值除了width、height都可能为负数（元素不在视图内的时候）
     // 以下值，都是number类型
-    // 注意：IE7以下浏览器，视口的左边默认是(2, 2)，开发者注意
+    // 注意：IE7以下浏览器，视口的默认原点为(2, 2)，开发者注意
     top: 0, // 元素上border相对于视口上边的纵坐标
     bottom: 0, // 元素下border相对于视口上边的纵坐标
     left: 0, // 元素左border相对视口左边的横坐标
@@ -157,17 +155,13 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 }
 ```
 
-### getClientRects  
+### HTMLElement.prototype.getClientRects
 
-> 主要用于行内(inline)元素（如：`<a>`…）  
+主要用于行内(inline)元素（如：`<a>`…）  
 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移  
-可以用于读取行内元素的行数
-
-**用法**：  
-`element.getClientRects()`
-
-**返回值**：
-`一个TextRectangle对象（一个类数组对象）`
+可以用于读取行内元素的行数  
+**返回值**：  
+一个`TextRectangle`对象（一个类数组对象）
 
 ```javascript
 var test = element.getClientRects();
