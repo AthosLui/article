@@ -3,15 +3,15 @@
 ### 6种原始类型
 
 1. **Null**  
-    只有一个值： null
+    只有一个值： `null`
 1. **Undefined**  
     一个没有被赋值的变量会有个默认值undefined，也可以手动赋值为undefined
 1. **Number**
 1. **Boolean**  
-    只存在两个值：true 和 false
+    只存在两个值：`true` 和 `false`
 1. **String**
 1. [**Symbol**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)  
-    ES6新增
+    `ES6`新增基本类型
 
 ### 1种引用类型
 
@@ -22,7 +22,7 @@
 
 # 数据类型检测之`typeof`
 
-typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一)
+对变量或值调用`typeof`运算符将返回(字符串)下列值之一
 
 1. **undefined** (Undefined类型)
 1. **number** (Number类型)
@@ -32,26 +32,39 @@ typeof(对变量或值调用 typeof 运算符将返回(字符串)下列值之一
 1. **function** (函数对象 - ECMA-262条款中实现了)
 1. **object** (引用类型 或 Null类型)
 
-上面的返回值中的前5种都好理解，但是后2种：什么时候返回object，什么时候返回function  
-请看列子与解释：
+上面的返回值中的前5种都好理解  
+但是后两种情况得注意，什么时候返回object，什么时候返回function  
 
 ```javascript
+// 当检测函数对象的时候，返回'function'
+
 typeof Function // 返回：function (Function是函数对象)
 
-typeof new Function // 返回：function (new Function是函数对象)
+// 我们通常理解一个对象实例的时候，是通过new关键字
+// 但是这里有特殊情况，如果构造函数本身是Function
+// 那么 new 出来的实例也是一个function并不objec
+
+typeof new Function // 返回：function
+// new Function依旧是是函数对象
 
 var func = function(){};
-typeof func // 返回：function (func是函数对象，和上一个列子一样的意思)
+typeof func // 返回：function
+// func是函数对象，和上一个列子一样的意思
 
-typeof new new Function // 返回：object (第一次new返回函数对象，第二次new返回实例“引用类型”)
+typeof new new Function // 返回：object
+// 第一次new返回“函数对象”，第二次new返回实例“引用类型”
 
-typeof Array // 返回：function (Array是函数对象)
+typeof Array // 返回：function
+// Array是函数对象，等同于默认存在：function Array() {…} 这么一个函数
 
-typeof new Array // 返回：object（实例化的Array是“引用类型”）
+typeof new Array // 返回：object
+// 实例化的Array是“引用类型”
 
-typeof [1, 2] // 返回：obejct （[1 ,2]是“引用类型”，和上一个列子一样的意思）
+typeof [1, 2] // 返回：obejct
+// [1 ,2]是“引用类型”，等同于：new Array(1, 2)
 
-typeof Object // 返回：function（Object是函数对象，你可以理解为浏览器定义了一个函数:"var Object = function() {}"）
+typeof Object // 返回：function
+// Object是函数对象，你可以理解为浏览器定义了一个函数:"var Object = function() {}"
 
 typeof {a: 'a'} // 返回：object（{a: 'a'}是“引用类型”）
 
