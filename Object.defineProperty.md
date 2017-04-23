@@ -1,6 +1,6 @@
 # Object.defineProperty
 
-> [MDN链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+[MDN链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
 ### 意义与使用场景
 
@@ -15,10 +15,10 @@ Object.defineProperty(objName, propName, descriptor);
 
 ### 参数
 
-> PS: 数据描述符和存取描述符不能混合使用。比如get 和 value不可以共存。
+> PS: 数据描述符和存取描述符不能混合使用。比如 get 和 value 不可以共存。
 
 1. objName
-    需要定义属性的对象
+    需要定义的属性的对象
 1. propName
     需定义或修改的属性的名字
 1. descriptor
