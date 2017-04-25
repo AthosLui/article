@@ -363,21 +363,11 @@ new person('hangyangws').say(); // 返回：hangyangw
 
 # SSL握手时有对称加密和非对称加密吗
 
-# CSS inline
-
-# 盒模型(W3C和IE)
-
-# flex的使用
-
-# CSS hack技术
-
 # 从输入url到渲染的整个过程?
 
 # 懒加载&&预加载
 
 # 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
-
-# margin重叠现象与BFC
 
 # bootstrap的基本原理，bootstrap的grid系统
 
