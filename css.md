@@ -10,6 +10,10 @@
 **pre-wrap**：保留空白符，自动进行换行，不会有滚动条  
 **pre-line**：合并空白符，保留换行符
 
+### word-wrap
+
+### word-break
+
 # CSS inline
 
 # 盒模型(W3C和IE)
