@@ -827,3 +827,7 @@ console.log(result);
 // reduce方法还可以接受第二个参数
 // 这个参数作为计算初始值
 ```
+
+### Array.prototype.find
+
+[mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
