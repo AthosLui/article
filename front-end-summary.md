@@ -374,3 +374,14 @@ new person('hangyangws').say(); // 返回：hangyangw
 # xss和csrf
 
 # 事件循环
+
+# nrm
+
+# nodemon
+
+### 手动重启nodemon
+
+执行`rs`命令即可
+
+
+[learn](https://github.com/remy/nodemon)
