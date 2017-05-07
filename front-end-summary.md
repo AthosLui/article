@@ -361,9 +361,13 @@ new person('hangyangws').say(); // 返回：hangyangw
 
 # SSL四次握手和TCP三次握手
 
+[link](https://github.com/jawil/blog/issues/14)
+
 # SSL握手时有对称加密和非对称加密吗
 
-# 从输入url到渲染的整个过程?
+# 从输入url到渲染的整个过程
+
+[link](https://juejin.im/post/5909b21eda2f60005d1ef731)
 
 # 懒加载&&预加载
 

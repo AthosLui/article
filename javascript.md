@@ -766,6 +766,8 @@ function(name) { // 定义一个函数
 
 > 闭包实际上设计一个对象的属性，何时被gc处理的问题 闭包和gc是相关联的
 
+[link](http://mp.weixin.qq.com/s/kxKon7JsAHAuHQw6OY0T9Q)
+
 # 数组相关
 
 ### 数组的长度是根据下标的最大而确定的
