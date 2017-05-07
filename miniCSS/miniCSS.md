@@ -14,4 +14,4 @@
 
 ### 浏览器支持
 
-![Browser support](./browser.png)
+![Browser support](https://raw.githubusercontent.com/hangyangws/myArticle/master/miniCSS/img/browser.png)
