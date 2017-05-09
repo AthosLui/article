@@ -25,7 +25,7 @@
 涉及知识点：  
 
 1. web worker
-1. Service Worker 
+1. Service Worker
 
 ### Prepack
 
