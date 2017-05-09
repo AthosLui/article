@@ -22,6 +22,7 @@
 
 [参考链接1](https://juejin.im/post/591028fc2f301e006c291c4b)  
 [参考链接2](https://segmentfault.com/a/1190000006678016)  
+[参考链接3](https://git.in.zhihu.com/fe/zhihu-components/tree/master/es/VagueImage)
 涉及知识点：  
 
 1. web worker
