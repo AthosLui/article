@@ -1,12 +1,60 @@
 # Web Worker
 
-[link-Web Worker](https://www.villainhr.com/page/2016/08/22/Web%20Worker)
+[Web Worker](https://www.villainhr.com/page/2016/08/22/Web%20Worker)
+
+### 简介 & 背景
+
+浏览器限制一个网页在一个`进程`中执行 -> JS只能在这个进程的一个`线程`执行 -> 高负荷的运算 -> 一个线程搞不定  
+web worker可以理解为，`网络的苦力工`，处理繁重的任务、运算，那么`Web Worker`就是为了解决`浏览器性能`而生  
+web worker运行在线程中，JS也是运行在线程中，线程之间的通信可以使用`postMessage`进行双向通信
+
+### 一个乘法DEMO
+
+[点我](http://hangyangws.win/myDemo/apps/web_worker/)
+
+### 关闭worker实例（杀掉线程）
+
+> 官方推荐是，使用self.close进行内部的自动关闭，这样能防止, 意外关闭正在运行的worker
+
+1. workerObj.terminate(): 在外部终结该worker
+1. self.close(): 在worker内部自动终结
+
+
+### 作用域
+
+全局索引就是self和this，self来获取worker自带的方法
+
+### 注意事项
+
+worker 引用的就是js文件  
+由于 worker 是独立的线程，他和 main js threading 有很大区别的
+
+worker 访问的权限有
+
+1. window.navigator 相关属性和方法
+1. 只读的 window.location 内容.
+1. window.XMLHttpRequest（卧槽… 可以访问这个那就不得了，worker就可以利用ajax来和后台进行通信了）
+1. setInterval 相关时间函数
+
+同域限制  
+worker 在访问时, 只能是在同一host下才行. 即, 你的worker只能处于指定目录下的path中  
+所以：本地调试file://xxx的话, 也不能使用worker
+
+### 使用场景
+
+根据 worker 独立线程特性，可以把大规模数据并发，I/O操作都可以交给他  
+总的来说有这些场景
+
+- 懒加载数据
+- 文本分析
+- 流媒体数据处理
+- web database 的更新
 
 # Service Worker
 
 [Service Worker 入门](https://www.w3ctech.com/topic/866)
-[link-服务工作线程注册](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration)
-[link-ervice Worker](https://juejin.im/post/591028fc2f301e006c291c4b)
+[Service Worker 全面进阶](http://ivweb.io/topic/5876d4ee441a881744b0d6d6)
+[服务工作线程注册](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration)
 
 ### 概述
 
