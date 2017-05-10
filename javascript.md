@@ -790,7 +790,8 @@ console.log(arr); // 返回：[1, 2]
 
 ### Array.prototype.reduce()
 
-> reduce中文是减少的意思，reduce方法的作用在于把数组累计操作然后返回为一个数
+> reduce中文是减少的意思  
+reduce可以作用于把数组累计操作然后返回为一个数
 
 先来个累加的列子，一探究竟
 
