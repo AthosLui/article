@@ -57,16 +57,14 @@ worker 在访问时, 只能是在同一 host 下才行. 即, 你的 worker 只�
 
 # Service Worker
 
-[Service Worker 入门](https://www.w3ctech.com/topic/866)
-[服务工作线程注册](https://developers.google.com/web/fundamentals/instant-and-offline/service-worker/registration)
-[Service Worker 全面进阶](http://ivweb.io/topic/5876d4ee441a881744b0d6d6)
+[link](https://jakearchibald.github.io/isserviceworkerready/resources.html)
 
 ### 概述
 
 它使得开发者可以支持非常好的离线体验，给予开发者完全控制离线数据的能力  
 service worker 是一段运行在浏览器后台进程里的脚本，它独立于当前页面  
 原生 APP 有 Web 通常所不具备的富离线体验、定时的静默更新、消息通知推送……  
-而 Service workers 标准让在Web拥有这些功能成为可能
+而 Service workers 标准让在 Web 拥有这些功能成为可能
 
 Service workers 由 cache 和 [Worker](https://www.villainhr.com/page/2016/08/22/Web%20Worker)二部分组成  
 不会阻碍当前 js 进程的执行，确保性能第一
@@ -75,33 +73,27 @@ SW 是基于 HTTPS 的，如果你的网站不是 HTTPS，那么基本上你也�
 这估计造成了一个困难，即，我调试 SW 的时候咋办  
 解决办法也是有的，使用 charles 或者 fildder 完成域名映射即可
 
-SW 是挂载到 navigator 下的对象
-
-```js
-if ('serviceWorker' in navigator) {
-  // ....
-}
-```
+serviceWorker 是挂载到 navigator 下的对象
 
 ### 注意事项
 
-1. 它是 JavaScript Worker ，所以它不能直接操作 DOM ，但是可以通过 postMessage 与页面之间通信，如果需要的话，让页面自己去操作DOM
-1. Service worker 是一个可编程的**网络代理**，允许开发者控制页面上处理的网络请求
-1. 在不被使用的时候，会自己终止，而当它再次被用到的时候，会被重新激活
+- 它是 JavaScript Worker ，所以它不能直接操作 DOM ，但是可以通过 postMessage 与页面之间通信，如果需要的话，让页面自己去操作DOM
+- Service worker 是一个可编程的**网络代理**，允许开发者控制页面上处理的网络请求
+- 在不被使用的时候，会自己终止，而当它再次被用到的时候，会被重新激活
 
-  > 所以你不能依赖于 service worker 的 onfecth 和 onmessage 的处理函数中的全局状态  
-  如果你想要保存一些持久化的信息，你可以在 service worker 里使用 IndexedDB API
+> 所以你不能依赖于 service worker 的 onfetch 和 onmessage 的处理函数中的全局状态  
+如果你想要保存一些持久化的信息，你可以在 service worker 里使用 IndexedDB API
 
-1. service work 会收到他域下的所有fetch事件，所以注册时，要注意路径
+- service work 会收到他域下的所有fetch事件，所以注册时，要注意路径
 
 ### 生命周期
 
 ![lifycycle](/img/lifycycle.png)
 
-要让一个 service worker 在你的网站上生效，你需要先在你的网页中注册它  
-浏览器会在后台默默启动一个 service worker 的安装过程  
+要让一个 service worker 在你的网站上生效，你需要先在你的网页中**注册**它  
+浏览器会在后台默默启动一个 service worker 的**安装**过程  
 安装过程中，浏览器会加载并缓存一些静态资源，如果**所有**的文件被缓存成功，则安装成功，如果有**任何**文件加载或缓存失败，则安装失败  
-失败后会重新尝试
+失败后会**重新尝试**
 
 后台进程: SW 就是一个 worker 独立于当前网页进程。  
 网络代理: SW 可以用来代理请求，缓存文件  
@@ -110,24 +102,41 @@ if ('serviceWorker' in navigator) {
 
 ### 开始使用
 
-注册（告诉浏览器你的 service worker 脚本在哪里）  
-如果某个 service worker 已经被注册过，再次注册浏览器会自动忽略
+浏览器的资源、网页的内存有限，再开个 SW（这个很大的），易闪退  
+为减少性能损耗，一般直接在 onload 里注册 SW
 
 ```javascript
-window.addEventListener('DOMContentLoaded', function() {
-  // 执行注册
-  navigator.serviceWorker.register('/sw.js').then(function(registration) {
-
-  }).catch(function(err) {
-
-  })
-})
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    // 注册（告诉浏览器你的 service worker 脚本在哪里）
+    // 如果某个 service worker 已经被注册过，再次注册浏览器会自动忽略
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // 注册成功
+      console.log('SW作用域：', registration.scope);
+    }).catch(function(err) {
+      // 注册失败
+      console.log('SW注册失败：', err);
+    });
+  });
+}
 ```
 
-但浏览器的资源也是有限的，浏览器分配给你网页的内存就这么多，你再开个 SW（这个很大的。。。），容易闪退  
-为了减少性能损耗，我们一般直接在 onload 事件里面注册 SW
+### 一个 DEMO
+
+[点我](http://hangyangws.win/myDemo/apps/service_worker/)
 
 ### 查看
 
 打开 `chrome://inspect/#service-workers` 查看当前浏览器中正在注册的 SW  
 `chrome://serviceworker-internals` 用来查看当前浏览器中所有注册好的 SW
+
+### 浏览器支持
+
+[点我](https://jakearchibald.github.io/isserviceworkerready/)
+
+### 使用分析
+
+什么时候开启 SW ?  
+window.onload 可靠吗？
+例如，[Google I/O 2016 网络应用](https://events.google.com/io2016/)在过渡到主屏幕前先显示一个简短的动画。然后发现，在显示动画期间启动 SW 会导致低端移动设备出现卡顿
+

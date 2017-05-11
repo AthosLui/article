@@ -1,5 +1,7 @@
 # 简谈Promise
 
+[link](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+
 > 写在前面:  
 在Promise之前，实现异步可使用回调  
 也可以自己实现类似Promise的结构，比如jQuery的ajax  
