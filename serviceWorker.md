@@ -8,7 +8,7 @@ web worker 运行在线程中，JS也是运行在线程中，线程之间的通�
 
 ### 一个乘法 DEMO
 
-[点我](http://hangyangws.win/myDemo/apps/web_worker/)
+[点我](http://hangyangws.github.io/myDemo/apps/web_worker/)
 
 ### 关闭 worker 实例（杀掉线程）
 
@@ -56,8 +56,6 @@ worker 在访问时, 只能是在同一 host 下才行. 即, 你的 worker 只�
 ---
 
 # Service Worker
-
-[link](https://jakearchibald.github.io/isserviceworkerready/resources.html)
 
 ### 概述
 
@@ -162,7 +160,7 @@ if ('serviceWorker' in navigator) {
 
 ### 一个 DEMO
 
-[点我](http://hangyangws.win/myDemo/apps/service_worker/)
+[点我](https://hangyangws.github.com/myDemo/apps/service_worker/)
 
 ### cache
 
