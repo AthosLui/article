@@ -26,6 +26,6 @@ JavaScript中defineProperty简述
 
 对ES6的部分知识点的简要概述与分析
 
-### [Service Worker](https://github.com/hangyangws/myArticles/blob/master/serviceWorcker.md)
+### [Service Worker](https://github.com/hangyangws/myArticles/blob/master/serviceWorker.md)
 
 web Worker、Service Worker的简单介绍
