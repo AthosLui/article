@@ -1,5 +1,3 @@
-# 周五分享暂选清单
-
 ### Web推送技术
 
 [参考链接](https://www.villainhr.com/page/2017/01/08/Web%20%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF)  
@@ -18,16 +16,6 @@
 1. FileReader
 1. Canvas
 
-### Service Worker
-
-[参考链接1](https://juejin.im/post/591028fc2f301e006c291c4b)  
-[参考链接2](https://segmentfault.com/a/1190000006678016)  
-[参考链接3](https://git.in.zhihu.com/fe/zhihu-components/tree/master/es/VagueImage)
-涉及知识点：  
-
-1. web worker
-1. Service Worker
-
 ### Prepack
 
 [参考链接1](https://prepack.io/)  
@@ -39,3 +27,19 @@
 Prepack用简单的赋值序列来等效替换JavaScript代码包中的全局代码  
 从而消除了中间计算过程以及对象分配的操作  
 对于重初始化的代码，Prepack可以有效缓存JavaScript解析的结果，优化效果最佳
+
+- [谷歌远程调试功能](https://developers.google.com/web/tools/chrome-devtools/remote-debugging/)
+- eslint
+- [React入门笔记](https://hulufei.gitbooks.io/react-tutorial/content/webpack.html)
+- [react-devtools](https://github.com/facebook/react-devtools/blob/master/README.md#the-react-tab-doesnt-show-up)
+- [git learn](http://gitbook.liuhui998.com/index.html)
+- [git](http://gitref.org/zh/creating/#init)
+- [redux](http://cn.redux.js.org/)
+- [webpack起步](https://doc.webpack-china.org/guides/get-started/)
+- [node模块学习](http://nodejs.cn/api/path.html#path_path_resolve_paths)
+- mock
+- [npm 发布](https://segmentfault.com/a/1190000004221514)
+- vim命令
+- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+- [tig](https://github.com/jonas/tig)
+- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)

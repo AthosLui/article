@@ -10,22 +10,22 @@
 把平时遇到的，感觉值得记录的，觉得可能会忘记的只是点总结下来  
 以来可以温故而知新，而来可以分享给开发者
 
-### 文章列表
+### [javascript原生知识](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
 
-- [javascript.md](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
+原生JavaScript的部分知识点
 
-    原生JavaScript的部分知识点
+### [前端知识点总结](https://github.com/hangyangws/myArticles/blob/master/front-end-summary.md)
 
-- [front-end-summary.md](https://github.com/hangyangws/myArticles/blob/master/front-end-summary.md)
+前端开发相关问题的解决方案与分析
 
-    前端开发相关问题的解决方案与分析
+### [Object.defineProperty](https://github.com/hangyangws/myArticles/blob/master/Object.defineProperty.md)
 
-- [Object.defineProperty.md](https://github.com/hangyangws/myArticles/blob/master/Object.defineProperty.md)
+JavaScript中defineProperty简述
 
-    JavaScript中defineProperty简述
+### [ES6](https://github.com/hangyangws/myArticles/blob/master/ES6.md)
 
-- [ES6.md](https://github.com/hangyangws/myArticles/blob/master/ES6.md)
+对ES6的部分知识点的简要概述与分析
 
-    对ES6的部分知识点的简要概述与分析
+### [Service Worker](https://github.com/hangyangws/myArticles/blob/master/serviceWorcker.md)
 
-
+web Worker、Service Worker的简单介绍
