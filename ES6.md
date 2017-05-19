@@ -313,4 +313,13 @@ fetch请求默认不带cookie，需设置fetch(url, {credentials: 'include'})
 当服务器返回`400、500`状态码时并不会reject  
 只有网络错误这些导致请求不能完成时，fetch才会被reject
 
-# import
+### import
+
+### super
+
+[link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super)
+
+### class
+
+[link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)
+[link](http://es6.ruanyifeng.com/#docs/class#Class基本语法)
