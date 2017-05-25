@@ -321,5 +321,29 @@ fetch请求默认不带cookie，需设置fetch(url, {credentials: 'include'})
 
 ### class
 
-[link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)
-[link](http://es6.ruanyifeng.com/#docs/class#Class基本语法)
+[link](https://github.com/ruanyf/es6tutorial/blob/a5ed53c5399c14cfaea4ca7e97957b999fba4807/docs/class.md)  
+[link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)  
+[link](http://es6.ruanyifeng.com/#docs/class#Class基本语法)  
+
+ES6明确规定，Class内部只有静态方法，没有静态属性  
+ES7有一个静态属性的提案，目前Babel转码器支持
+
+```JS
+class Foo {
+}
+
+Foo.prop = 1;
+Foo.prop // 1
+//上面的写法为Foo类定义了一个静态属性prop
+
+// 以下两种写法都无效
+class Foo {
+  // 写法一
+  prop: 2
+
+  // 写法二
+  static prop: 2
+}
+
+Foo.prop // undefined
+```
