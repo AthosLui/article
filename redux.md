@@ -16,3 +16,8 @@
 createStore() 的第二个参数是可选的, 用于设置 state 初始状态
 
 你可以在任何地方调用 store.dispatch(action)，包括组件中、XHR 回调中、甚至定时器中
+
+这里需要再强调一下：Redux 和 React 之间没有关系。Redux 支持 React、Angular、Ember、jQuery 甚至纯 JavaScript。
+
+容器组件就是使用 store.subscribe() 从 Redux state 树中读取部分数据，并通过 props 来把这些数据提供给要渲染的组件
+你可以手工来开发容器组件，但建议使用 React Redux 库的 connect() 方法来生成，这个方法做了性能优化来避免很多不必要的重复渲染
