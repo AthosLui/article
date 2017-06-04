@@ -53,7 +53,9 @@
 
 `git log` 显示一个分支中提交的更改记录  
 `git log --oneline` 选项来查看历史记录的紧凑简洁的版本  
-`git log --graph` 选项来查看历史记录的拓扑图
+`git log --graph` 选项来查看历史记录的拓扑图  
+添加 `-5` 查看 5 条记录  
+提交 `-author=userName` 只查看某个人的提交
 
 ### git remote
 
