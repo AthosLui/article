@@ -1,4 +1,4 @@
-# 简谈Promise
+# 简谈 Promise
 
 [link](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 
@@ -8,7 +8,7 @@
 回调是很好的异步解决方案，不过“嵌套多了”就惹得人心烦，且代码难以阅读  
 Promises并非解决具体问题的算法，而已代码组织更好的模式
 
-### 一个Promise列子
+### 一个 Promise 列子
 
 ```javascript
 // 注意：
@@ -46,14 +46,14 @@ imageLoad('这是图片地址') // 执行imageLoad方法，会返回一个Promis
 认真看了上面的典型的简单的Promise例子，开发者应该对Promise不陌生了，至少对then方法不陌生^_^  
 下面，进一步揭开Promise的面纱
 
-### Promise实例的状态
+### Promise 实例的状态
 
 每个Promise实例都有一个状态，初始为`Pending`  
 resolve方法可以将Pending改为`Resolved`  
 reject方法可以将Pending改为`Rejected`  
 注意：没有其他方式可以修改Promise实例的状态，且状态不可逆
 
-### Promise原型链方法
+### Promise 原型链方法
 
 > 原型链方法又称`实例方法`
 
@@ -325,8 +325,8 @@ fetch请求默认不带cookie，需设置fetch(url, {credentials: 'include'})
 [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)  
 [link](http://es6.ruanyifeng.com/#docs/class#Class基本语法)  
 
-ES6明确规定，Class内部只有静态方法，没有静态属性  
-ES7有一个静态属性的提案，目前Babel转码器支持
+ES6 明确规定，Class 内部只有静态方法，没有静态属性  
+ES7 有一个静态属性的提案，目前Babel转码器支持
 
 ```JS
 class Foo {

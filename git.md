@@ -40,7 +40,7 @@
 ### git checkout
 
 `git checkout <branchname>` 切换分支  
-`git checkout -b <branchname>` 先创建分支，再切换到该分支  
+`git checkout -b <branchname>` 先创建分支，再切换到该分支
 
 ### git branch
 
@@ -59,5 +59,5 @@
 
 ### git remote
 
-`git remote` 列出远端别名
+`git remote` 列出远端别名  
 `git remote -v` 列出远端别名，并且可以看到每个别名的实际链接地址

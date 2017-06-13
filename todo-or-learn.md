@@ -27,3 +27,10 @@
 Prepack用简单的赋值序列来等效替换JavaScript代码包中的全局代码  
 从而消除了中间计算过程以及对象分配的操作  
 对于重初始化的代码，Prepack可以有效缓存JavaScript解析的结果，优化效果最佳
+
+### webpack
+
+配置文件  
+热加载  
+webpack-hot-middleware  
+webpack-dev-middleware
