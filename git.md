@@ -1,6 +1,7 @@
 # Git 只言片语
 
 [link](http://gitref.org/zh/basic)
+[link](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 
 ### git clone
 
@@ -47,7 +48,7 @@
 `git branch` 列出本地分支  
 `git branch -r` 列出远端分支  
 `git branch -a` 列出所有分支  
-`git branch -d <branchname>` 删除分支『前提是目前分支不在此分支』
+`git branch -d <branchname>` 删除本地分支『前提是目前分支不在此分支』
 
 ### git log
 
@@ -55,9 +56,18 @@
 `git log --oneline` 选项来查看历史记录的紧凑简洁的版本  
 `git log --graph` 选项来查看历史记录的拓扑图  
 添加 `-5` 查看 5 条记录  
-提交 `-author=userName` 只查看某个人的提交
+提交 `--author=userName` 只查看某个人的提交
 
 ### git remote
 
 `git remote` 列出远端别名  
 `git remote -v` 列出远端别名，并且可以看到每个别名的实际链接地址
+
+
+### git reset
+
+git reset --hard HEAD~30
+
+### git pull
+
+pull 和 fetch 区别
