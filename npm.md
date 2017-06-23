@@ -5,7 +5,7 @@
 安装完成后，下面的所以命令，都可以把 npm 换成 cnpm  
 另外，如果你既不喜欢 npm 的安装速度，也不想使用 cnpm，那么我建议你使用 [yarn](https://yarnpkg.com/zh-Hans/)  
 
-推荐一个 npm 包， [n](https://github.com/tj/n)，可以用来管理 Node.js版本
+推荐一个 npm 包：[n](https://github.com/tj/n)，可以用来管理 Node.js版本
 
 ### `sudo npm list -g --depth=0`
 
@@ -19,7 +19,7 @@
 
 更新某个 node 全局模块
 
-## `npm config get prefix`
+### `npm config get prefix`
 
 获取当前设置的目录
 
