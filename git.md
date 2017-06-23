@@ -92,3 +92,7 @@ OR
 1. `git add .`
 1. `git rebase --continue`
 1. `git push origin T94469:T94469 -f`
+
+### 删除远程分支
+
+`git push origin :branchName`

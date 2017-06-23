@@ -1,8 +1,5 @@
-# myArticles
-
-> 来自：hangyangws  
-备注：如果涉及`JavaScript`代码，都是以Chrome控制台为标准  
-     我的目的只是单纯的记录我的个人想法和心得，写的不对的地方，请谅解和提交issue
+如果涉及`JavaScript`代码，都是以Chrome控制台为标准  
+我的目的只是单纯的记录我的个人想法和心得，写的不对的地方，请谅解和提交issue
 
 ### 初衷
 
@@ -29,3 +26,6 @@ JavaScript中defineProperty简述
 ### [Service Worker](https://github.com/hangyangws/myArticles/blob/master/serviceWorker.md)
 
 web Worker、Service Worker的简单介绍
+
+### [npm](https://github.com/hangyangws/myArticles/blob/master/npm.md)
+
