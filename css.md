@@ -16,11 +16,11 @@
 
 # CSS inline
 
-# 盒模型(W3C和IE)
+# 盒模型之：W3C 与 IE 的区别
 
-# flex的使用
+# flex 的使用
 
-# CSS hack技术
+# CSS hack 技术
 
 # margin 重叠现象与 BFC
 
