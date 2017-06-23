@@ -63,7 +63,6 @@
 `git remote` 列出远端别名  
 `git remote -v` 列出远端别名，并且可以看到每个别名的实际链接地址
 
-
 ### git reset
 
 git reset --hard HEAD~30
@@ -71,3 +70,25 @@ git reset --hard HEAD~30
 ### git pull
 
 pull 和 fetch 区别
+
+### 新建分支
+
+1. `git branch branchName`
+1. `git checkout branchName`
+
+OR
+
+1. `git checkout -b branchName`
+
+### 多个 commit 合并为一个
+
+1. `git rebase -i origin/master`
+1. `git push origin branchName:branchName -f`
+
+### 当前分支合并 master 新的代码
+
+1. `git pull --rebase origin master`
+1. `解决冲突`
+1. `git add .`
+1. `git rebase --continue`
+1. `git push origin T94469:T94469 -f`
