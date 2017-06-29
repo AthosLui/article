@@ -4,12 +4,11 @@
 安装 cnpm：`sudo npm install cnpm -g --registry=https://registry.npm.taobao.org`  
 安装完成后，下面的所以命令，都可以把 npm 换成 cnpm  
 另外，如果你既不喜欢 npm 的安装速度，也不想使用 cnpm，那么我建议你使用 [yarn](https://yarnpkg.com/zh-Hans/)  
+推荐一个 npm 包：[「n」](https://github.com/tj/n)，可以用来管理 Node.js版本
 
-推荐一个 npm 包：[n](https://github.com/tj/n)，可以用来管理 Node.js版本
+### `sudo npm list --depth=0`
 
-### `sudo npm list -g --depth=0`
-
-显示 npm 全局安装包，depth 表示查看依赖的深度
+显示 npm 装包列表，depth 表示查看依赖的深度，可以加上 `-g` 参数查看全局安装列表
 
 ### `sudo npm uninstall -g  moudleName`
 
@@ -19,18 +18,14 @@
 
 更新某个 node 全局模块
 
-### `npm config get prefix`
-
-获取当前设置的目录
-
 ### `sudo npm install npm@4.4.4 -g`
 
 升级 npm 到固定版本号  
 如果你已经安装某个版本，想替换版本号，也可以使用这个命令
 
-### `npm -g outdated`
+### `npm outdated`
 
-查看那些包可以更新
+这个命令很不错哦，可以查看那些包可以更新，同样添加 `-g` 参数可以查看全局的
 
 ### `npm install --only=production`
 
@@ -38,14 +33,14 @@
 
 ### `npm init -y`
 
-快速生成 `package.json` 文件
+如果你执行 `npm init` 的时候被它的每一步都需要你确认而困扰的话，那么 `npm init -y` 可以快速生成 `package.json` 文件
 
 ### 发布版本
 
 - 升级补丁版本号：`npm version patch`
 - 升级小版本号：`npm version minor`
 - 升级大版本号：`npm version major`
-- 升级到版本号「消息、发布」
+- 升级到版本号，包括升级信息，然后发布
 
 ```sh
 npm version 0.3.2 -m "…"
