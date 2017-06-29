@@ -1,6 +1,15 @@
-现状：每一个input或者select设置一个onChange方法，来监听表单value值的变化
+### 分析
 
-1. 只有一份数据需要维护也就是 fields 里面的数据，fields 是一个数组，这里面的数据就是表单中的需要动态改变的项
-2. 初始化设置 initialValues 属性
-3. 数据校验方式，支持同步校验和异步校验
-4. 获取表单数据，直接 handleSubmit 方法即可接收表单数据。
+表单项可能最关心是字段 name，其次才是辅助的校验  
+如果配置项太重，会喧宾夺主  
+校验代码远大于组件本身，尤其多个表单项使用时候，使得整体表单会很庞杂
+
+### redux-form 对表单项的定义
+
+```jsx
+// 引入
+import { Field } from 'redux-form'
+
+// 使用方式
+<Field name="firstName" component="input" type="text" placeholder="First Name"/>
+```

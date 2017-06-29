@@ -45,3 +45,9 @@
 - 升级补丁版本号：`npm version patch`
 - 升级小版本号：`npm version minor`
 - 升级大版本号：`npm version major`
+- 升级到版本号「消息、发布」
+
+```sh
+npm version 0.3.2 -m "…"
+npm publish
+```

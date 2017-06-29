@@ -96,3 +96,7 @@ OR
 ### 删除远程分支
 
 `git push origin :branchName`
+
+### 清理远程分支，把本地不存在的远程分支删除
+
+`git remote prune origin`
