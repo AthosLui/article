@@ -80,8 +80,6 @@
 在IE6 及以前的混杂模式下的盒模型的效果是：「contentWidth + (borderWidth + paddingWidth) * 2 === 100」  
 W3C 标准盒模型下的效果是：「contentWidth === 100」
 
-# flex 的使用
-
 # CSS hack
 
 属性级 hack
@@ -121,22 +119,36 @@ IE 条件注释 hack
 <!-- [if !IE]>此处内容只有非IE可见<![endif]-->
 ```
 
-# margin 重叠现象与 BFC
+# BFC
 
-BFC 是 css 布局的一个概念，代表一块区域或者一个环境，是一个独立的渲染区域  
-我们常说的文档流其实分为「定位流、浮动流、普通流」三种，BFC 中的 FC 指的就是「普通流」  
-FC 是 formatting context 的首字母缩写，直译为「格式化上下文」  
-FC 是页面中的一块渲染区域，有一套自己渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用  
+BFC「Block formatting context - 块级格式化上下文」是 CSS 布局的一个概念，代表独立的渲染区域  
+我们常说的文档流其实分为「定位流、浮动流、普通流」三种，BFC 中的 FC 指的是「普通流」  
+除了`BFC` 还有：`IFC`（inline FC）、`GFC`（grid FC）……  
 
 下列条件之一就可触发 BFC
 
-1. 根元素，即 HTML 元素
-2. float 的值不为 none
-3. overflow 的值不为 visible
-4. display 的值为 inline-block、table-cell、table-captio
-5. position 的值为 absolute 或 fixed
+- 根元素，即 HTML 元素
+- float 的值不为 none
+- overflow 的值不为 visible
+- display 的值为 inline-block、table-cell、table-caption
+- position 的值为 absolute 或 fixed
 
-[link](https://juejin.im/post/5909db2fda2f60005d2093db)
+BFC 的特性如下：
+
+1. BFC 里面的盒子和其外面的盒子间是不会有任何影响
+1. 内部的 Box 会在垂直方向，一个接一个地放置
+1. Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠
+1. 每个元素的 margin box 的左边，与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。浮动元素也是如此
+1. BFC 的区域不会与 float box 重叠
+1. 计算 BFC 的高度时，浮动元素也参与计算
+
+那么可以根据 BFC 的特性，做到如下效果：
+
+- 自适应两栏布局 [点击查看代码](https://jsfiddle.net/hangyangws/1d4yj6pp/2/)
+
+- 清除浮动 [点击查看代码](https://jsfiddle.net/hangyangws/w13kL9fy/)
+
+- 阻止 margin 重叠 [点击查看代码](https://jsfiddle.net/hangyangws/tj5mod53/)
 
 # line-height 以及 vertical-align
 
@@ -144,3 +156,5 @@ FC 是页面中的一块渲染区域，有一套自己渲染规则，决定了�
 但问题是font-size：100px在不同字体时表现是不一样的
 
 [link](http://web.jobbole.com/91180/)
+
+# flex
