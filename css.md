@@ -68,13 +68,58 @@
 
 合并空白符，保留换行符
 
-# CSS inline
+# display: inline
+
+`inline` 其实没有什么好说的，但是有个点值得注意，inline 元素设置背景只在文字下面生效  
+可以利用这一特性，制作文字下划线标注效果
 
 # 盒模型之：W3C 与 IE 的区别
 
+区别应该很多，我直说其中一种  
+如果设置 `width: 100px;`  
+在IE6 及以前的混杂模式下的盒模型的效果是：「contentWidth + (borderWidth + paddingWidth) * 2 === 100」  
+W3C 标准盒模型下的效果是：「contentWidth === 100」
+
 # flex 的使用
 
-# CSS hack 技术
+# CSS hack
+
+属性级 hack
+
+```css
+_color:red; /* 仅IE6 识别 */
+
++color:red; /* IE6、IE7 识别 */
+*color:red; /* IE6、IE7 识别 */
+*+color:red; /* IE6、IE7 识别 */
+[color:red; /* IE6、IE7 识别 */
+
+color:red\9; /* IE6、IE7、IE8、IE9 识别 */
+
+color:red\0; /* IE8、IE9 识别*/
+
+color:red\9\0; /* 仅IE9识别 */
+```
+
+选择符级 hack
+
+```
+*html #demo { color:red;} /* 仅IE6 识别 */
+*+html #demo { color:red;} /* 仅IE7 识别 */
+```
+
+IE 条件注释 hack
+
+```html
+<!-- [if IE]>此处内容只有IE可见<![endif]-->
+<!-- [if IE 6]>此处内容只有IE6.0可见<![endif]-->
+<!-- [if !IE 6]>此处内容只有IE6不能识别，其他版本都能识别，当然要在IE5以上。<![endif]-->
+<!-- [if gt IE 6]> IE6以上版本可识别,IE6无法识别 <![endif]-->
+<!-- [if gte IE 6]> IE6以及IE6以上版本可识别 <![endif]-->
+<!-- [if lt IE 6]> 低于IE6的版本才能识别，IE6无法识别。 <![endif]-->
+<!-- [if lte IE 6]> IE6以及IE6以下版本可识别<![endif]-->
+<!-- [if !IE]>此处内容只有非IE可见<![endif]-->
+```
 
 # margin 重叠现象与 BFC
 
