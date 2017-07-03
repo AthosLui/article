@@ -1,4 +1,4 @@
-# word-break、word-wrap、overflow-wrap 和 white-space运用与差别
+# word-break、word-wrap、overflow-wrap 和 white-space 运用与差别
 
 一些前端开发对这三个属性有一定的「困惑」，接下来对他们进行简单的解释与区别
 
