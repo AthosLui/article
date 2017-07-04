@@ -835,7 +835,6 @@ console.log(result);
 
 [mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
-
 ### in操作符
 
 [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in)

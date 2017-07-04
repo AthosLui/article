@@ -1,4 +1,4 @@
-### Web推送技术
+### Web 推送技术
 
 [参考链接](https://www.villainhr.com/page/2017/01/08/Web%20%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF)  
 涉及知识点：  
@@ -19,7 +19,7 @@
 ### Prepack
 
 [参考链接1](https://prepack.io/)  
-[参考链接2](https://github.com/facebook/prepack)  
+[参考链接2](https://github.com/facebook/prepack)
 
 官方宣称Prepack是一个优化JavaScript源代码的工具  
 实际上它是一个JavaScript的部分求值器（Partial Evaluator）  
