@@ -1,9 +1,8 @@
-# npm 相关命令与使用
+# npm
 
 如果你是国内用户，并且不方便翻墙，建议使用 [cnpm](https://npm.taobao.org/) 作为 npm 的备用品  
 安装 cnpm：`sudo npm install cnpm -g --registry=https://registry.npm.taobao.org`  
 安装完成后，下面的所以命令，都可以把 npm 换成 cnpm  
-另外，如果你既不喜欢 npm 的安装速度，也不想使用 cnpm，那么我建议你使用 [yarn](https://yarnpkg.com/zh-Hans/)  
 推荐一个 npm 包：[「n」](https://github.com/tj/n)，可以用来管理 Node.js版本
 
 ### `sudo npm list --depth=0`
@@ -46,3 +45,12 @@
 npm version 0.3.2 -m "…"
 npm publish
 ```
+
+# yarn
+
+如果你既不喜欢 npm 的安装速度，也不想使用 cnpm，那么我建议你使用 [yarn](https://yarnpkg.com/zh-Hans/)  
+
+### `yarn upgrade-interactive`
+
+用来选择更新相应的库  
+查看那些库需要更新，用空格勾选你需要更新的库，回车确认

@@ -98,12 +98,12 @@ obj3 instanceof Func; // 返回：true （因为obj3.__proto__.__proto__ === Fun
 obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.prototype）
 ```
 
-# defer和async
+# defer 和 async
 
 > 开发者喜欢把JS文件放在body闭合标签之前，这是为什么呢  
-因为加载`<script src="xxx.js">`会堵塞`DOM`树的解析与构建  
-解析到`<script src="xxx.js">`时，浏览器会停止`DOM`树的构建，而去下载当前JS文件  
-如果`<script src="xxx.js">`下载需要6秒，下载时`DOM`树还没有构建完成，那么页面会延迟6秒加载，出现6秒白屏
+因为加载 `<script src="xxx.js">` 会堵塞 `DOM` 树的解析与构建  
+解析到 `<script src="xxx.js">` 时，浏览器会停止 `DOM` 树的构建，而去下载当前 JS 文件  
+如果 `<script src="xxx.js">` 下载需要6秒，下载时 `DOM` 树还没有构建完成，那么页面会延迟 6 秒加载，出现 6 秒白屏
 
 ### defer（翻译：推迟）
 
@@ -111,7 +111,7 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 添加`defer`属性：`<script src="xxx.js" defer>`
 
 **作用效果**：  
-当浏览器解析到`<script>`时，同时（异步）解析`DOM`，并且开始下载`JS`  
+当浏览器解析到 `<script>` 时，同时（异步）解析 `DOM` ，并且开始下载`JS`  
 当`JS`下载完成后，并不会马上执行  
 而是继续解析`DOM`，当`DOM`构建完成(DOMContentLoaded)后再执行`JS`内容
 
@@ -125,7 +125,7 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 当`JS`下载完成后，就会马上执行，并且停止`DOM`的解析  
 当`JS`执行完成后，又开始解析`DOM`
 
-### 总结defer、async
+### 总结 defer、async
 
 `defer`和`async`在下载`JS`时是一样的，相较`DOM`解析都是异步  
 它俩的差别在于：`JS`下载完之后何时执行  
@@ -134,7 +134,7 @@ obj3 instanceof Func2; // 返回：true （因为obj3.__proto__ === Func2.protot
 `defer`的效果最接近“**把脚本放在`<body>`闭合标签前**”  
 `async`用到的场景比较少
 
-# 元素视图之getBoundingClientRect()、getClientRects()、elementFromPoint()
+# 元素视图之 getBoundingClientRect()、getClientRects()、elementFromPoint()
 
 ### HTMLElement.prototype.getBoundingClientRect
 
