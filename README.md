@@ -1,5 +1,5 @@
-如果涉及`JavaScript`代码，都是以Chrome控制台为标准  
-我的目的只是单纯的记录我的个人想法和心得，写的不对的地方，请谅解和提交issue
+如果涉及 `JavaScript` 代码，都是以 Chrome 控制台为标准  
+我的目的只是单纯的记录我的个人想法和心得，写的不对的地方，请谅解和提交 issue
 
 ### 初衷
 
@@ -7,25 +7,18 @@
 把平时遇到的，感觉值得记录的，觉得可能会忘记的只是点总结下来  
 以来可以温故而知新，而来可以分享给开发者
 
-### [javascript原生知识](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
+### [不太易记的 css](https://github.com/hangyangws/myArticles/blob/master/css.md)
 
-原生JavaScript的部分知识点
+### [ES6 相关](https://github.com/hangyangws/myArticles/blob/master/ES6.md)
 
 ### [前端知识点总结](https://github.com/hangyangws/myArticles/blob/master/front-end-summary.md)
 
-前端开发相关问题的解决方案与分析
+### [git 命令](https://github.com/hangyangws/myArticles/blob/master/git.md)
 
-### [Object.defineProperty](https://github.com/hangyangws/myArticles/blob/master/Object.defineProperty.md)
+### [javascript 原生知识](https://github.com/hangyangws/myArticles/blob/master/javascript.md)
 
-JavaScript中defineProperty简述
-
-### [ES6](https://github.com/hangyangws/myArticles/blob/master/ES6.md)
-
-对ES6的部分知识点的简要概述与分析
+### [npm 和 yarn](https://github.com/hangyangws/myArticles/blob/master/npm_yarn.md)
 
 ### [Service Worker](https://github.com/hangyangws/myArticles/blob/master/serviceWorker.md)
 
-web Worker、Service Worker的简单介绍
-
-### [npm](https://github.com/hangyangws/myArticles/blob/master/npm.md)
 
