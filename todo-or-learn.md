@@ -34,3 +34,7 @@ Prepack用简单的赋值序列来等效替换JavaScript代码包中的全局代
 热加载  
 webpack-hot-middleware  
 webpack-dev-middleware
+
+[Rekit 2.0 构建基于React+Redux+React-router的可扩展Web应用](https://zhuanlan.zhihu.com/p/27938754)
+
+[你一定要知道的 Chrome DevTool 新功能](http://web.jobbole.com/91769/)

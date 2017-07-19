@@ -1,6 +1,8 @@
 # Git 只言片语
 
-[link](http://gitref.org/zh/basic)
+[Pull Request 的命令行管理](http://www.ruanyifeng.com/blog/2017/07/pull_request.html)
+[link](http://yanhaijing.com/git/2017/01/19/deep-git-0/)  
+[link](http://gitref.org/zh/basic)  
 [link](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 
 ### git clone
@@ -100,3 +102,9 @@ OR
 ### 清理远程分支，把本地不存在的远程分支删除
 
 `git remote prune origin`
+
+
+### reset --soft
+
+[link](https://github.com/geeeeeeeeek/git-recipes/wiki/2.6-%E5%9B%9E%E6%BB%9A%E9%94%99%E8%AF%AF%E7%9A%84%E4%BF%AE%E6%94%B9#git-reset)
+[link](http://www.cnblogs.com/kidsitcn/p/4513297.html)

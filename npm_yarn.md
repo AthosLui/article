@@ -54,3 +54,10 @@ npm publish
 
 用来选择更新相应的库  
 查看那些库需要更新，用空格勾选你需要更新的库，回车确认
+
+### 安装
+
+npm isntall --dev || yarn add -D => devDependencies
+npm isntall => dependencies
+
+[link](https://yarnpkg.com/zh-Hans/docs/package-json#peerdependencies-a-classtoc-idtoc-peerdependencies-hreftoc-peerdependenciesa)
