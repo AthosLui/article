@@ -692,10 +692,6 @@ styleSheet.insertRule('.box {height: 100px}', 0);
 document.head.appendChild(styleEl);
 ```
 
-# 位运算符
-
-> & |
-
 # IIFE
 
 > IIFE（immediately invoked function expression）  
@@ -768,6 +764,10 @@ function(name) { // 定义一个函数
 
 [link](http://mp.weixin.qq.com/s/kxKon7JsAHAuHQw6OY0T9Q)
 
+# 位运算符
+
+> & |
+
 # 数组相关
 
 ### 数组的长度是根据下标的最大而确定的
@@ -835,7 +835,7 @@ console.log(result);
 
 [mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
-### in操作符
+### in 操作符
 
 [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in)
 
@@ -890,3 +890,15 @@ Object.defineProperty(objName, propName, descriptor);
 ### 返回值
 
 返回传入函数的对象，即第一个参数 obj
+
+# Window.URL
+
+# 宽度相关
+
+window.innerWidth 表示网页的宽度，通常和 html、body 元素一样宽  
+window.outerWidth 表示浏览器的宽度，通常和包括浏览器的滚动条，开发者工具…  
+同理 window.innerHeight、window.innerHeight 是一样的道理  
+
+**注意**：Chrome 浏览器 window.innerWidth 和 window.outerWidth 通常没有区别「因为浏览器左右无边框」
+
+screen.width 表示显示器的分辨率，和浏览器几乎没有关系

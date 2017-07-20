@@ -158,3 +158,9 @@ BFC 的特性如下：
 [link](http://web.jobbole.com/91180/)
 
 # flex
+
+# 小众单位 vm、vh、vw
+
+vw 相对于 window.innerWidth 百分比，vh 同理
+
+vm 中的 m 代表 min，意思就是相对于 window.innerWidth 和 windw.innerHeight 中 较小的百分比

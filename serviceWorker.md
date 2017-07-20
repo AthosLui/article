@@ -5,7 +5,7 @@
 众所周知「浏览器的的每个每个网页在单进程中执行，而网页中的 JS 的普通运算在单线程中执行」  
 那么 JS 高负荷运算的时候，单线程就吃不消  
 
-那么**救世主**来了
+那么 **救世主** 来了
 
 Web Worker 独立与当前网页的 JS 单线程，自己独占一个线程  
 Web Worker 可以理解为，`网络的苦力工`，可以处理繁重的「任务、运算」  
@@ -31,7 +31,7 @@ Web Worker 线程和 JS 线程，二者之间可使用 `postMessage` 双向通�
 worker 引用的就是 js 文件  
 由于 worker 是独立的线程，他和 main js threading 有很大区别的
 
-worker **访问权限**有
+worker **访问权限** 有
 
 1. window.navigator 相关属性和方法
 1. 只读的 window.location 内容.
