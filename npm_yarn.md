@@ -1,9 +1,20 @@
-# npm
+# npm yarn 相关
 
-如果你是国内用户，并且不方便翻墙，建议使用 [cnpm](https://npm.taobao.org/) 作为 npm 的备用品  
+### npm 包推荐
+
+- [cnpm](https://npm.taobao.org/)
+
+如果你是国内用户，并且不方便翻墙，建议使用 [cnpm](https://npm.taobao.org/) 作为 npm 的备用品
 安装 cnpm：`sudo npm install cnpm -g --registry=https://registry.npm.taobao.org`  
-安装完成后，下面的所以命令，都可以把 npm 换成 cnpm  
-推荐一个 npm 包：[「n」](https://github.com/tj/n)，可以用来管理 Node.js 版本
+安装完成后，下面的所以命令，都可以把 npm 换成 cnpm
+
+- [n](https://github.com/tj/n)
+
+[n](https://github.com/tj/n) 可以用来管理 Node.js 版本
+
+- [nrm](https://www.npmjs.com/package/nrm)
+
+[nrm](https://www.npmjs.com/package/nrm) 可以用来管理 npm 镜像源头
 
 ### `sudo npm list --depth=0`
 
