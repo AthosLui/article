@@ -1,6 +1,6 @@
 # Git 只言片语
 
-[Pull Request 的命令行管理](http://www.ruanyifeng.com/blog/2017/07/pull_request.html)
+[Pull Request 的命令行管理](http://www.ruanyifeng.com/blog/2017/07/pull_request.html)  
 [link](http://yanhaijing.com/git/2017/01/19/deep-git-0/)  
 [link](http://gitref.org/zh/basic)  
 [link](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
