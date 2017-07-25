@@ -41,7 +41,7 @@
 
 只安装 dependencies 里面列出的模块
 
-### `npm init -y`
+### `npm init -y` OR `npm init -f`
 
 如果你执行 `npm init` 的时候被它的每一步都需要你确认而困扰的话，那么 `npm init -y` 可以快速生成 `package.json` 文件
 
@@ -72,3 +72,15 @@ npm isntall --dev || yarn add -D => devDependencies
 npm isntall => dependencies
 
 [link](https://yarnpkg.com/zh-Hans/docs/package-json#peerdependencies-a-classtoc-idtoc-peerdependencies-hreftoc-peerdependenciesa)
+
+### 简写
+
+`npm install pkg` => `npm i pkg`  
+`npm i --global pkg` => `npm i -g pkg`  
+`npm i --save pkg` => `npm i -S pkg`  
+`npm i --save-dev pkg` => `npm i -D pkg`  
+`npm test` => `npm t`
+
+### 枚举可用的脚本
+
+`npm run` => 得到一个的所有可用的脚本的列表
