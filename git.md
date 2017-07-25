@@ -103,6 +103,14 @@ OR
 
 `git remote prune origin`
 
+### 修改上一次的提交信息
+
+`git commit --amend --reset-author`
+
+### 修改当前项目的配置信息
+
+`git config user.name 'Name'`  
+`git config user.email 'Name@xx.com'`
 
 ### reset --soft
 

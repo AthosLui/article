@@ -28,3 +28,12 @@ HTML 4.01 和 XHTML 1.0 官方强调过 type 属性需要添加
 所以既然默认了，为什么要添加
 
 同理，`<link>` 标签不建议添加 `type="text/css"`
+
+
+### 踩坑
+
+### input.number
+
+如果有 max or min 那么 在 小数的时候 加减 会 取整数
+
+min or max 的小数位数 确定了每次改变的位数
