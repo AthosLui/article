@@ -21,7 +21,7 @@
 退出快捷键：`q`  
 `git diff` 列出未上次提交快照之后尚未缓存的所有更改  
 `git diff --cached` 已经写入缓存的改动  
-`git diff HEAD` 显示**所有**的改动
+`git diff HEAD` 显示 **所有** 的改动
 
 ### git status
 
@@ -32,6 +32,7 @@
 
 将 `add` 的缓存文件记录快照  
 `git commit --amend`：修改提提交信息  
+`git commit --amend --reset-author`：修改上一次提交的作者信息  
 `git commit -a` 对所有有提交记录的文件执行`git add`，所以不会执行新增文件  
 提交已经追踪的代码（status 左边为绿色的）
 
@@ -102,10 +103,6 @@ OR
 ### 清理远程分支，把本地不存在的远程分支删除
 
 `git remote prune origin`
-
-### 修改上一次的提交信息
-
-`git commit --amend --reset-author`
 
 ### 修改当前项目的配置信息
 
