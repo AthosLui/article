@@ -96,6 +96,15 @@ OR
 1. `git rebase --continue`
 1. `git push origin T94469:T94469 -f`
 
+OR
+
+1. `git fetch origin master`
+1. `git rebase origin/master`
+1. `解决冲突`
+1. `git add .`
+1. `git rebase --continue`
+1. `git push origin T94469:T94469 -f`
+
 ### 删除远程分支
 
 `git push origin :branchName`
@@ -113,3 +122,11 @@ OR
 
 [link](https://github.com/geeeeeeeeek/git-recipes/wiki/2.6-%E5%9B%9E%E6%BB%9A%E9%94%99%E8%AF%AF%E7%9A%84%E4%BF%AE%E6%94%B9#git-reset)
 [link](http://www.cnblogs.com/kidsitcn/p/4513297.html)
+
+### git stash
+
+`git stash`： 暂存修改  
+`git stash pop`： 暂存修改
+
+
+
