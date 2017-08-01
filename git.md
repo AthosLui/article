@@ -128,5 +128,8 @@ OR
 `git stash`： 暂存修改  
 `git stash pop`： 暂存修改
 
+### 修改远程仓库地址
 
-
+1. `git remote set-url origin [url]`
+1. `git remote rm origin` && `git remote add origin [url]`
+1. 直接修改 config 文件

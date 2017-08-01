@@ -8,7 +8,7 @@
 安装 cnpm：`sudo npm install cnpm -g --registry=https://registry.npm.taobao.org`  
 安装完成后，下面的所以命令，都可以把 npm 换成 cnpm
 
-- [n](https://github.com/tj/n)
+- [n](https://github.com/tj/n) && [nvm](https://github.com/creationix/nvm)
 
 [n](https://github.com/tj/n) 可以用来管理 Node.js 版本
 
