@@ -125,8 +125,8 @@ OR
 
 ### git stash
 
-`git stash`： 暂存修改  
-`git stash pop`： 暂存修改
+`git stash`：把当前的修改「藏起来」  
+`git stash pop`：把「藏起来」的修改取出来
 
 ### 修改远程仓库地址
 
