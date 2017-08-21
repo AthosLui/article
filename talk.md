@@ -29,11 +29,8 @@ HTML 4.01 和 XHTML 1.0 官方强调过 type 属性需要添加
 
 同理，`<link>` 标签不建议添加 `type="text/css"`
 
+### input.number 踩坑
 
-### 踩坑
-
-### input.number
-
-如果有 max or min 那么 在 小数的时候 加减 会 取整数
-
-min or max 的小数位数 确定了每次改变的位数
+当 input 有 min 属性的时候，比如：`<input type='number' min='1' />`  
+那么，每一次的的加减操作，都会以 min 的精度重新渲染值  
+比如 `min === 1.1 value === 1 step === 1` **加** 操作后会变成 `2.1`
