@@ -369,8 +369,6 @@ new person('hangyangws').say(); // 返回：hangyangw
 
 [link](https://juejin.im/post/5909b21eda2f60005d1ef731)
 
-# 懒加载&&预加载
-
 # 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
 
 # bootstrap的基本原理，bootstrap的grid系统
@@ -388,11 +386,3 @@ new person('hangyangws').say(); // 返回：hangyangw
 工作线程执行异步任务，执行完成后把对应的回调函数封装成一条消息放到消息队列中；主线程不断地从消息队列中取消息并执行，当消息队列空时主线程阻塞，直到消息队列再次非空。
 
 这就是同步和异步的区别。同步可以保证顺序一致，但是容易导致阻塞；异步可以解决阻塞问题，但是会改变顺序性。改变顺序性其实也没有什么大不了的，只不过让程序变得稍微难理解了一些
-
-# nodemon
-
-### 手动重启nodemon
-
-执行`rs`命令即可
-
-[learn](https://github.com/remy/nodemon)

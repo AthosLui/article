@@ -59,7 +59,7 @@ reject 方法可以将 Pending 改为`Rejected`
 
 **Promise.prototype.then()**
 
-then 方法接受2个函数参数，第一个函数参数将状态变为`Resolved`，调用第二个函数参数将状态变为`Rejected`  
+then 方法接受2个函数参数，第一个函数参数将状态变为`Resolved`，调用第二个函数参数将状态变为`Rejected`
 
 then 方法内部 return 详解： 
 如果 then 方法内部 return 的不是一个`Promise`对象  
@@ -323,7 +323,7 @@ fetch 请求默认不带 cookie ，需设置 fetch(url, {credentials: 'include'}
 
 [link](https://github.com/ruanyf/es6tutorial/blob/a5ed53c5399c14cfaea4ca7e97957b999fba4807/docs/class.md)  
 [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes)  
-[link](http://es6.ruanyifeng.com/#docs/class#Class 基本语法)  
+[link](http://es6.ruanyifeng.com/#docs/class#Class 基本语法)
 
 ES6 明确规定， Class 内部只有静态方法，没有静态属性  
 ES7 有一个静态属性的提案，目前 Babel 转码器支持
