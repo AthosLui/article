@@ -120,6 +120,9 @@ OR
 
 ### reset --soft
 
+`git reset --soft 495f7482730bcc110308faa1258432ef5cef8cda`:  
+回到某一次提交
+
 [link](https://github.com/geeeeeeeeek/git-recipes/wiki/2.6-%E5%9B%9E%E6%BB%9A%E9%94%99%E8%AF%AF%E7%9A%84%E4%BF%AE%E6%94%B9#git-reset)
 [link](http://www.cnblogs.com/kidsitcn/p/4513297.html)
 
@@ -133,3 +136,7 @@ OR
 1. `git remote set-url origin [url]`
 1. `git remote rm origin` && `git remote add origin [url]`
 1. 直接修改 config 文件
+
+### git config core.ignorecase false
+
+让 git 对文件大小写敏感
