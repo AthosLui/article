@@ -13,10 +13,8 @@
 
 ### 长度单位
 
-[link](http://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/)
-
-- ex 相对于小写字母「x」的高度
-- ch 相对于数字「0」尺寸
+- `ex` 相对于「小写字母」`x` 的 **高度**
+- `ch` 相对于「数字」 `0` 的 **宽度**
 
 CSS [打字特效](http://www.zhangxinxu.com/study/201412/animation-border-background-dot-dot-dot-wait.html)  
 [link - 等宽字体在web布局中应用以及CSS3 ch单位嘿嘿](http://www.zhangxinxu.com/wordpress/2016/07/monospaced-font-css3-ch-unit/)  
