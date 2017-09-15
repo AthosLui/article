@@ -75,7 +75,27 @@ if (element.style.display ≈ inline-block) {
 
 ### height:100% 和 height:inherit 的异同
 
-### width 的新鲜值
+绝对定位元素：  
+`height:inherit` 为父元素；`height:100%` 为定位基准元素
 
-[link - mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width)
-[link - 理解CSS3 max/min-content及fit-content等width值](http://www.zhangxinxu.com/wordpress/2016/05/css3-width-max-contnet-min-content-fit-content/)
+### width 新鲜值
+
+方便某些布局的实现，  
+作用： 在原有的 display 水平不变的情况下拥有元素其他 display 值才有的特性
+
+- fill-available
+
+块级元素默认就是 fill-available
+[一个 Demo 认识 fill-available](http://hangyangws.win/demos/apps/css/width/fill-available/)
+
+- max-content
+
+**假设** 我们的容器有足够的宽度，足够的空间，此时，所占据的宽度是就是 max-content所表示的尺寸  
+[一个 Demo 认识 max-content](http://hangyangws.win/demos/apps/css/width/max-content/)
+[一个 max-content 的实际用力](http://hangyangws.win/demos/apps/css/width/max-content-2/)
+
+
+- min-content：
+
+- fit-content：
+
