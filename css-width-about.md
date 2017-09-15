@@ -95,7 +95,9 @@ if (element.style.display ≈ inline-block) {
 [一个 max-content 的实际用力](http://hangyangws.win/demos/apps/css/width/max-content-2/)
 
 
-- min-content：
+- min-content
 
-- fit-content：
+- fit-content
+
+float, absolute, inline-block 一样的计算宽度
 
