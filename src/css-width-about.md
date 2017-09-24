@@ -5,9 +5,8 @@
 
 感谢：
 
-1. [俊哲](https://github.com/lcjnil) 推荐的 ppt：[如何做一个技术分享](https://docs.google.com/presentation/d/1dEiloN8jX5KUIorz12fSSTADAWupArMVpIHzIcBaqBA/edit#slide=id.g241a7f5a41_0_42)
 1. [www.w3.org](https://www.w3.org) 文献
-1. [张鑫旭](www.zhangxinxu.com) 个人博客文献
+1. [张鑫旭](www.zhangxinxu.com) 个人博客
 
 # 我遇见的哪些 CSS 中有趣的尺寸、宽高
 

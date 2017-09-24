@@ -118,7 +118,7 @@ Opera: `opera://flags` 开启 ServiceWorker 支持
 
 ### 生命周期
 
-![lifycycle](/img/lifycycle.png)
+![lifycycle](../img/lifycycle.png)
 
 要让一个 service worker 在你的网站上生效，你需要先在你的网页中**注册**它  
 浏览器会在后台默默启动一个 service worker 的**安装**过程  
@@ -130,7 +130,7 @@ Opera: `opera://flags` 开启 ServiceWorker 支持
 sw 内部的 fetch事件可以拦截 sw 作用域下面的所有请求  
 然后我们可以随便发挥，然后使用 event.respondWith 返回请求响应
 
-![fetch](/img/fetch.png)
+![fetch](../img/fetch.png)
 
 SW 支持的事件
 
