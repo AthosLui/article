@@ -17,4 +17,3 @@
 1. `yum install php` 安装 php
 1. `service httpd restart` 重启 Apache
 1. 浏览器输入 IP 地址就能看到 phpInfo 了
-
