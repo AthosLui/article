@@ -60,7 +60,7 @@
 如果元素是行级元素，其 **渲染宽度** 为子元素的的宽度，其 **计算宽度** 也为子元素的的宽度  
 所以未显示设置宽度，其高为和 `渲染高度` 一样，所以子元素的百分比宽度有效果
 
-再抛出一个疑问：[这 Demo](http://hangyangws.win/demos/src/html/percentage-w-h/) 的父元素的宽为什么不是子元素的宽度和？  
+再抛出一个疑问：[这个 Demo](http://hangyangws.win/demos/src/html/percentage-w-h/) 的父元素的宽为什么不是子元素的宽度和？  
 如果父元素宽度变化，这样会不会带来渲染循环问题？
 
 答案是不会，让我来讲解一下浏览器渲染的基本顺序和原理：
@@ -96,13 +96,13 @@
 充分利用可用空间
 
 块级元素默认就是 fill-available
-[一个 Demo 认识 fill-available](http://hangyangws.win/demos/src/css/width/fill-available/)
+[一个 Demo 认识 fill-available](http://hangyangws.win/demos/src/css/width/fill-available)
 
 - max-content
 
 **假设** 我们的容器有足够的宽度，足够的空间，此时，所占据的宽度是就是 max-content所表示的尺寸  
-[一个 Demo 认识 max-content](http://hangyangws.win/demos/src/css/width/max-content/)
-[一个 max-content 的实际用力](http://hangyangws.win/demos/src/css/width/max-content-2/)
+[一个 Demo 认识 max-content](http://hangyangws.win/demos/src/css/width/max-content)  
+[一个 max-content 的实际用例](http://hangyangws.win/demos/src/css/width/max-content-2)
 
 - min-content
 
