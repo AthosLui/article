@@ -69,7 +69,7 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 // "Eat apple" "Wake up after 1000"(1s后输出)
 ```
 
-# 用JS求出元素的最终的`background-color`，不考虑元素float、absolute情况
+# 用JS求出元素的最终的 `background-color`，不考虑元素float、absolute情况
 
 > JS获取元素样式方式：  
 **widow.getComputedStyle** (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
@@ -186,7 +186,7 @@ var getFinalBackground = function($el) {
     - 服务端需要根据客户端传过来函数名返回数据
     - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题
 
-# 跨域之POST
+# 跨域之 POST
 
 > 虽然`JSONP`可以解决跨域问题，但是`JSONP`是`GET`类型，传输数据大小不及`POST`类型  
 如果需要传递大量数据的跨域，就得了解**POST跨域**
