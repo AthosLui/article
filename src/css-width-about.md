@@ -74,18 +74,18 @@
 不过这个时候，子元素 DOM 还没有结合 CSSOM 渲染，所以子元素就是图片和文字的宽度和，  
 所以父元素的宽度就是图片和文字的宽度和
 
-所以我们也明白了： **CSS 中父元素选择器** 久久未实现的原因，可能是因为这样会导致「循环渲染」
+所以我们也明白了： **CSS 中父元素选择器** 久久未实现的原因，是因为这样真的会导致「循环渲染」
 
 ### padding 百分比
 
 抛出一个问题：padding-top、padding-bottom 如果设置为百分比，是相对于什么来计算的？  
-答案是相对于父元素的宽度来计算的「一脸吃惊的表情」
+答案是相对于父元素的宽度来计算的「一脸吃惊的表情，记住就好」😑
 
 ### height:100% 和 height:inherit 的异同
 
 如果 `height:inherit` 是继承父元素的高度，那么和 `height:100%` 不是没有什么区别么？  
-一般情况他们二者没有区别，区别在于元素为「绝对定位」元素，
-绝对定位元素的 `height:inherit` 相对于父元素计算；`height:100%` 相对于定位基准元素计算  
+一般情况他们二者没有区别，区别在于元素为「绝对定位」时  
+绝对定位元素的 `height:inherit` 是相对于父元素计算；而 `height:100%` 相对于定位基准元素计算  
 
 ### width 新鲜值
 
@@ -93,19 +93,31 @@
 
 - fill-available
 
-充分利用可用空间
-
-块级元素默认就是 fill-available
+fill-available 元素会充分利用可用空间，就像 div 一样「默认 100% 宽度」。  
+块级元素默认宽度表现行为就是 fill-available。
 [一个 Demo 认识 fill-available](http://hangyangws.win/demos/src/css/width/fill-available)
 
 - max-content
 
-**假设** 我们的容器有足够的宽度，足够的空间，此时，所占据的宽度是就是 max-content所表示的尺寸  
+**假设** 我们的容器有足够的宽度，足够的空间，此时，所占据的宽度是就是 max-content 所表示的尺寸  
 [一个 Demo 认识 max-content](http://hangyangws.win/demos/src/css/width/max-content)  
 [一个 max-content 的实际用例](http://hangyangws.win/demos/src/css/width/max-content-2)
 
 - min-content
 
+min-content 元素宽度为「内部元素最小宽度值最大的那个元素的宽度」
+最小宽度值的意思：  
+例如图片的最小宽度值就是图片呈现的宽度；  
+对于文本元素，如果全部是中文，则最小宽度值就是一个中文的宽度值；
+如果包含英文，因为默认英文单词不换行，所以，最小宽度可能就是里面最长的英文单词的宽度。
+
 - fit-content
 
-float, absolute, inline-block 一样的计算宽度
+fit-content 元素的宽度计算方式和「float、absolute、inline-block」一样  
+这种计算方式被称为「shrink-to-fit」
+
+举例一个使用场景，就拿水平居中效果举例：  
+inline-block 元素需要父级使用 `text-align: center`，而本身可能还需要 `text-align: left`。😨 mdzz~~~  
+而 `width: fit-content` 可以没有这些烦恼，  
+因为，`width: fit-content` 可以实现元素收缩效果的同时，保持原本的 block 水平状态  
+于是，就可以直接使用 `margin: 0 auto` 实现元素向内自适应同时的居中效果了

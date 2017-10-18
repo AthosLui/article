@@ -6,7 +6,6 @@
 `yum -y install packageName`：安装包「-y 表示所有的对话都选择同意」
 `yum -y remove packageName`：卸载包「-y 表示所有的对话都选择同意」
 
-
 ## 安装 Apache
 
 1. `yum install httpd` 安装 Apache
