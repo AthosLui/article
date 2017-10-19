@@ -152,17 +152,7 @@ BFC 的特性如下：
 
 # line-height 以及 vertical-align
 
-无单位的line-height 是 font-size相关联的  
-但问题是font-size：100px在不同字体时表现是不一样的
-
 [link](http://web.jobbole.com/91180/)
 
-# flex
-
-# 小众单位 vm、vh、vw、ch
-
-vw 相对于 window.innerWidth 百分比，vh 同理
-
-vm 中的 m 代表 min，意思就是相对于 window.innerWidth 和 windw.innerHeight 中 较小的百分比
-
-ch 阿拉伯数字「0」的宽度，当字体是等宽时很有用
+无单位的 `line-height` 是 `font-size` 相关联的  
+但问题是 `font-size：100px` 在不同字体时表现是不一样的
