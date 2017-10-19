@@ -8,7 +8,7 @@
 ### git clone
 
 `git clone url` 检出代码到本地，以项目名新建文件夹  
-`git clone <url> [FolderName]` 自定义文件夹名
+`git clone <url> [FolderName]` 自定义文件夹名「默认为项目名字」
 
 ### git add
 
@@ -43,15 +43,15 @@
 
 ### git checkout
 
-`git checkout <branchname>` 切换分支  
-`git checkout -b <branchname>` 先创建分支，再切换到该分支
+`git checkout <branchName>` 切换分支  
+`git checkout -b <branchName>` 先创建分支，再切换到该分支
 
 ### git branch
 
 `git branch` 列出本地分支  
 `git branch -r` 列出远端分支  
 `git branch -a` 列出所有分支  
-`git branch -d <branchname>` 删除本地分支『前提是目前分支不在此分支』
+`git branch -d <branchName>` 删除本地分支『前提是目前分支不在此分支』
 
 ### git log
 
@@ -91,19 +91,19 @@ OR
 ### 当前分支合并 master 新的代码
 
 1. `git pull --rebase origin master`
-1. `解决冲突`
-1. `git add .`
+1. `解决冲突` 「用编辑器把冲突的代码改好」
+1. `git add .` 「添加相应的修改文件」
 1. `git rebase --continue`
-1. `git push origin T94469:T94469 -f`
+1. `git push origin branchName:branchName -f`
 
 OR
 
 1. `git fetch origin master`
 1. `git rebase origin/master`
-1. `解决冲突`
-1. `git add .`
+1. `解决冲突` 「用编辑器把冲突的代码改好」
+1. `git add .` 「添加相应的修改文件」
 1. `git rebase --continue`
-1. `git push origin T94469:T94469 -f`
+1. `git push origin branchName:branchName -f`
 
 ### 删除远程分支
 
@@ -120,7 +120,7 @@ OR
 
 ### reset --soft
 
-`git reset --soft 495f7482730bcc110308faa1258432ef5cef8cda`:  
+`git reset --soft 495f7482730bcc110308faa1258432ef5cef8cda`:  「后面这一串为 hash 值，可以用过 `git log` 查看」
 回到某一次提交
 
 [link](https://github.com/geeeeeeeeek/git-recipes/wiki/2.6-%E5%9B%9E%E6%BB%9A%E9%94%99%E8%AF%AF%E7%9A%84%E4%BF%AE%E6%94%B9#git-reset)
