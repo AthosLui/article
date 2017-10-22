@@ -134,6 +134,14 @@ obj3 instanceof Func; // 返回：true （因为 obj3.__proto__.__proto__ === Fu
 `defer` 的效果最接近「**把脚本放在 `<body>` 闭合标签前**」  
 `async` 用到的场景比较少
 
+# 谈谈 offsetTop、offsetParent、offsetHeight
+
+HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（closest，指包含层级上的最近）包含该元素的定位元素。如果没有定位的元素，则 offsetParent 为最近的 table, table cell 或根元素（标准模式下为 html；quirks 模式下为 body）。当元素的 style.display 设置为 "none" 时，offsetParent 返回 null。offsetParent 很有用，因为 offsetTop 和 offsetLeft 都是相对于其内边距边界的。
+
+在 Webkit 中，如果元素为隐藏的（该元素或其祖先元素的 style.display 为 "none"），或者该元素的 style.position 被设为 "fixed"，则该属性返回 null
+
+在 IE 9 中，如果该元素的 style.position 被设置为 "fixed"，则该属性返回 null。（display:none 无影响。
+
 # 元素视图之 getBoundingClientRect()、getClientRects()、elementFromPoint()
 
 ### HTMLElement.prototype.getBoundingClientRect
