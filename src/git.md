@@ -140,3 +140,7 @@ OR
 ### git config core.ignorecase false
 
 让 git 对文件大小写敏感
+
+### gco --theirs '冲突文件名'
+
+解决冲突使用别人的代码
