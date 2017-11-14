@@ -17,6 +17,10 @@
 1. `service httpd restart` 重启 Apache
 1. 浏览器输入 IP 地址就能看到 phpInfo 了
 
+### lsof
+
+[lsof 一切皆文件](http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html)
+
 ### 查看端口占用
 
 `lsof -i:[port]`  
