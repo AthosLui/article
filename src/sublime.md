@@ -94,8 +94,9 @@
 - Theme - Spacegray
 - TrailingSpaces
 
-在cd ~/增加：文件.jsbeautifyrc
+在 `~/` 目录增加 `HTML-CSS-JS Prettify` 的配置文件 `.jsbeautifyrc`
 
+```json
 {
   "html": {
     "indent_char": " ",
@@ -110,3 +111,4 @@
     "indent_size": 2
   }
 }
+```
