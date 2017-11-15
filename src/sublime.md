@@ -73,6 +73,7 @@
 
 ## package
 
+- MarkdownLivePreview
 - Babel
 - BracketHighlighter
 - CSS Format
