@@ -7,3 +7,11 @@ sh、bash、csh等，想知道你的系统有几种shell，可以通过以下命
 ### oh my zsh
 
 plugins
+
+### sudo periodic daily weekly monthly
+
+清理垃圾
+
+### Mac 上安装 Node 和 NPM
+
+http://www.jianshu.com/p/20ea93641bda
