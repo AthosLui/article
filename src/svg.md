@@ -1,5 +1,24 @@
 # SVG 出发啦
 
+[使用 SVG 蒙版 (mask) 来实现波浪 (wave) 动画效果](http://svgtrick.com/tricks/554e3452640d3aea8b0b48d90eb71fe7)
+[一个比想象中更骚气的圆-svg实现](https://juejin.im/post/578218ac5bbb500061fffa85)
+[拥抱Web设计新趋势：SVG Sprites实践应用](https://aotu.io/notes/2016/07/09/SVG-Symbol-component-practice/?o2src=juejin&o2layout=compat)
+[CSS 并不简单--实例带你领略实现SVG动画的姿势](https://juejin.im/post/596894586fb9a06bbc4b0f5a)
+[让文字沿着路径动起来 (SVG)](https://juejin.im/post/585f855961ff4b006ce0f05b)
+[SVG入门](http://www.bestvist.com/2017/11/08/svg/)
+[腾讯实例教学！带你轻松打开SVG动画的大门](http://www.uisdc.com/tencent-svg-animation-design)
+[一个例子上手SVG动画](https://aotu.io/notes/2017/05/04/example-for-svg-animation/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+[线条之美，玩转SVG线条动画](https://www.nihaoshijie.com.cn/index.php/archives/667/)
+[SVG 新司机开车指南](https://zhuanlan.zhihu.com/p/25016633)
+[将SVG保存为图片](http://www.tangshuang.net/3595.html)
+[SVG与多彩渐变圆环倒计时效果实例页面](http://www.zhangxinxu.com/study/201710/colorful-time-count-down-svg-circle.html)
+[SVG 实现动态模糊动画效果](http://web.jobbole.com/92983/)
+[超级强大的SVG SMIL animation动画详解](http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
+[SVG 应用：Gradient (线性渐变) 在文字中的应用](https://segmentfault.com/a/1190000007426350)
+[SVG元素上的transform](https://www.w3cplus.com/svg/transforms-on-svg-elements.html)
+[如何使用CSS和SVG剪切和遮罩技术](https://segmentfault.com/a/1190000006785931)
+[SVG动画案例的学习](https://www.w3cplus.com/svg/an-svg-animation-case-study.html)
+[CSS和SVG中的剪切——clip-path属性和<clipPath>元素著作权归作者所有。](https://www.w3cplus.com/css3/css-svg-clipping.html)
 [link for w3cPlus](https://www.w3cplus.com/blog/tags/411.html?page=2)
 
 ### 基础知识
