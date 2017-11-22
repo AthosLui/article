@@ -1,10 +1,5 @@
 [link for w3cPlus](https://www.w3cplus.com/blog/tags/411.html?page=2)
 
-[SVG入门](http://www.bestvist.com/2017/11/08/svg/)
-[CSS 并不简单--实例带你领略实现SVG动画的姿势](https://juejin.im/post/596894586fb9a06bbc4b0f5a)
-[腾讯实例教学！带你轻松打开SVG动画的大门](http://www.uisdc.com/tencent-svg-animation-design)
-[SVG 新司机开车指南](https://zhuanlan.zhihu.com/p/25016633)
-
 [SVG动画案例的学习](https://www.w3cplus.com/svg/an-svg-animation-case-study.html)
 [一个例子上手SVG动画](https://aotu.io/notes/2017/05/04/example-for-svg-animation/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 [SVG 实现动态模糊动画效果](http://web.jobbole.com/92983/)
@@ -15,6 +10,8 @@
 [SVG与多彩渐变圆环倒计时效果实例页面](http://www.zhangxinxu.com/study/201710/colorful-time-count-down-svg-circle.html)
 [如何使用CSS和SVG剪切和遮罩技术](https://segmentfault.com/a/1190000006785931)
 [CSS和SVG中的剪切——clip-path属性和<clipPath>元素著作权归作者所有。](https://www.w3cplus.com/css3/css-svg-clipping.html)
+[理解SVG transform坐标变换](http://www.zhangxinxu.com/wordpress/2015/10/understand-svg-transform/)
+[超级强大的SVG SMIL animation动画详解](http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
 
 [SVG元素上的transform](https://www.w3cplus.com/svg/transforms-on-svg-elements.html)
 [超级强大的SVG SMIL animation动画详解](http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
@@ -22,15 +19,15 @@
 [将SVG保存为图片](http://www.tangshuang.net/3595.html)
 [SVG 应用：Gradient (线性渐变) 在文字中的应用](https://segmentfault.com/a/1190000007426350)
 
----
 # SVG 扬帆起航
 
 ## 基础认知
 
-SVG「Scalable Vector Graphics」表示「可缩放矢量图形『放大不模糊』」  
+SVG「Scalable Vector Graphics」表示「可缩放矢量图形『放大不模糊』」。  
+SVG是面向未来 (W3C 标准)的，同时浏览器兼容性好。
 一个基础的 SVG 文档由 `<svg>` 根元素和 [基本形状元素](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) 构成  
 作为 XML 的一种方言，SVG 必须正确的绑定命名空间 （在 xmlns 属性中绑定）。[命名空间速成](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Namespaces_Crash_Course) 获取更多信息。
-SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可见
+SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可见。
 
 ### 能做什么
 
@@ -88,11 +85,33 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 1. `<img>`、`background-image` 形式的 SVG 不支持「外链 CSS、JS」  
 1. 内敛 CSS 和 JS 最好放在 `<![CDATA[` 与 `]]>` 之中
 
-## `<path />`
+## 坐标系统
 
-别说话，先举个 🌰 ，一起认识一下 path：[点我](https://jsfiddle.net/hangyangws/ek7s4v1d/5/)
+看图说话「原点在左上角」：
+![svg-coordinate](../img/svg-coordinate.png)
+
+## SVG 基础元素
+
+- `<svg>`：SVG 的根元素，可以相互嵌套
+- `<g>`：将 SVG 中的元素进行分组操作，分组后可以看成一个单独的形状，统一转换，同时 g 元素的样式可以被子元素继承，但是它没有 `X、Y` 属性，不过可以通过 transform 来移动它
+- `<def>`：用于定义在 SVG 中可重用的元素，def 元素不会直接展示出来，可以通过 use 元素来引用
+- `<use>`：通过它来复用 def 元素，也包括 `<g>、<symbol>` 元素，使用 `<use xlink:href="#id"/>` 调用
+- `<text>`：实现 word 中的那种「艺术字」
+- `<image>`：在 SVG 中嵌套图片，可以对图片做对应的处理
+
+## SVG 形状元素
+
+来张图压压惊：
+![svg-element](../img/svg-element.jpg)
+
+[点我查看 SVG 元素的基本 DEMO](https://jsfiddle.net/hangyangws/gc8m0nen/1/)
+
+### `<path />`
+
+别说话，先举个 🌰 ，一起感受一下 path：[点我](https://jsfiddle.net/hangyangws/ek7s4v1d/5/)
 
 > 基于 path 的不同属性，可以画出各种各样的路径，所以 path 可算是 SVG 的「节点之王」  
+除了 path 之外的节点都「比较普通」，可以看成是对 path 的封装，比如「Rect、Circle…」
 
 **命令**  
 命令都用一个关键字母来表示，命令 **都有两种** 表示方式
@@ -100,54 +119,41 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 1. 大写字母，表示采用「绝对定位」
 1. 小写字母，表示采用「相对定位『相对于上一个点』」
 
-### path 的命令列表
+#### path 的命令列表
 
-- `M`：moveto 移动到
-- `L`：lineto 画线到
-- `H`：horizontal lineto 水平线到
-- `V`：vertical lineto 垂直线到
-- `C`：curveto 三次贝塞尔曲线
-- `S`：smooth curveto 光滑三次贝塞尔曲线
-- `Q`：quadratic Belzier curve 二次贝塞尔曲线
-- `T`：smooth quadratic Belzier curveto 光滑二次贝塞尔曲线
-- `A`：elliptical Arc 椭圆弧
-- `Z`：closepath 关闭路径
+- M：moveto 移动到
 
-**注意**：Z 命令不区分大小写
-
-### path 的命令详解
-
-- L
+- L：lineto 画线到；H：horizontal lineto 水平线到；V：vertical lineto 垂直线到
 
 L 命令将会在当前位置和新位置之间画一条线段：L x y (or l dx dy)  
 还有两个简写命令：H，绘制平行线。V，绘制垂直线。这两个命令都只带一个参数，标明在 x 或 y 轴移动到的位置：`H x (or h dx)` 、`V y (or v dy)`
 
-- Z
+- Z：closepath 关闭路径
 
 Z 命令会从当前点画一条直线到路径的起点，所以它还是经常被放到路径的最后。另外，Z 命令不用区分大小写：Z (or z)
 
-- C
+- C：curveto 三次贝塞尔曲线
 
 `C x1 y1, x2 y2, x y` 或 `c dx1 dy1, dx2 dy2, dx dy`  
 (x1, y1)、(x2, y2) 分别是起点、终点控制点。最后一个坐标 (x, y)，表示曲线的终点  
 三次贝塞尔曲线 **表现形式** 是：曲线沿着 **起点开始** 到第一控制点的方向伸出，逐渐弯曲，然后沿着第二控制点到 **终点的方向结束**
 
-- S
+- S：smooth curveto 光滑三次贝塞尔曲线
 
 S 命令可以用来创建与之前那些曲线一样的贝塞尔曲线，通常和 C 命令一起使用  
 如果 S 命令跟在一个 C 命令或者另一个 S 命令的后面，它的第一个控制点，就会被假设成前一个控制点的对称点，不应该写出来，所以 S 省略了一个对称点
 
-- Q
+- Q：quadratic Belzier curve 二次贝塞尔曲线
 
 `Q x1 y1, x y` 或 `q dx1 dy1, dx dy`  
 
-- T
+- T：smooth quadratic Belzier curveto 光滑二次贝塞尔曲线
 
 `T x y` 或 `t dx dy`  
 T 命令类似于 S 命令，用于二次贝塞尔曲线。T 命令前面最好是一个 Q 命令，或者是另一个 T 命令  
 如果 T 单独使用，那么控制点就会被认为和终点是同一个点，所以画出来的将是一条直线
 
-- A
+- A：elliptical Arc 椭圆弧
 
 `A rx ry x-axis-rotation large-arc-flag sweep-flag x y` 或 `a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy`
 
@@ -157,14 +163,68 @@ large-arc-flag：1 表示用大弧度，0 表示小弧度
 sweep-flag：弧度回话方向，1 顺时针，0 逆时针  
 x y：弧度终点
 
----
+## 元素与样式
+
+- stroke
+- fill
+- transform
+- linearGradient
+- mask
+- clipPath
 
 ## SVG 动画
 
-- SVG 本身的动画「基于 SMIL」「主要借助 SVG `<animate>` 标签」
-- CSS3 动画「animation、transition『不是 svg 的重点』」
 - JS 动画「DOM 操作『忽视它』」
+- CSS3 动画「animation、transition『不是 svg 的重点』」
+- SVG 本身的动画「基于 SMIL」「主要借助 SVG `animate` 相关标签」
 
+![svg-animate-attr](../img/svg-animate-attr.jpg)
+
+### set
+
+### animateTransform
+
+```xml
+<animateTransform
+  attributeName="transform"
+  attributeType="XML"
+  type="rotate"
+  from="0 125 135"
+  to="360 125 135"
+  begin="0s"
+  dur="10s"
+  repeatCount="indefinite">
+</animateTransform>
+```
+
+### animateMotion
+
+```xml
+<animateMotion
+  dur="6s"
+  repeatCount="indefinite"
+  path="M100 100, A120 120, -45 0 1, 300 300 A120 120, -45 0 1, 100 100">
+</animateMotion>
+```
+
+### animate
+
+```xml
+<animate
+  id="id"
+  begin="id.end + 1s"
+  attributeName="r"
+  attributeType="XML"
+  from="50"
+  to="80"
+  by="30"
+  values="50;80"
+  begin="0s"
+  dur=".5s"
+  repeatCount="indefinite"
+  fill="freeze">
+</animate>
+```
 
 ---
 
@@ -183,8 +243,6 @@ x y：弧度终点
 ## `<polygon />`
 
 最后一个点会自动和第一个点连接
-
-
 
 **d 属性**  
 path 元素的形状是通过属性 d 定义的，属性 d 的值是一个「命令 + 参数」的序列
@@ -247,3 +305,21 @@ stroke-dasharray：一组用逗号分割的数字组成的数列 **必须用逗�
 - SVG 里的属性值必须用引号引起来，就算是数值也必须这样做
 - SVG 的元素和属性必须按标准格式书写，因为 XML 是区分大小写的「这一点和 HTML 不同」
 - SVG 元素可以用 CSS 的 fill 填充颜色：`path { fill: currentColor; }`
+
+## 工具推荐
+
+- svgo
+
+项目地址：[点我查看](https://github.com/svg/svgo)  
+比较厉害的压缩优化 SVG 的工具，可以将 SVG 中的无用信息删掉，同时支持代码进行压缩
+
+- SVGOMG
+
+展示地址：[SVGOMG - SVGO's Missing GUI](https://jakearchibald.github.io/svgomg/)  
+SVGOMG 是 svgo 的可视化界面工具，操作起来很方便，还提供了一些其他有用的功能
+
+- Snap.svg
+
+项目地址：[Snap.svg - Home](http://snapsvg.io/)  
+Snap.svg 是一个可以使你操纵 SVG 资源和 jQuery 操作 DOM 一样简单的类库，  
+可以写出更加复杂的 SVG 效果，同时文档超级齐全，推荐给想深入了解的同学。
