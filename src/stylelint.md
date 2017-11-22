@@ -41,13 +41,59 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 
 ### 通过 stylelint 校验 CSS 规则
 
-#### 安装 [stylelint](https://github.com/stylelint/stylelint)
+#### 简单步骤
 
-`npm - stylelint --save-dev`
+1. 安装 [stylelint](https://github.com/stylelint/stylelint)、[stylelint-order](https://github.com/hudochenkov/stylelint-order)
 
-#### 增加 stylelint 配置文件
+`npm i --save-dev stylelint stylelint-order`
 
-项目根目录添加文件 `.stylelintrc` 配置文件
+1. 增加 stylelint 配置文件
+
+项目根目录添加文件 `.stylelintrc` 基本配置文件：
+
+```json
+{
+  "extends": "stylelint-config-standard",
+  "plugins": [],
+  "rules": {}
+}
+```
+
+具体的配置文件内容，欢迎参考：[点我呀](https://raw.githubusercontent.com/hangyangws/article/master/src/data/.stylelintrc)  
+注：配置文件使用的 CSS 属性排序规则来自 [这里](https://github.com/Wizard67/note-css-order#properties-属性)
+
+1. 在 package.json 的 scripts 字段中添加相关命令
+
+```json
+{
+  "scripts": {
+    "lint-css": "stylelint 'src/**/*.css' --fix",
+  }
+}
+```
+
+这样就可以手动执行 `npm run lint-css` 校验 CSS 了。  
+`'src/**/*.css'` 以 blob 语法表示 CSS 文件的路径。  
+`--fix` 表示让 stylelint 尽可能的自动修复 CSS 代码「部分规则还是需要抛出错误，开发者手动修复」
+
+1. 安装 [lint-staged](https://github.com/okonet/lint-staged)、[husky](https://github.com/typicode/husky)
+
+`npm i --save-dev lint-staged husky`
+
+1. 增加 lint-staged 配置文件
+
+项目根目录添加文件 `.lintstagedrc` 基本配置文件：
+
+```json
+{
+  "src/**/*.css": [
+    "stylelint --fix",
+    "git add"
+  ]
+}
+```
+
+这样就会在执行 `git commit` 之前会自动以 `stylelint --fix` 的方式校验 `src/**/*.css` CSS 文件
 
 #### stylelint 的更多使用方式
 
