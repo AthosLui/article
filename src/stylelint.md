@@ -109,7 +109,3 @@ stylelint 不仅仅可以用于项目中，还可以用于编辑器，比如「S
 ---
 
 ·感谢阅读·
-
----
-
-安装 [lint-staged](https://github.com/okonet/lint-staged)
