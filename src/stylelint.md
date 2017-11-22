@@ -1,4 +1,4 @@
-# stylelint 结合 stylelint-order，大家一起随心所欲的写 CSS
+# stylelint 搭配 stylelint-order，更随心所欲的编码 CSS
 
 ## 为什么需要校验 CSS 规则
 
@@ -14,7 +14,7 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 请看以下场景：
 
 小冯：你的 CSS 为什么不把 `0.1` 写成 `.1`  
-小杰：计算机一样能识别，不好较真好么  
+小杰：CSS 解析器一样能识别，不好较真好么  
 小冯：好吧 😨，那为什么你的逗号后面没有空格，我看着很难受啊  
 小杰：我看着不难受就好  
 小冯：😨😨😨，那你能不能不要新建一个空的 CSS 文件啊！！！  
@@ -27,7 +27,7 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 
 单纯从代码层面来说，CSS 校验的东西其实蛮少的。  
 比如：属性顺序、小于 1 的小数要不要去掉 0、选择器之间要不要加空格…  
-不过要细细的追究，校验的东西还是挺多的，比如 [我在这里 - List of rules](https://stylelint.io/user-guide/rules/#list-of-rules) 列出了好多需要校验的规则。
+不过要细细的追究，校验的东西还是挺多的，比如 [List of rules](https://stylelint.io/user-guide/rules/#list-of-rules) 列出了好多需要校验的规则。
 
 叮叮叮~~~，有个东西要说一下，CSS 语言本身对「规则」不敏感，几乎是你想怎么写就怎么写，只要合乎「语法」。
 
@@ -36,18 +36,18 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 首先得有一个规则，其次开发者得遵守规则。  
 如何遵守：
 
-1. 提交 「Merge Request」的时候，以「Code Review」的形式「人工校验」。「~~~逃~~~ 好蠢啊，费时费力，效果差」
+1. 提交 「Merge Request」的时候，以「Code Review」的形式「人工校验」。「好蠢啊，费时费力，效果差」
 1. `git commit` 的时候「自动校验」，校验通过才能提交成功「(＾－＾)V 真好~~~」
 
 ### 通过 stylelint 校验 CSS 规则
 
 #### 简单步骤
 
-1. 安装 [stylelint](https://github.com/stylelint/stylelint)、[stylelint-order](https://github.com/hudochenkov/stylelint-order)
+- 安装 [stylelint](https://github.com/stylelint/stylelint)、[stylelint-order](https://github.com/hudochenkov/stylelint-order)
 
 `npm i --save-dev stylelint stylelint-order`
 
-1. 增加 stylelint 配置文件
+- 增加 stylelint 配置文件
 
 项目根目录添加文件 `.stylelintrc` 基本配置文件：
 
@@ -62,7 +62,7 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 具体的配置文件内容，欢迎参考：[点我呀](https://raw.githubusercontent.com/hangyangws/article/master/src/data/.stylelintrc)  
 注：配置文件使用的 CSS 属性排序规则来自 [这里](https://github.com/Wizard67/note-css-order#properties-属性)
 
-1. 在 package.json 的 scripts 字段中添加相关命令
+- 在 package.json 的 scripts 字段中添加相关命令
 
 ```json
 {
@@ -76,11 +76,11 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 `'src/**/*.css'` 以 blob 语法表示 CSS 文件的路径。  
 `--fix` 表示让 stylelint 尽可能的自动修复 CSS 代码「部分规则还是需要抛出错误，开发者手动修复」
 
-1. 安装 [lint-staged](https://github.com/okonet/lint-staged)、[husky](https://github.com/typicode/husky)
+- 安装 [lint-staged](https://github.com/okonet/lint-staged)、[husky](https://github.com/typicode/husky)
 
 `npm i --save-dev lint-staged husky`
 
-1. 增加 lint-staged 配置文件
+- 增加 lint-staged 配置文件
 
 项目根目录添加文件 `.lintstagedrc` 基本配置文件：
 
@@ -98,10 +98,6 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 #### stylelint 的更多使用方式
 
 stylelint 不仅仅可以用于项目中，还可以用于编辑器，比如「Sublime Text」，详细使用规则，这里不赘述。 [移步阅读](https://stylelint.io/)
-
-### 使用 stylelint-order 插件进行 CSS 顺序校验
-
-### 修复错误
 
 ## 写在最后
 
