@@ -101,7 +101,7 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 
 ## SVG 形状元素
 
-来张图压压惊：
+来张图压压惊：  
 ![svg-element](../img/svg-element.jpg)
 
 [点我查看 SVG 元素的基本 DEMO](https://jsfiddle.net/hangyangws/gc8m0nen/1/)

@@ -43,9 +43,9 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 
 #### 简单步骤
 
-- 安装 [stylelint](https://github.com/stylelint/stylelint)、[stylelint-order](https://github.com/hudochenkov/stylelint-order)
+- 安装 [stylelint](https://github.com/stylelint/stylelint)、[stylelint-order](https://github.com/hudochenkov/stylelint-order)、[stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
 
-`npm i --save-dev stylelint stylelint-order`
+`npm i --save-dev stylelint stylelint-order stylelint-config-standard`
 
 - 增加 stylelint 配置文件
 
@@ -73,7 +73,7 @@ CSS 看似简单，想要写出漂亮的 CSS 还是相当困难。[CSS 为什么
 ```
 
 这样就可以手动执行 `npm run lint-css` 校验 CSS 了。  
-`'src/**/*.css'` 以 blob 语法表示 CSS 文件的路径。  
+`'src/**/*.css'` 以 glob 语法表示 CSS 文件的路径。  
 `--fix` 表示让 stylelint 尽可能的自动修复 CSS 代码「部分规则还是需要抛出错误，开发者手动修复」
 
 - 安装 [lint-staged](https://github.com/okonet/lint-staged)、[husky](https://github.com/typicode/husky)
