@@ -98,7 +98,8 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 ## SVG 形状元素
 
 来张图压压惊：  
-![svg-element](../img/svg-element.jpg)
+![svg-element](../img/svg
+-element.jpg)
 
 [点我查看 SVG 元素的基本 DEMO](https://jsfiddle.net/hangyangws/gc8m0nen/1/)
 
@@ -166,39 +167,37 @@ x y：弧度终点
 - stroke
 - fill
 - transform
-[文章介绍](http://www.zhangxinxu.com/wordpress/2015/10/understand-svg-transform/)
-SVG中自带transform属性，没错，是属性，例如：
-<rect x="30" y="30" width="120" height="90" transform="rotate(45)"></rect>
-一些基本的变换类型是一样的，包括：位移translate, 旋转rotate, 缩放scale, 斜切skew以及直接矩阵matrix. 但只局限于2D层面的变换。SVG似乎只支持二维变换（若有不对，欢迎指正），且类似translateX, rotateX也都是不支持的。
-平常我们使用transform其坐标是相对于当前元素而言的，坐标变换的是相对于画布的左上角计算的
-如果我们使用SVG元素自带的transform属性进行变换，但是不能包含单位 transform="translate(30 12)"
 - linearGradient
 - mask
 - clipPath
 
 ## SVG 动画
 
-http://svgtrick.com/
+> [SVG 动画 集合](http://svgtrick.com/)  
+SVG 的动画元素是和 SMIL [Synchronized Multimedia Integration Language](https://www.w3.org/TR/REC-smil/)开发组合作开发的。  
+SMIL 开发组和 SVG 开发组合作开发了 SMIL 动画规范，在规范中制定了一个基本的 XML 动画特征集合。  
+SVG 吸收了 SMIL 动画规范当中的动画优点，并提供了一些SVG继承实现。
+
+大概三种实现方式：
 
 - JS 动画「DOM 操作『忽视它』」
 - CSS3 动画「animation、transition『不是 svg 的重点』」
 - SVG 本身的动画「基于 SMIL」「主要借助 SVG `animate` 相关标签」
 
-SVG animation最强大的地方在于：™只要在页面放几个animate元素，没有任何CSS, 没有任何JS
-
-[Synchronized Multimedia Integration Language](https://www.w3.org/TR/REC-smil/)
-SVG的动画元素是和SMIL开发组合作开发的。SMIL开发组和SVG开发组合作开发了SMIL动画规范，在规范中制定了一个基本的XML动画特征集合。SVG吸收了SMIL动画规范当中的动画优点，并提供了一些SVG继承实现。
-
 ![svg-animate-attr](../img/svg-animate-attr.jpg)
 
 ### set
 
-意思设置，此元素没有动画效果。你可能会疑问了，既然这个元素没有动画效果，怎么会是animation五大天团成员之一呢？
-OK, 这样的，虽然set虽然不能触发连续的动画，但是，其还是可以实现基本的延迟功能。就是指：可以在特定时间之后修改某个属性值（也可以是CSS属性值）
+set 表示此元素没有动画效果 😨😨😨。  
+好吧：这样的，虽然 set 虽然不能触发连续的动画，但是，其还是可以实现基本的延迟功能。  
+就是指：可以在特定时间之后修改某个属性值「也可以是 CSS 属性值」。
 
-https://jsfiddle.net/hangyangws/d6m1oyng/1/
+[一个 Demo](https://jsfiddle.net/hangyangws/d6m1oyng/1/)
 
 ### animate
+
+SVG animation 最强大的地方在于：「只要在页面放几个 animate 元素，没有任何 CSS, 没有任何JS」
+
 
 ```xml
 <animate
@@ -217,11 +216,12 @@ https://jsfiddle.net/hangyangws/d6m1oyng/1/
 </animate>
 ```
 
-https://jsfiddle.net/hangyangws/vk3j2pk1/1/
+[一个 Demo](https://jsfiddle.net/hangyangws/vk3j2pk1/1/)
 
 ### animateColor
 
-一看就知道是颜色动画。不过，animate可以实现其功能与效果，因此，此属性已经被废弃。可谓因为兄弟相争而年少陨落的天王。逝者已矣，过去的就让它过去吧~~
+一看就知道是颜色动画。不过，animate 可以实现其功能与效果，因此，此属性已经被废弃。  
+可谓因为兄弟相争而年少陨落的天王。逝者已矣，过去的就让它过去吧 ~~~
 
 ### animateTransform
 
@@ -237,12 +237,11 @@ https://jsfiddle.net/hangyangws/vk3j2pk1/1/
   repeatCount="indefinite">
 </animateTransform>
 ```
-
-https://jsfiddle.net/hangyangws/zqLorfo9/1/
+[一个 Demo](https://jsfiddle.net/hangyangws/zqLorfo9/1/)
 
 ### animateMotion
 
-animateMotion元素可以让SVG各种图形沿着特定的path路径运动~
+animateMotion 元素可以让 SVG 各种图形沿着特定的 path 路径运动 ~~~
 
 ```xml
 <animateMotion
@@ -252,18 +251,16 @@ animateMotion元素可以让SVG各种图形沿着特定的path路径运动~
 </animateMotion>
 ```
 
-https://jsfiddle.net/hangyangws/yxncvsph/1/
+[一个 Demo](https://jsfiddle.net/hangyangws/yxncvsph/1/)
 
-组合
-https://jsfiddle.net/hangyangws/z0zLcm9c/1/
+组合：  
+[一个 Demo](https://jsfiddle.net/hangyangws/z0zLcm9c/1/)
 
-end：
-https://jsfiddle.net/hangyangws/xxm1wkx4/2/
+end 事件：  
+[一个 Demo](https://jsfiddle.net/hangyangws/xxm1wkx4/2/)
 
-click:
-https://jsfiddle.net/hangyangws/Lr8gs5gn/1/
-
-begin="accessKey(s)
+click 事件：  
+[一个 Demo](https://jsfiddle.net/hangyangws/Lr8gs5gn/1/)
 
 ## 进阶阅读推荐
 
