@@ -253,6 +253,8 @@ animateMotion 元素可以让 SVG 各种图形沿着特定的 path 路径运动 
 
 [一个 Demo](https://jsfiddle.net/hangyangws/yxncvsph/1/)
 
+### 例子分析
+
 组合：  
 [一个 Demo](https://jsfiddle.net/hangyangws/z0zLcm9c/1/)
 
