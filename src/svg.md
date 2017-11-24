@@ -95,8 +95,6 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 - `<image>`：在 SVG 中嵌套图片，可以对图片做对应的处理
 - …
 
-[symbol demo](https://jsfiddle.net/hangyangws/0odr1kky/)
-
 ## SVG 形状元素
 
 来张图压压惊：  
@@ -171,7 +169,18 @@ x y：弧度终点
 - transform
 - linearGradient
 - mask
+- filter
 - clipPath
+
+一些 Demo：  
+[svg 模糊 demo](https://jsfiddle.net/hangyangws/48uprrq5/)  
+[symbol demo](https://jsfiddle.net/hangyangws/0odr1kky/)  
+[symbol-use-demo](https://jsfiddle.net/hangyangws/6L15hotf/)  
+[text mask demo](https://jsfiddle.net/hangyangws/1puLynrs/)  
+[mask demo](https://jsfiddle.net/hangyangws/60q9srrd/)  
+[clip demo](https://jsfiddle.net/hangyangws/Lh09hkpb/)  
+[SVG 文字路径动画](https://jsfiddle.net/hangyangws/dwvgwnc2/)  
+[linearGradient Demo](https://jsfiddle.net/hangyangws/yhxxdp6o/)
 
 ## SVG 动画
 
