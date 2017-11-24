@@ -45,7 +45,7 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 ```
 [viewBox demo](https://jsfiddle.net/hangyangws/ectdkt4u/1/)
 
-动画理解：
+动画理解：  
 ![viewBox-1](../img/viewBox-1.png)  
 ![viewBox-2](../img/viewBox-2.gif)
 
