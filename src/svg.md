@@ -95,6 +95,8 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 - `<image>`：在 SVG 中嵌套图片，可以对图片做对应的处理
 - …
 
+[symbol demo](https://jsfiddle.net/hangyangws/0odr1kky/)
+
 ## SVG 形状元素
 
 来张图压压惊：  
