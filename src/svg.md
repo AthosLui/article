@@ -181,6 +181,12 @@ x y：弧度终点
 [SVG 文字路径动画](https://jsfiddle.net/hangyangws/dwvgwnc2/)  
 [linearGradient Demo](https://jsfiddle.net/hangyangws/yhxxdp6o/)
 
+**使用 CSS 请注意**  
+把 background-color、border 改成 fill 和 stroke  
+上色和填充的部分一般是可以用 CSS 来设置的，比如 fill，stroke，stroke-dasharray，但不包括渐变和图案等。  
+另外，width、height，以及路径的命令等等，都不能用 css 设置  
+*不是所有的属性都能用 CSS 来设置*：[SVG 规范](https://www.w3.org/TR/SVG/propidx.html) 将属性区分成 properties 和 attributes，前者是可以用 CSS 设置的，后者不能
+
 ## SVG 动画
 
 > [SVG 动画 集合](http://svgtrick.com/)  
