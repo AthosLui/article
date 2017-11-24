@@ -1,37 +1,17 @@
-[link for w3cPlus](https://www.w3cplus.com/blog/tags/411.html?page=2)
-
-[SVG动画案例的学习](https://www.w3cplus.com/svg/an-svg-animation-case-study.html)
-[一个例子上手SVG动画](https://aotu.io/notes/2017/05/04/example-for-svg-animation/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
-[SVG 实现动态模糊动画效果](http://web.jobbole.com/92983/)
-[线条之美，玩转SVG线条动画](https://www.nihaoshijie.com.cn/index.php/archives/667/)
-[一个比想象中更骚气的圆-svg实现](https://juejin.im/post/578218ac5bbb500061fffa85)
-[使用 SVG 蒙版 (mask) 来实现波浪 (wave) 动画效果](http://svgtrick.com/tricks/554e3452640d3aea8b0b48d90eb71fe7)
-[让文字沿着路径动起来 (SVG)](https://juejin.im/post/585f855961ff4b006ce0f05b)
-[SVG与多彩渐变圆环倒计时效果实例页面](http://www.zhangxinxu.com/study/201710/colorful-time-count-down-svg-circle.html)
-[如何使用CSS和SVG剪切和遮罩技术](https://segmentfault.com/a/1190000006785931)
-[CSS和SVG中的剪切——clip-path属性和<clipPath>元素著作权归作者所有。](https://www.w3cplus.com/css3/css-svg-clipping.html)
-[理解SVG transform坐标变换](http://www.zhangxinxu.com/wordpress/2015/10/understand-svg-transform/)
-[超级强大的SVG SMIL animation动画详解](http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
-
-[SVG元素上的transform](https://www.w3cplus.com/svg/transforms-on-svg-elements.html)
-[超级强大的SVG SMIL animation动画详解](http://www.zhangxinxu.com/wordpress/2014/08/so-powerful-svg-smil-animation/)
-[拥抱Web设计新趋势：SVG Sprites实践应用](https://aotu.io/notes/2016/07/09/SVG-Symbol-component-practice/?o2src=juejin&o2layout=compat)
-[将SVG保存为图片](http://www.tangshuang.net/3595.html)
-[SVG 应用：Gradient (线性渐变) 在文字中的应用](https://segmentfault.com/a/1190000007426350)
-
 # SVG 扬帆起航
+
+> 本文不能让你成为 SVG 大神，但是能让你知道、了解他「揭开神秘面纱」
 
 ## 基础认知
 
-SVG「Scalable Vector Graphics」表示「可缩放矢量图形『放大不模糊』」。  
-SVG是面向未来 (W3C 标准)的，同时浏览器兼容性好。
-一个基础的 SVG 文档由 `<svg>` 根元素和 [基本形状元素](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) 构成  
-作为 XML 的一种方言，SVG 必须正确的绑定命名空间 （在 xmlns 属性中绑定）。[命名空间速成](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Namespaces_Crash_Course) 获取更多信息。
+SVG「Scalable Vector Graphics」表示「可缩放矢量图形『放大不模糊』」面向未来「W3C 标准」。  
+基本的 SVG 文档由 `<svg>` 根元素和 [基本形状元素](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) 构成  
+作为 XML 的一种方言，SVG 必须正确的绑定命名空间（在 xmlns 属性中绑定）。[命名空间速成](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Namespaces_Crash_Course) 获取更多信息
 SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可见。
 
 ### 能做什么
 
-动画、图形、渐变、旋转、滤镜、JavaScript 接口……「各种超酷的动画」
+动画、图形、渐变、旋转、滤镜、JavaScript 接口、各种超酷的动画…
 
 ### 和 HTML 使用的几种方式
 
@@ -50,6 +30,26 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 
 **`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">…</svg>`**
 节省 HTTP 请求，能使用 JS 控制，不能被浏览器缓存
+
+### 坐标系统
+
+看图说话「原点在左上角」：
+![svg-coordinate](../img/svg-coordinate.png)
+
+### viewBox
+
+```html
+<svg width="400" height="300" viewBox="0,0,40,30" style="border:1px solid #cd0000;">
+  <rect x="10" y="5" width="20" height="15" fill="#cd0000"/>
+</svg>
+```
+[viewBox demo](https://jsfiddle.net/hangyangws/ectdkt4u/1/)
+
+动画理解：
+![viewBox-1](../img/viewBox-1.png)  
+![viewBox-2](../img/viewBox-2.png)
+
+[深度阅读 - viewBox](http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/)
 
 ## CSS、JS 与 SVG
 
@@ -85,19 +85,15 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 1. `<img>`、`background-image` 形式的 SVG 不支持「外链 CSS、JS」  
 1. 内敛 CSS 和 JS 最好放在 `<![CDATA[` 与 `]]>` 之中
 
-## 坐标系统
-
-看图说话「原点在左上角」：
-![svg-coordinate](../img/svg-coordinate.png)
-
 ## SVG 基础元素
 
 - `<svg>`：SVG 的根元素，可以相互嵌套
-- `<g>`：将 SVG 中的元素进行分组操作，分组后可以看成一个单独的形状，统一转换，同时 g 元素的样式可以被子元素继承，但是它没有 `X、Y` 属性，不过可以通过 transform 来移动它
-- `<def>`：用于定义在 SVG 中可重用的元素，def 元素不会直接展示出来，可以通过 use 元素来引用
+- `<g>`：将 SVG 中的元素进行分组操作，分组后可以看成一个单独的形状，统一转换
+- `<defs>`：用于定义在 SVG 中可重用的元素，def 元素不会直接展示出来，可以通过 use 元素来引用
 - `<use>`：通过它来复用 def 元素，也包括 `<g>、<symbol>` 元素，使用 `<use xlink:href="#id"/>` 调用
-- `<text>`：实现 word 中的那种「艺术字」
+- `<text>`：文本节点，可以实现 word 中的那种「艺术字」
 - `<image>`：在 SVG 中嵌套图片，可以对图片做对应的处理
+- …
 
 ## SVG 形状元素
 
@@ -120,6 +116,8 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 1. 小写字母，表示采用「相对定位『相对于上一个点』」
 
 #### path 的命令列表
+
+> `document.getElementById(‘path’).getTotalLength()` 得到路径长度
 
 - M：moveto 移动到
 
@@ -168,44 +166,37 @@ x y：弧度终点
 - stroke
 - fill
 - transform
+[文章介绍](http://www.zhangxinxu.com/wordpress/2015/10/understand-svg-transform/)
+SVG中自带transform属性，没错，是属性，例如：
+<rect x="30" y="30" width="120" height="90" transform="rotate(45)"></rect>
+一些基本的变换类型是一样的，包括：位移translate, 旋转rotate, 缩放scale, 斜切skew以及直接矩阵matrix. 但只局限于2D层面的变换。SVG似乎只支持二维变换（若有不对，欢迎指正），且类似translateX, rotateX也都是不支持的。
+平常我们使用transform其坐标是相对于当前元素而言的，坐标变换的是相对于画布的左上角计算的
+如果我们使用SVG元素自带的transform属性进行变换，但是不能包含单位 transform="translate(30 12)"
 - linearGradient
 - mask
 - clipPath
 
 ## SVG 动画
 
+http://svgtrick.com/
+
 - JS 动画「DOM 操作『忽视它』」
 - CSS3 动画「animation、transition『不是 svg 的重点』」
 - SVG 本身的动画「基于 SMIL」「主要借助 SVG `animate` 相关标签」
+
+SVG animation最强大的地方在于：™只要在页面放几个animate元素，没有任何CSS, 没有任何JS
+
+[Synchronized Multimedia Integration Language](https://www.w3.org/TR/REC-smil/)
+SVG的动画元素是和SMIL开发组合作开发的。SMIL开发组和SVG开发组合作开发了SMIL动画规范，在规范中制定了一个基本的XML动画特征集合。SVG吸收了SMIL动画规范当中的动画优点，并提供了一些SVG继承实现。
 
 ![svg-animate-attr](../img/svg-animate-attr.jpg)
 
 ### set
 
-### animateTransform
+意思设置，此元素没有动画效果。你可能会疑问了，既然这个元素没有动画效果，怎么会是animation五大天团成员之一呢？
+OK, 这样的，虽然set虽然不能触发连续的动画，但是，其还是可以实现基本的延迟功能。就是指：可以在特定时间之后修改某个属性值（也可以是CSS属性值）
 
-```xml
-<animateTransform
-  attributeName="transform"
-  attributeType="XML"
-  type="rotate"
-  from="0 125 135"
-  to="360 125 135"
-  begin="0s"
-  dur="10s"
-  repeatCount="indefinite">
-</animateTransform>
-```
-
-### animateMotion
-
-```xml
-<animateMotion
-  dur="6s"
-  repeatCount="indefinite"
-  path="M100 100, A120 120, -45 0 1, 300 300 A120 120, -45 0 1, 100 100">
-</animateMotion>
-```
+https://jsfiddle.net/hangyangws/d6m1oyng/1/
 
 ### animate
 
@@ -226,85 +217,57 @@ x y：弧度终点
 </animate>
 ```
 
----
+https://jsfiddle.net/hangyangws/vk3j2pk1/1/
 
-## 贝塞尔曲线
+### animateColor
 
-[点我](http://www.cnblogs.com/hnfxs/p/3148483.html)
+一看就知道是颜色动画。不过，animate可以实现其功能与效果，因此，此属性已经被废弃。可谓因为兄弟相争而年少陨落的天王。逝者已矣，过去的就让它过去吧~~
 
-## `<g>`
+### animateTransform
 
-用来把若干个基本形状编成一个组
+```xml
+<animateTransform
+  attributeName="transform"
+  attributeType="XML"
+  type="rotate"
+  from="0 125 135"
+  to="360 125 135"
+  begin="0s"
+  dur="10s"
+  repeatCount="indefinite">
+</animateTransform>
+```
 
-## `<viewBox>`
+https://jsfiddle.net/hangyangws/zqLorfo9/1/
 
-可以做到放缩的效果
+### animateMotion
 
-## `<polygon />`
+animateMotion元素可以让SVG各种图形沿着特定的path路径运动~
 
-最后一个点会自动和第一个点连接
+```xml
+<animateMotion
+  dur="6s"
+  repeatCount="indefinite"
+  path="M100 100, A120 120, -45 0 1, 300 300 A120 120, -45 0 1, 100 100">
+</animateMotion>
+```
 
-**d 属性**  
-path 元素的形状是通过属性 d 定义的，属性 d 的值是一个「命令 + 参数」的序列
+https://jsfiddle.net/hangyangws/yxncvsph/1/
 
-### 填充、边框、样式
+组合
+https://jsfiddle.net/hangyangws/z0zLcm9c/1/
 
-常见属性：fill stroke fill-opacity stroke-opacity  
-stroke-width：描边宽度，不是路径宽度  
-strke-linecap：绘制描边的方式，边框 **终点** 的形状  
-stroke-linejoin：控制两条描边线段之间的方式连接  
-stroke-dasharray：一组用逗号分割的数字组成的数列 **必须用逗号分**  
-*注意：FireFox 3+ 支持 rgba ，但为了在其他浏览器中兼容，最好将 `rgba` 和 `*-opacity` 分开使用，如同时使用，则都将调用*
+end：
+https://jsfiddle.net/hangyangws/xxm1wkx4/2/
 
-**使用CSS**
-把 background-color、border 改成 fill 和 stroke  
-上色和填充的部分一般是可以用CSS来设置的，比如fill，stroke，stroke-dasharray，但不包括渐变和图案等。  
-另外，width、height，以及路径的命令等等，都不能用 css 设置  
-*不是所有的属性都能用CSS来设置*：[SVG 规范](https://www.w3.org/TR/SVG/propidx.html) 将属性区分成 properties 和 attributes，前者是可以用 CSS 设置的，后者不能
+click:
+https://jsfiddle.net/hangyangws/Lr8gs5gn/1/
 
-1. 利用style属性插入到元素的行间：`<rect style="stroke: #fff;"/>`
-1. 利用 `<style>` 在 html `<head>` 里；在 svg `<defs>` 标签里
+begin="accessKey(s)
 
-`<defs>` 表示定义，这里面可以定义一些不会在 SVG 图形中出现、但是可以被其他元素使用的元素
+## 进阶阅读推荐
 
-### 渐变
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Gradients)
-
-### 图案
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Patterns)
-
-### Texts
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Texts)
-
-### 基础变形
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Basic_Transformations)
-
-### 剪切和遮罩
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Clipping_and_masking)
-
-### SVG 字体
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/SVG_fonts)
-
-### 嵌入到 HTML 文件
-
-- 如果HTML是XHTML并且声明类型为application/xhtml+xml，可以直接把SVG嵌入到XML源码中。
-- 如果HTML是HTML5并且浏览器支持HTML5，同样可以直接嵌入SVG。然而为了符合HTML5标准，可能需要做一些语法调整。
-- 可以通过 object 元素引用SVG文件
-- 类似的也可以使用 iframe 元素引用SVG文件
-- 理论上同样可以使用 img 元素，但是在低于4.0版本的Firefox 中不起作用。
-- 最后SVG可以通过JavaScript动态创建并注入到HTML DOM中。 这样具有一个优点，可以对浏览器使用替代技术，在不能解析SVG的情况下，可以替换创建的内容。
-
-### Notes
-
-- SVG 里的属性值必须用引号引起来，就算是数值也必须这样做
-- SVG 的元素和属性必须按标准格式书写，因为 XML 是区分大小写的「这一点和 HTML 不同」
-- SVG 元素可以用 CSS 的 fill 填充颜色：`path { fill: currentColor; }`
+- [贝塞尔曲线原理「简单阐述」](http://www.cnblogs.com/hnfxs/p/3148483.html)
 
 ## 工具推荐
 
