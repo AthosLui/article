@@ -25,10 +25,10 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 
 **`<embed type="image/svg+xml" src="xxx.svg" />`**
 
-**`<object type="image/svg+xml" data="xxx.svg">Not support SVG</object>`**
+**`<object type="image/svg+xml" data="xxx.svg">Not support SVG</object>`**  
 能使用JS来控制「推荐方式」
 
-**`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">…</svg>`**
+**`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">…</svg>`**  
 节省 HTTP 请求，能使用 JS 控制，不能被浏览器缓存
 
 ### 坐标系统
