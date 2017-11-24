@@ -6,7 +6,7 @@
 
 SVG「Scalable Vector Graphics」表示「可缩放矢量图形『放大不模糊』」面向未来「W3C 标准」。  
 基本的 SVG 文档由 `<svg>` 根元素和 [基本形状元素](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) 构成  
-作为 XML 的一种方言，SVG 必须正确的绑定命名空间（在 xmlns 属性中绑定）。[命名空间速成](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Namespaces_Crash_Course) 获取更多信息
+作为 XML 的一种方言，SVG 必须正确的绑定命名空间（在 xmlns 属性中绑定）。[命名空间速成](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Namespaces_Crash_Course) 获取更多信息  
 SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可见。
 
 ### 能做什么
