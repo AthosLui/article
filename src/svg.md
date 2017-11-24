@@ -47,7 +47,7 @@ SVG 文件全局有效的规则是 「后来居上」，越后面的元素越可
 
 动画理解：
 ![viewBox-1](../img/viewBox-1.png)  
-![viewBox-2](../img/viewBox-2.png)
+![viewBox-2](../img/viewBox-2.gif)
 
 [深度阅读 - viewBox](http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/)
 
