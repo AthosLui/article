@@ -144,3 +144,8 @@ OR
 ### gco --theirs '冲突文件名'
 
 解决冲突使用别人的代码
+
+### 删除远端所有非 master 的分支
+
+`git branch -a | grep remotes/lcj | grep -oP "remotes/lcj/\K.*" | xargs -n 1 -i git push lcj :{}`
+
