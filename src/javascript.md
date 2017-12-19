@@ -1,6 +1,6 @@
 # JS 的 7 种数据类型
 
-### 6 种原始类型
+## 6 种原始类型
 
 1. **Null**  
     只有一个值： `null`
@@ -13,7 +13,7 @@
 1. [**Symbol**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol)  
     `ES6`新增基本类型
 
-### 1种引用类型
+## 1种引用类型
 
 > 对象指内存中的可以被标识符引用的一块区域  
 比如：数组、对象…
@@ -105,7 +105,7 @@ obj3 instanceof Func; // 返回：true （因为 obj3.__proto__.__proto__ === Fu
 解析到 `<script src="xxx.js">` 时，浏览器会停止 `DOM` 树的构建，而去下载当前 JS 文件  
 如果 `<script src="xxx.js">` 下载需要6秒，下载时 `DOM` 树还没有构建完成，那么页面会延迟 6 秒加载，出现 6 秒白屏
 
-### defer「推迟」
+## defer「推迟」
 
 **使用方式**：  
 添加 `defer` 属性：`<script src="xxx.js" defer>`
@@ -115,7 +115,7 @@ obj3 instanceof Func; // 返回：true （因为 obj3.__proto__.__proto__ === Fu
 当 `JS` 下载完成后，并不会马上执行  
 而是继续解析 `DOM` ，当 `DOM` 构建完成(DOMContentLoaded)后再执行 `JS` 内容
 
-### async「异步」
+## async「异步」
 
 **使用方式**：  
 添加 `async` 属性：`<script src="xxx.js" async>`
@@ -125,7 +125,7 @@ obj3 instanceof Func; // 返回：true （因为 obj3.__proto__.__proto__ === Fu
 当 `JS` 下载完成后，就会马上执行，并且停止 `DOM` 的解析  
 当 `JS` 执行完成后，又开始解析 `DOM`
 
-### 总结 defer、async
+## 总结 defer、async
 
 `defer` 和 `async` 在下载 `JS` 时是一样的，相较 `DOM` 解析都是异步  
 它俩的差别在于：`JS` 下载完之后何时执行  
@@ -144,7 +144,7 @@ HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（c
 
 # 元素视图之 getBoundingClientRect()、getClientRects()、elementFromPoint()
 
-### HTMLElement.prototype.getBoundingClientRect
+## HTMLElement.prototype.getBoundingClientRect
 
 用于判断元素尺寸和位置  
 **返回值**：
@@ -163,7 +163,7 @@ HTMLElement.offsetParent 是一个只读属性，返回一个指向最近的（c
 }
 ```
 
-### HTMLElement.prototype.getClientRects
+## HTMLElement.prototype.getClientRects
 
 主要用于行内「inline」元素（如：`<a>` … ）  
 可以用于判断行内元素是否换行，以及行内元素的每一行的位置偏移  
@@ -177,7 +177,7 @@ test.length; // 如果 element 是非 inline 元素，test.length 为 1，否则
 // test[0]、test[1]…返回的值与 getBoundingClientRect 类似
 ```
 
-### elementFromPoint
+## elementFromPoint
 
 > 查看视口中指定位置是什么元素  
 注意：返回的元素是指定坐标的最上层（z-index 最大）和最里层（最里层的子元素）的 Element 对象
@@ -251,7 +251,7 @@ Son4.prototype = (new Father()).__proto__;
 
 > 这三种都在严格模式（use strict）下禁用了，开发者请[注意](https://zhidao.baidu.com/question/1385936076596542060.html)
 
-### arguments
+## arguments
 
 > arguments是：函数在调用时，内部创建的一个类似数组的对象
 
@@ -270,7 +270,7 @@ func2(1, 2, 3); // 打印：[1, 2, 3]
 // arguments存储的是：传递给函数的参数，并不局限于函数声明的参数列表，即使没有声明参数也可以
 ```
 
-### callee
+## callee
 
 > `callee` 是 `arguments` 的一个属性，表示当前执行的函数
 
@@ -321,7 +321,7 @@ parent();
 > 我对this的定义：拥有当前 **执行上下文**（context）的一个对象  
 开发者需要知道的是：当前的 this 是哪一个对象  
 
-### 全局环境中找 this
+## 全局环境中找 this
 
 > 全局函数内部 this 指向 undefined  
 在非严格模式中，当 this 指向 undefined 时，它会被自动指向全局对象
@@ -339,7 +339,7 @@ getThis(); // 返回：undefined
 // 另外，nodejs 环境下，this 既不是 window 也不是 undefined，开发者可以自行谷歌
 ```
 
-### 在执行语句前面有点 `•` 、 有明确父级执行对象的情况找 this
+## 在执行语句前面有点 `•` 、 有明确父级执行对象的情况找 this
 
 > 是谁在执行语句，语句内部的 this 就是谁
 
@@ -367,7 +367,7 @@ myThis();// 返回：window
 // 在执行 myThis 时，myThis 的父级执行对象是 window ，所以内部this就为 window
 ```
 
-### 函数内部的函数找 this
+## 函数内部的函数找 this
 
 > 函数内部的函数，没有明确的父级执行对象，this 默认绑定到全局
 
@@ -385,7 +385,7 @@ var test = {
 test.getThis(); // 依次返回：test、window
 ```
 
-### 存在 call、apply 和 bind 的情况找 this
+## 存在 call、apply 和 bind 的情况找 this
 
 ```javascript
 function getThis() {
@@ -403,7 +403,7 @@ var myGetThis = getThis.bind(Test);
 myGetThis(); // 返回：Test
 ```
 
-### 有 `new` 关键字的情况找 this
+## 有 `new` 关键字的情况找 this
 
 > new一个对象，对象内部的 this 就是当前对象  
 new 的权级要高于 bind
@@ -424,7 +424,7 @@ new myGetThis; // 返回：getThis
 // 但是在 new 过后，内部 this 还是 getThis
 ```
 
-### DOM 绑定事件监听函数找 this
+## DOM 绑定事件监听函数找 this
 
 > 在 DOM 事件处理函数中，this 始终指向这个处理函数绑定的 DOM 节点
 
@@ -438,7 +438,7 @@ $dom.addEventListener('click', function() {
 // 当 $dom 元素被点击的时候，打印：true
 ```
 
-### ES6的箭头函数找 this
+## ES6的箭头函数找 this
 
 > 函数体内的 this 对象，就是定义时所在的对象，而不是使用时所在的对象  
 箭头函数 this 指向的固定化，不是因为箭头函数内部有绑定 this 机制  
@@ -466,131 +466,13 @@ Test.getThis2(); // 返回：window
 // setTimeout 的回调参数是箭头函数 (this 在定义时指向 Test)
 ```
 
-# 正则之 exec 和 test
-
-> 提示：正则表达式有个属性：`lastIndex` ，表示从字符串的哪一个下标开始匹配，默认为 `0`
-
-### RegExp.prototype.exec
-
-> exec 返回的是数组，如果没有匹配返回为 null（注意：不是空数组）  
-正则有个属性：lastIndex（默认为 0 ），只有在全局匹配模式才改变
-
-```javascript
-var str = 'xxabxxabbxx';
-
-/**
- * 普通正则的情况
- */
-
-var reg = /ab*/;
-reg.lastIndex; // 返回：0
-// 从下标 0 开始匹配，找到「ab」即返回
-reg.exec(str); // 返回：["ab"]
-// 因为正则没有定义全局匹配，所以 lastIndex 不会改变，依旧为 0
-reg.lastIndex; // 返回：0
-
-/**
- * 带有子元素正则情况
- */
-
-var reg = /a(b*)/;
-reg.lastIndex; // 返回：0
-
-// 从下标 0 开始匹配，找到「ab」，数组存入第一个元素
-// 根据「(b*)」再找到「b」，数组存入第二个元素
-reg.exec(str); // 返回：["ab", "b"]
-
-// 因为正则没有定义全局匹配，所以 lastIndex 不会改变，依旧为 0
-reg.lastIndex; // 返回：0
-
-/**
- * 带有子元素且全局配备的情况
- */
-
-var reg = /a(b*)/g;
-reg.lastIndex; // 返回：0
-
-// 从下标 0 开始匹配，找到「ab」，数组存入第一个元素
-// 根据「(b*)」找到「b」，数组存入第二个元素
-reg.exec(str); // 返回：["ab", "b"]
-
-// 因为正则定义了全局匹配，所以 lastIndex 改为下一次开始匹配的下标
-reg.lastIndex; // 返回：4
-
-// 从下标 4 开始匹配，找到「abb」，数组存入第一个元素
-// 根据「(b*)」找到「bb」，数组存入第二个元素
-reg.exec(str); // 返回：["abb", "bb"]
-```
-
-### RegExp.prototype.test
-
-> test方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配，返回 true 或 false  
-test类似于 `String.prototype.search()` 方法  
-差别在于 test 返回一个布尔值，而 search 返回索引（如果找到）或者 -1（如果没找到)
-
-```javascript
-var str = 'xxabxxabbxx';
-var reg = /ab*/;
-reg.test(str); // 返回：true
-
-// 注意：
-/undefined/.test(); // 返回：true
-/undefined/.test('undefined'); // 返回：true
-```
-
-# 字符串之 match 和 search
-
-### String.prototype.match
-
-> 正则没有 `g` 标志，str.match() 返回和 RegExp.exec() 相同  
-正则没有 `g` 标志，返回的 Array 有一个 `input` 属性（解析的原始字符串）  
-正则没有 `g` 标志，返回的 Array 有一个 `index` 属性（匹配结果在原字符串中的索引「以 0 开始」）  
-正则有 `g` 标志，match 返回的是数组，如果没有匹配返回为 null（注意：不是空数组）
-
-```javascript
-// 没有 g 的列子
-var str = 'OK abc 1.2.3',
-    reg = /abc (\d+(\.\d)*)/i;
-
-console.log(str.match(reg));
-// 返回：
-// [
-//    "abc 1.2.3", // 整个匹配结果
-//    "1.2.3",     // 被 (\d+(\.\d)*) 捕获
-//    ".3",        // 被 (\.\d) 捕获的最后一个值
-//    "index",     // 值为：3。 整个匹配从 0 开始的索引
-//    "input"      // 值为：'OK abc 1.2.3'。被解析的原始字符串
-// ]
-
-// 有g的列子
-var str = 'ABCDabcd',
-    reg = /[A-C]/gi;
-console.log(str.match(reg));
-// 返回：["A", "B", "C", "a", "b", "c"]
-```
-
-> 如果 match 参数为非 RegExp 对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
-如未提供参数，那么你会得到一个包含空字符串的 Array ：[""]
-
-```javascript
-var str = "+Infinity 10";
-str.match(Infinity); // 返回：["Infinity"]
-str.match(+10); // 返回：["10"]
-str.match(); // 返回：[""]
-```
-
-### String.prototype.search
-
-> 如果 match 参数为非 RegExp 对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp  
-如果匹配成功，则 search() 返回正则表达式在字符串中首次匹配项的索引。否则，返回 -1
-
 # call、apply 和 bind
 
 > 三者都是改变函数内部 this 指向  
 区别一：apply 传递参数为数组形式，call 与 bind 为枚举形式  
 区别二：call 与 apply 立即执行，而 bind 不是
 
-### Function.prototype.call
+## Function.prototype.call
 
 ```javascript
 function getThis() {
@@ -613,7 +495,7 @@ getName(); // 返回："window", undefined
 getName.call(obj, 'call'); // 返回："obj", "call"
 ```
 
-### Function.prototype.apply
+## Function.prototype.apply
 
 ```javascript
 var obj = {
@@ -625,7 +507,7 @@ function getName(_param1, _param2) {
 getName.apply(obj, ['apply1', 'apply2']); // 返回："obj", "apply1", "apply2"
 ```
 
-### Function.prototype.bind
+## Function.prototype.bind
 
 > IE6/7/8 不支持 bind
 
@@ -648,7 +530,7 @@ tempGetName2('bind1', 'bind2'); // 返回："obj", "bind1", "bind2"
 
 # 设置元素样式
 
-### setAttribute 方式设置元素样式
+## setAttribute 方式设置元素样式
 
 ```javascript
 // 只能用于某些属性（比如 height ）
@@ -660,7 +542,7 @@ element.setAttribute('style', 'max-height: 100px !important');
 element.setAttribute('style', 'height: 100px');
 ```
 
-### element.style 方式设置元素样式
+## element.style 方式设置元素样式
 
 使用 **element.style** 对象设置样式
 某些情况此方法设置 `!important` 值无效  
@@ -691,7 +573,7 @@ element.style.cssText = 'height: 100px !important';
 element.style.cssText += 'max-height: 100px !important';
 ```
 
-### className 方式设置元素样式
+## className 方式设置元素样式
 
 > 前提是已经定义好一些类名
 
@@ -700,7 +582,7 @@ element.className = 'blue';
 element.className += 'red pink';
 ```
 
-### 使用 addRule、insertRule 方式设置元素样式
+## 使用 addRule、insertRule 方式设置元素样式
 
 ```javascript
 // 在原有样式操作
@@ -795,7 +677,7 @@ function(name) { // 定义一个函数
 
 # 数组相关
 
-### 数组的长度是根据下标的最大而确定的
+## 数组的长度是根据下标的最大而确定的
 
 ```javascript
 var arr = [];
@@ -805,7 +687,7 @@ arr[10] = 10;
 arr.length; // 返回：11
 ```
 
-### 手动赋值数组长度可以删减多余元素
+## 手动赋值数组长度可以删减多余元素
 
 ```javascript
 var arr = [1, 2, 3, 4];
@@ -813,7 +695,7 @@ arr.length = 2;
 console.log(arr); // 返回：[1, 2]
 ```
 
-### Array.prototype.reduce()
+## Array.prototype.reduce()
 
 > reduce中文是减少的意思  
 reduce可以作用于把数组累计操作然后返回为一个数
@@ -856,34 +738,26 @@ console.log(result);
 // 这个参数作为计算初始值
 ```
 
-### Array.prototype.find
-
-[mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-
-### in 操作符
+## in 操作符
 
 [link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in)
-
-### Array.prototype.includes()
-
-[link](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes?v=example#Polyfill)
 
 # Object.defineProperty
 
 [MDN链接](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
-### 意义与使用场景
+## 意义与使用场景
 
 > `Object.defineProperty`可以监听某个对象的属性的读写，并且可以自定义相关监听函数  
 PS：对象初始化的值会被清空，定义初始值只能在函数内部定义
 
-### 语法
+## 语法
 
 ```javascript
 Object.defineProperty(objName, propName, descriptor);
 ```
 
-### 参数
+## 参数
 
 > PS: 数据描述符和存取描述符不能混合使用。比如 get 和 value 不可以共存。
 
@@ -912,7 +786,7 @@ Object.defineProperty(objName, propName, descriptor);
 }
 ```
 
-### 返回值
+## 返回值
 
 返回传入函数的对象，即第一个参数 obj
 
