@@ -76,31 +76,41 @@ LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
 > JS获取元素样式方式：  
 **widow.getComputedStyle** (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
 **element.style** (获取的是元素行间设置的样式)
-**element.currentStyle** (ie低版本)
+**element.currentStyle** (IE 低版本)
 
 ```javascript
-// 获取指定元素的某个CSS样式，兼容IE
-var getStyle = function($el, _attr) {
-    if(window.getComputedStyle) {
-        return window.getComputedStyle($el, null)[_attr]
-    }
-    if($el.currentStyle) {
-        return $el.currentStyle[_attr];
-    }
-    return $el.style[_attr];
+// 用于获取指定元素的某个 CSS 样式，兼容 IE
+var getStyle = function(element, attr) {
+  if(window.getComputedStyle) {
+    return window.getComputedStyle(element, null)[attr]
+  }
+
+  if(element.currentStyle) {
+    return element.currentStyle[attr];
+  }
+
+  return element.style[attr];
 }
 
-var getFinalBackground = function($el) {
-    var color = getStyle($el, 'backgroundColor');
-    if(color === 'rgba(0, 0, 0, 0)' || color === 'transparent') { // 判断当前元素背景透明，则查询父元素
-        return $el.tagName === 'HTML' ?
-            'rgb(255, 255, 255)' : // 遇到根节点就返回白色
-            arguments.callee($el.parentNode, 'backgroundColor'); // 不是根节点就继续向上找父节点
-    } else { // 当前元素背景不透明，则返回颜色值
-        return color;
-    }
+var isTransparentColor = function(color) {
+  return /^rgba\(.*, ?0\)$/.test(color) || color === 'transparent'
 }
-```
+
+var getFinalBackgroundColor = function(element) {
+  var color = getStyle(element, 'backgroundColor');
+
+  // 判断当前元素背景透明，则查询父元素
+  if (isTransparentColor(color)) {
+    return element.tagName === 'HTML'
+      // 遇到根节点「HTML」就返回白色
+      ? 'rgb(255, 255, 255)'
+      // 不是根节点就继续向上找父节点
+      : arguments.callee(element.parentNode, 'backgroundColor');
+  }
+
+  return color;
+}
+````
 
 # 前端优化简述
 
@@ -190,15 +200,15 @@ var getFinalBackground = function($el) {
 
 # 跨域之 POST
 
-> 虽然`JSONP`可以解决跨域问题，但是`JSONP`是`GET`类型，传输数据大小不及`POST`类型  
-如果需要传递大量数据的跨域，就得了解**POST跨域**
+> 虽然 `JSONP` 可以解决跨域问题，但是 `JSONP` 是 `GET` 类型，传输数据大小不及 `POST` 类型  
+如果需要传递大量数据的跨域，就得了解 **POST跨域**
 
 - CORS(Cross Origin Resource Sharing，跨域资源共享)
 
     > 由于跨域访问会有安全问题，所以有了同源策略  
-    我们换位思考，被请求数据的服务器如果同意来自*不同源*的请求，是不是意味着“我信任这个源的请求”  
-    那么，同源策略这个时候会“失效”，就达成了“跨域”  
-    所以只要服务端设置了http响应头`Access-Control-Allow-Origin`应许请求即可
+    我们换位思考，被请求数据的服务器如果同意来自「不同源」的请求，是不是意味着「我信任这个源的请求」  
+    那么，同源策略这个时候会「失效」，就达成了「跨域」  
+    所以只要服务端设置了 http 响应头「Access-Control-Allow-Origin」应许请求即可  
     比如：
 
     ```php
