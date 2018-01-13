@@ -1,11 +1,7 @@
-# Generator
-
-> [阮老师 ES6入门](http://es6.ruanyifeng.com/#docs/generator)
-
 # fetch
 
-> fetch 提供一个获取资源的接口(包括跨网络)
-fetch 可看做 ES6对`XMLHttpRequest`的升级方法  
+> fetch 提供一个获取资源的接口(包括跨网络)  
+fetch 可看做 ES6 对 `XMLHttpRequest` 的升级方法  
 
 fetch 请求默认不带 cookie ，需设置 fetch(url, {credentials: 'include'})  
 当服务器返回`400、500`状态码时并不会 reject  
@@ -27,8 +23,7 @@ ES6 明确规定， Class 内部只有静态方法，没有静态属性
 ES7 有一个静态属性的提案，目前 Babel 转码器支持
 
 ```JS
-class Foo {
-}
+class Foo {}
 
 Foo.prop = 1
 Foo.prop // 1

@@ -1,82 +1,80 @@
-# 草稿 && 多端同步
-
 # LazyMan的实现
 
-> LazyMan是典型的流程控制解决方案的列子  
-如果不知道什么是LazyMan，请自行google
+> LazyMan 是典型的流程控制解决方案的列子  
+如果不知道什么是 LazyMan，请自行 google
 
 ```javascript
-function _LazyMan(_name) {
-    var _this = this; // 缓存this
-    _this.tasks = []; // 任务初始化为空数组
-    _this.tasks.push(function() {
-        console.log('Hi! This is ' + _name + '!');
-        // 当前匿名函数，没有明确的执行对象，所以函数里面的this指向window，因此访问当前LazyMan对象就要缓存this
-        _this.next();
-    });
-    // setTimeout会开辟另一个执行临时队列，在当前线程（js是单线程）执行完成后才会执行此临时队列的任务
-    // 在执行此临时队列时，会按照先前设置时间延迟
-    // 如果延迟时间设置为0，就以为着不延迟执行
-    // 这样做的意义在于：让当前任务脱离当前执行的线程（有点异步执行的感觉）
-    setTimeout(function() {
-        _this.next(); // 执行下一个任务
-    }, 0);
+const LazyManGneration = function(name) {
+  this.name = name
+  this.tasks = [] // 任务初始化为空序列
+  this.tasks.push(() => {
+    console.log(`嗨，我是 ${name}`)
+    this.next()
+  })
+
+  setTimeout(() => { this.next() }, 0)
 }
 
-// push函数里面的this和setTimeout函数里面的this都指向全局作用域，所以要缓存当前this指向
-_LazyMan.prototype.next = function() {
-    // 取出任务队列的任务存入变量
-    var _fn = this.tasks.shift();
-    // 如果当前任务存在，就执行当前任务（&&左边为真在会去执行右边，有点if语句的感觉）
-    _fn && _fn();
+LazyManGneration.prototype.sleep = function(time) {
+  this.tasks.push(() => {
+    setTimeout(() => {
+      console.log(`${this.name} 休息了 ${time}ms`)
+      this.next()
+    }, time)
+  })
+
+  return this
 }
-_LazyMan.prototype.sleep = function(_time) {
-    var _this = this;
-    _this.tasks.push(function() {
-        setTimeout(function() {
-            console.log('Wake up after ' + _time);
-            _this.next();
-        }, _time);
-    });
-    return _this;
+LazyManGneration.prototype.sleepFirst = function(time) {
+  this.tasks.unshift(() => {
+    setTimeout(() => {
+      console.log(`从一开始，${this.name} 已经休息了 ${time}ms。`)
+      this.next()
+    }, time)
+  })
+
+  return this
 }
-_LazyMan.prototype.sleepFirst = function(_time) {
-    var _this = this;
-    // sleepFirst和sleep原理一样，只是在新增任务时插队了，把当前任务放在了队列的最前面
-    _this.tasks.unshift(function() {
-        setTimeout(function() {
-            console.log('Wake up after ' + _time);
-            _this.next();
-        }, _time);
-    });
-    return _this;
+LazyManGneration.prototype.eat = function(food) {
+  this.tasks.push(() => {
+    console.log(`${this.name} 吃 ${food}`)
+    this.next()
+  })
+
+  return this
 }
-_LazyMan.prototype.eat = function(_eat) {
-    var _this = this;
-    _this.tasks.push(function() {
-        console.log('Eat ' + _eat);
-        _this.next();
-    });
-    return _this;
+LazyManGneration.prototype.next = function() {
+  const nextTask = this.tasks.shift()
+
+  // 如果有下一个任务，则执行下一个任务
+  nextTask && nextTask()
 }
 
-var LazyMan = function(_name) { // 封装对象
-    return new _LazyMan(_name);
-}
+const LazyMan = name => new LazyManGneration(name)
 
-// 运行测试
-LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000);
-// "Wake up after 2000"(2s后输出)
-// "Hi! This is hangyangws!"
-// "Eat apple" "Wake up after 1000"(1s后输出)
+// 运行测试：
+LazyMan('hangyangws').eat('apple').sleep(1000).sleepFirst(2000)
 ```
 
-# 用JS求出元素的最终的 `background-color`，不考虑元素float、absolute情况
+# 求出元素的最终的 `background-color`
 
-> JS获取元素样式方式：  
-**widow.getComputedStyle** (标准浏览器中获取CSS文件中设置的样式返回的对象中，驼峰命名和中划线命名的都有，如：`background-color`和`backgroundColor`都有)
-**element.style** (获取的是元素行间设置的样式)
-**element.currentStyle** (IE 低版本)
+> 不考虑元素 float、absolute、有透明度背景的情况
+
+### JS 获取元素样式的 3 种方式
+
+1. widow.getComputedStyle
+
+    标准浏览器中获取 CSS 文件中设置的样式，  
+    此方法返回的对象包括样式二种样式命名规则：  
+    比如：`background-color` 和 `backgroundColor`
+
+1. element.style
+
+    获取元素行间设置的样式
+
+1. element.currentStyle
+
+    IE 低版本
 
 ```javascript
 // 用于获取指定元素的某个 CSS 样式，兼容 IE
