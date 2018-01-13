@@ -176,7 +176,7 @@ var getFinalBackgroundColor = function(element) {
 
 # 跨域之 JSONP
 
-> **同源策略 `same-Origin-Policy` **：指浏览器对不同源的脚本或文本的访问方式进行的限制  
+> 同源策略 `same-Origin-Policy`：指浏览器对不同源的脚本或文本的访问方式进行的限制  
 **同源**：指两个页面具有相同的 **协议**、**主机`也常说域名`**、**端口** 三要素缺一不可
 所以在 JS 代码中访问不同源的数据会提示 *跨域警告*
 
