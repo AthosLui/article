@@ -286,9 +286,7 @@ console.table(_matrix);
 // ]
 ```
 
-# 用 JS 冒泡排序法
-
-> 排序中的经典方法，用 JS 实现感觉又不一样
+# 用 JS 实现冒泡排序
 
 ```javascript
 function bubbleSort(_arr) {
@@ -322,7 +320,7 @@ function bubbleSort(_arr) {
 }
 ```
 
-# 用 JS 实现二分查找法
+# 用 JS 实现二分查找
 ```javascript
 /**
  * @param  {[Array]}  _arr         [查找的数组]
@@ -351,15 +349,7 @@ function binarySearch(_arr, _wantVal) {
 }
 ```
 
-# 用JS实现快排算法
-
-### 如何实现 Object 的深复制
-
-### 递归的方法进行复制
-### 循环的方法
-### 利用 JSON 对象
-
-# CSS 下载与 DOM 树渲
+# 用 JS 实现「快速排序」
 
 # new 一个对象需要注意的
 
@@ -395,8 +385,6 @@ new person('hangyangws').say(); // 返回：hangyangw
 # 从输入 url 到渲染的整个过程
 
 [link](https://juejin.im/post/5909b21eda2f60005d1ef731)
-
-# 如果父元素的 font-size 也是采用 em 表示，那么子元素的 font-size 怎么计算等?
 
 # 事件循环
 
