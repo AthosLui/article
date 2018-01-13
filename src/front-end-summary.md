@@ -113,7 +113,7 @@ var getFinalBackgroundColor = function(element) {
 # 前端优化简述
 
 > 应用优化涉及各个方面，前端优化只是冰山一角  
-有人说：“离开系统的性能瓶颈的前端优化都是扯蛋”  
+有人说「离开系统的性能瓶颈的前端优化都是扯蛋」  
 我觉得，我们各司其职，做好前端本职工作就好，想太多有时不一定是好事
 
 ### 优化目的
@@ -123,131 +123,159 @@ var getFinalBackgroundColor = function(element) {
 
 ### 优化方法
 
-1. 页面优化
-    - HTTP请求数
-        1. 从设计实现层面简化页面
-        1. 合理设置`HTTP`缓存
-        1. 资源合并与压缩(example：`CSS Sprites`)
-        1. Inline Images（将图片嵌入到页面或style文件）
-        1. Lazy Load Images
-        1. 避免重复的资源请求
-    - 资源优化
-        1. 图片格式的选择（非透明大图尽量不用png、PS保存图片为`web格式`且勾选`连续`选项）
-    - 资源的无阻塞加载
-        1. CSS放在HEAD中
-        1. JavaScript置底
-        1. Lazy Load Javascript（example：`AMD`）
-1. 代码优化
-    - DOM操作优化
-        1. 减少DOM操作，减少`Reflow和Repaint`
-        1. HTML Collection（类数组集合并不是一个静态的结果，表示的仅是特定的查询，每次访问时会重新执行查询需要遍历 HTML Collection时，将它转为数组再访问，以提高性能）
-    - JavaScript
-        1. 减少作用域链查找（example：缓存全局变量）
-        1. 慎用 `with、eval、Function`
-        1. 减少闭包的使用（易内存浪费，不仅仅是常驻内存，重要的是，使用不当会造成无效内存的产生）
-        1. 直接量、局部变量的使用（对象属性以及数组的访问需要更大的开销）
-        1. 减少字符串拼接`+`使用
-    - CSS选择符优化
-        1. 减少层级，多用class（浏览器解析CSS是从右往左）
-    -  HTML结构优化
-        1. 使用HTML5 DOCTYPE
-        1. 标签闭合、结构分离
-        1. Boolean 属性不需要赋值，如果存在则为True（example：`checked、selected`）
-        1. 语义化、标签统一整洁
-        1. 减少文本和元素混合，并作为另一元素的子元素
-        1. 避免使用`<br />、<hr />`
+#### 页面优化
+
+##### HTTP
+
+- 使用 HTTP2
+- 从设计实现层面简化页面
+- 合理设置 `HTTP` 缓存
+- 资源合并与压缩(example：`CSS Sprites`)
+- Inline Images（将图片嵌入到页面或 style 文件）
+- Lazy Load Images
+- 避免重复的资源请求
+
+##### 资源优化
+
+- 图片格式（非透明大图尽量不用 png）
+- PS 保存图片为 `web格式` 且勾选 `连续` 选项
+
+##### 资源的无阻塞加载
+
+- CSS 放在 HEAD 中
+- JavaScript 置底
+- 懒加载 Javascript（example：`AMD`、`defer`）
+
+#### 代码优化
+
+- DOM 操作优化
+
+1. 减少 DOM 操作，减少 `Reflow、Repaint`
+1. 使用 [HTMLCollection](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCollection) 时，转为数组再访问，以提高性能
+
+- JavaScript
+
+1. 减少作用域链查找（example：缓存全局变量）
+1. 慎用 `with、eval、Function`
+1. 减少闭包的使用（易内存浪费，不仅仅是常驻内存，重要的是，使用不当会造成无效内存的产生）
+1. 直接量、局部变量的使用（对象属性以及数组的访问需要更大的开销）
+1. 减少字符串拼接 `+` 使用
+
+- CSS 选择符优化
+
+1. 减少层级，多用 class（浏览器解析 CSS 是从右往左）
+
+- HTML 结构优化
+
+1. 使用 HTML5 DOCTYPE
+1. 标签闭合、结构分离
+1. Boolean 属性不需要赋值，如果存在则为 True（example：`checked、selected`）
+1. 语义化、标签统一整洁
+1. 减少文本和元素混合，并作为另一元素的子元素
+1. 避免使用 `<br />、<hr />`
 
 # 跨域之 JSONP
 
-> **同源策略`same-Origin-Policy`**：指浏览器对不同源的脚本或文本的访问方式进行的限制  
-**同源**：指两个页面具有相同的**协议**、**主机`也常说域名`**、**端口**三要素缺一不可  
-所以在JS代码中访问不同源的数据会提示*跨域警告*，但是浏览器的`<script>`标签可以加载不同源的数据，这样就给我们“可乘之机”：使用**JSONP**跨域  
-**JSONP（JSON with Padding）**的基本原理：在HTML页面中创建`<script>`节点，向不同源提交网络请求，实现跨域
+> **同源策略 `same-Origin-Policy` **：指浏览器对不同源的脚本或文本的访问方式进行的限制  
+**同源**：指两个页面具有相同的 **协议**、**主机`也常说域名`**、**端口** 三要素缺一不可
+所以在 JS 代码中访问不同源的数据会提示 *跨域警告*
 
-- HTML页面中创建`<script>`节点
+> 但是浏览器的 `<script>`标签可以加载不同源的数据，  
+这样就给我们「可乘之机」：使用 **JSONP** 跨域  
+**JSONP（JSON with Padding）** 的基本原理：  
+在 HTML 页面中创建 `<script>`节点，向不同源提交网络请求，实现跨域
+
+- HTML页面中创建 `<script>` 节点
+
+```javascript
+var script = document.createElement('script');
+script.src = 'http://example.com/getData';
+
+document.getElementsByTagName('HEAD')[0].appendChild(script);
+```
+
+- 获取数据返回
+
+我们知道 `XMLHttpRequest` 对象有 `onreadystatechange` 方法，  
+在请求成功后可以获取 `responseText` 内容
+
+但是问题来了，使用 `JSONP 跨域` 如何拿到返回的数据，  
+拿到返回的数据后如何立即调用
+
+解决方案是：
+
+1. 创建一个函数，函数参数为服务端板返回的数据
 
     ```javascript
-    var script = document.createElement('script'); // 创建<script>节点
-    script.src = 'http://example.com/getData'; // 添加src属性
-    document.getElementsByTagName('HEAD')[0].appendChild(script); // 插入节点到head头
+    function callBack(responseText) {
+      // 操作 responseText
+    }
     ```
-- 获取数据返回
-    - 我们知道`XMLHttpRequest`对象有`onreadystatechange`方法，在请求成功后可以获取`responseText`内容
-    - 但是问题来了，使用`JSONP跨域`如何拿到返回的数据，拿到返回的数据后如何立即调用
-    - 解决方案是：
-        1. 创建一个函数，函数参数为服务端板返回的数据
 
-            ```javascript
-            function callBack(responseText) {
-                // 操作responseText
-            }
-            ```
-        1. 给script的src属性设置一个参数比如：`http://example.com/getData?name="callBack"`
-        1. 服务端接受到GET参数：`name="callBack"`，再得到`callBack`函数名
-        1. 服务端以**JS函数调用**的方式返回数据：`callBack({example: 123})`
-        1. 浏览器端得到`JS代码`：`callBack({example: 123})`，然后执行代码
-        1. 这个时候我们预先设置好的`callBack`函数就被已**回调函数**的方式调用了
-- JSONP优点
-    - 与`XMLHttpRequest`不同，`JSONP`不受同源策略限制
-    - `IE`支持良好
-    - 在请求完成后可通过callback的方式传回结果
-- JSONP不足
-    - 只支持`GET`请求，不支持`POST`请求
-    - 服务端需要根据客户端传过来函数名返回数据
-    - 只支持网络跨域的请求数据，不能解决不同域的两个页面之间如何进行JS调用的问题
+1. 给 script 的 src 属性设置一个参数比如：`http://example.com/getData?name="callBack"`
+1. 服务端接受到 GET 参数：`name="callBack"`，再得到 `callBack` 函数名
+1. 服务端以 **JS 函数调用** 的方式返回数据：`callBack({example: 123})`
+1. 浏览器端得到 `JS代码`：`callBack({example: 123})`，然后执行代码
+1. 这个时候我们预先设置好的 `callBack` 函数就被以 **回调函数** 的方式调用了
+
+### JSONP 优点
+
+- 与 `XMLHttpRequest` 不同，`JSONP` 不受同源策略限制
+- `IE` 支持良好
+- 在请求完成后可通过 callback 的方式传回结果
+
+### JSONP 不足
+
+- 只支持 `GET` 请求
+- 服务端需要根据客户端传过来函数名返回数据
 
 # 跨域之 POST
 
-> 虽然 `JSONP` 可以解决跨域问题，但是 `JSONP` 是 `GET` 类型，传输数据大小不及 `POST` 类型  
+> 虽然 `JSONP` 可以解决跨域问题，但是 `JSONP` 是 `GET` 类型，  
+传输数据大小不及 `POST` 类型  
 如果需要传递大量数据的跨域，就得了解 **POST跨域**
 
-- CORS(Cross Origin Resource Sharing，跨域资源共享)
+### CORS(Cross Origin Resource Sharing，跨域资源共享)
 
-    > 由于跨域访问会有安全问题，所以有了同源策略  
-    我们换位思考，被请求数据的服务器如果同意来自「不同源」的请求，是不是意味着「我信任这个源的请求」  
-    那么，同源策略这个时候会「失效」，就达成了「跨域」  
-    所以只要服务端设置了 http 响应头「Access-Control-Allow-Origin」应许请求即可  
-    比如：
+> 由于跨域访问会有安全问题，所以有了同源策略  
+我们换位思考，被请求数据的服务器如果同意来自「不同源」的请求，是不是意味着「我信任这个源的请求」  
+那么，同源策略这个时候会「失效」，就达成了「跨域」  
+所以只要服务端设置了 http 响应头「Access-Control-Allow-Origin」应许请求即可  
+比如：
 
-    ```php
-    // PHP举例
-    header("Access-Control-Allow-Origin: *");
-    // 或者(推荐方式)
-    header("Access-Control-Allow-Origin: http://www.hangyagnws.win");
-    ```
+```php
+// PHP举例
+header("Access-Control-Allow-Origin: *");
+// 或者(推荐方式)
+header("Access-Control-Allow-Origin: http://www.hangyagnws.win");
+```
 
-    - 优点：同时支持`GET`、`POST`请求
-    - 缺点：需要服务端设置`Access-Control-Allow-Origin`
+- 优点：同时支持`GET`、`POST` …
+- 缺点：需要服务端设置`Access-Control-Allow-Origin`
 
-- invisible iframe
-
-- server proxy
-
-- flash proxy
-
-# 用JS实现矩阵的转置
+# 用 JS 实现矩阵的转置
 
 ```javascript
 function transMatrix(_matrix) { // 矩阵转置函数
-    var _l = _matrix.length,
-        _index_in,
-        _temp;
-    while (--_l > 0) {
-        _index_in = _l;
-        while (_index_in--) {
-            // 互换值
-            _temp = _matrix[_l][_index_in];
-            _matrix[_l][_index_in] = _matrix[_index_in][_l];
-            _matrix[_index_in][_l] = _temp;
-        }
+  var _l = _matrix.length,
+    _index_in,
+    _temp;
+  while (--_l > 0) {
+    _index_in = _l;
+    while (_index_in--) {
+      // 互换值
+      _temp = _matrix[_l][_index_in];
+      _matrix[_l][_index_in] = _matrix[_index_in][_l];
+      _matrix[_index_in][_l] = _temp;
     }
+  }
 }
 
 // 测试
 var _matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
 ];
 transMatrix(_matrix);
 console.table(_matrix);
@@ -258,96 +286,91 @@ console.table(_matrix);
 // ]
 ```
 
-# 用JS冒泡排序法
-> 排序中的经典方法，用JS实现感觉又不一样
+# 用 JS 冒泡排序法
+
+> 排序中的经典方法，用 JS 实现感觉又不一样
 
 ```javascript
 function bubbleSort(_arr) {
-    var _len = _arr.length - 1,
-        _index_out = 0,
-        _index_in, // 内层循环索引
-        _temp, // 存放临时数据
-        _flag; // 判断循环是否要继续
-    if (_len > 0) {
-        while (_index_out < _len) {
-            _flag = false;
-            _index_in = 0; // 内层循环每次要从0开始
-            while (_index_in < _len - _index_out) {
-                if (_arr[_index_in] > _arr[_index_in + 1]) {
-                    // 两者值交换
-                    _temp = _arr[_index_in];
-                    _arr[_index_in] = _arr[_index_in + 1];
-                    _arr[_index_in + 1] = _temp;
-                    _flag = true;
-                }
-                _index_in++;
-            }
-            if (!_flag) {
-                // 如果数组已经是顺序的，就不必再循环了
-                break;
-            }
-            _index_out++;
+  var _len = _arr.length - 1,
+    _index_out = 0,
+    _index_in, // 内层循环索引
+    _temp, // 存放临时数据
+    _flag; // 判断循环是否要继续
+  if (_len > 0) {
+    while (_index_out < _len) {
+      _flag = false;
+      _index_in = 0; // 内层循环每次要从0开始
+      while (_index_in < _len - _index_out) {
+        if (_arr[_index_in] > _arr[_index_in + 1]) {
+          // 两者值交换
+          _temp = _arr[_index_in];
+          _arr[_index_in] = _arr[_index_in + 1];
+          _arr[_index_in + 1] = _temp;
+          _flag = true;
         }
+        _index_in++;
+      }
+      if (!_flag) {
+        // 如果数组已经是顺序的，就不必再循环了
+        break;
+      }
+      _index_out++;
     }
-    return _arr;
+  }
+  return _arr;
 }
 ```
 
-# 用JS实现二分查找法
+# 用 JS 实现二分查找法
 ```javascript
 /**
  * @param  {[Array]}  _arr         [查找的数组]
  * @param  {[Number]} _wantVal     [查找的值]
  */
 function binarySearch(_arr, _wantVal) {
-    // 二分查找的前提是数组应该是有序的
-    // 初始时，左边从0开始查找，右边从数组的最右边开始查找
-    var _left = typeof arguments[2] !== 'undefined' ? arguments[2] : 0,
-        _right = typeof arguments[3] !== 'undefined' ? arguments[3] : _arr.length - 1;
-    if (_left > _right) {
-        // 没有找到相应值
-        return null;
-    }
-    var _middleIndex = Math.floor((_left + _right) / 2);
-    if (_arr[_middleIndex] > _wantVal) {
-        // 查找的值在左边
-        return binarySearch(_arr, _wantVal, _left, _middleIndex - 1);
-    }
-    if (_arr[_middleIndex] < _wantVal) {
-        // 查找的值在右边边
-        return binarySearch(_arr, _wantVal, _middleIndex + 1, _right);
-    }
-    // 找到要查找的值
-    return _middleIndex;
+  // 二分查找的前提是数组应该是有序的
+  // 初始时，左边从0开始查找，右边从数组的最右边开始查找
+  var _left = typeof arguments[2] !== 'undefined' ? arguments[2] : 0,
+    _right = typeof arguments[3] !== 'undefined' ? arguments[3] : _arr.length - 1;
+  if (_left > _right) {
+    // 没有找到相应值
+    return null;
+  }
+  var _middleIndex = Math.floor((_left + _right) / 2);
+  if (_arr[_middleIndex] > _wantVal) {
+    // 查找的值在左边
+    return binarySearch(_arr, _wantVal, _left, _middleIndex - 1);
+  }
+  if (_arr[_middleIndex] < _wantVal) {
+    // 查找的值在右边边
+    return binarySearch(_arr, _wantVal, _middleIndex + 1, _right);
+  }
+  // 找到要查找的值
+  return _middleIndex;
 }
 ```
 
 # 用JS实现快排算法
 
-# JS中的浅复制和深复制
+### 如何实现 Object 的深复制
 
-### 浅复制和深复制的区别
+### 递归的方法进行复制
+### 循环的方法
+### 利用 JSON 对象
 
-### 如何实现Object的深复制`递归的方法进行复制/循环的方法`
+# CSS 下载与 DOM 树渲
 
-# CSS下载与DOM树渲
-
-# HTTPS和HTTP有什么区别
-
-# 网络请求头部的相关解释
-
-# POST请求头部
-
-# new一个对象需要注意的
+# new 一个对象需要注意的
 
 ```javascript
 function person(_name) {
-    this.name = _name;
+  this.name = _name;
 };
 person.name = 'noUseName';
 person.prototype.name = 'testNameTwo';
 person.prototype.say = function() {
-    console.log(this.name);
+  console.log(this.name);
 }
 
 console.log(person.name); // 返回：person。(函数默认有一个name属性（只读），就是函数名)
@@ -359,31 +382,21 @@ new person('hangyangws').say(); // 返回：hangyangw
 (new person).say(); // 返回：undefined
 ```
 
-在查找当前实例对象的属性或者方法时候，如果没有找到，会到原型链`__proto__`上找  
-观察仔细的同学应该发现了`new person()`和`new person`都可以实例化对象  
+在查找当前实例对象的属性或者方法时候，如果没有找到，会到原型链 `__proto__` 上找  
+观察仔细的同学应该发现了 `new person()` 和 `new person` 都可以实例化对象  
 区别就是要传参数就必须带小括号  
 不带小括号就表示不传参数（浏览器会自动加上小括号）
 
 **提醒**：  
-虽然“new”一个对象的时候可以不带小括号  
+虽然 “new” 一个对象的时候可以不带小括号  
 但是，“new person.speak()”调用方式会报错：“person.speak is not a constructor”  
 因为“.”的优先级大于“new”，类似于：“new (person.speak())”
 
-# SSL四次握手和TCP三次握手
-
-[link](https://github.com/jawil/blog/issues/14)
-
-# SSL握手时有对称加密和非对称加密吗
-
-# 从输入url到渲染的整个过程
+# 从输入 url 到渲染的整个过程
 
 [link](https://juejin.im/post/5909b21eda2f60005d1ef731)
 
-# 如果父元素的font-size也是采用em表示，那么子元素的font-size怎么计算等?
-
-# bootstrap的基本原理，bootstrap的grid系统
-
-# xss和csrf
+# 如果父元素的 font-size 也是采用 em 表示，那么子元素的 font-size 怎么计算等?
 
 # 事件循环
 
