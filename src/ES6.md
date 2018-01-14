@@ -82,17 +82,15 @@ const restFunction = ...rest => {}
 1. enumerable「一般情况为对象」
 
 在标准的 ES2015 中，只有针对 iterable 数据实现了扩展运算符  
-它把 iterable 数据的数据序列转换为「用逗号分割的参数序列」  
-注意这里的描述 **参数序列**  
-也就是以为着，扩展运算符是不能单独使用的，需要「某个东西」接受这个「参数序列」
+它把 iterable 数据的数据序列转换为用 **逗号分割的参数序列**
 
 比如：
 
 ```javascript
 let array = [5, 12]
-let arrayCopy = [...array]
-// 此行代码类似于：let arrayCopy = [5, 12]
-// arrayCopy ==> [5, 12]
+let arrayCopy = [11, ...array]
+// 此行代码类似于：let arrayCopy = [11, 5, 12]
+// arrayCopy ==> [11, 5, 12]
 
 console.log(...[5, 12])
 console.log(5, 12)
@@ -103,11 +101,11 @@ console.log(5, 12)
 经过上面的 2 个列子，  
 应该能更好的理解「扩展运算符的结果是 **逗号分隔的参数序列**」的含义
 
-不过有个点要注意：  
+不过有个需要注意的点：  
 非 iterable 数据执行扩展运算符，会报错
 
 在 ES7 的 [某个提案](https://github.com/tc39/proposal-object-rest-spread) 中，  
-扩展运算符引入 enumerable 数据
+讲扩展运算符引入 enumerable 数据
 
 比如：
 
@@ -117,9 +115,9 @@ let objCopy = {...obj}
 console.log(objCopy) // 输出：{name: 'hangyangws'}
 ```
 
-enumerable 数据的扩展运算符底层实现其实是利用了 [Object.assign](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+其实 enumerable 数据的扩展运算符底层实现是利用了 [Object.assign](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-Object.assign(target, ...sources) 我们比较熟悉，有几个特点：
+Object.assign(target, ...sources) 我们比较熟悉，有 2 个特点：
 
 1. sources 参数如果是「原始类型」会被包装为「对象」
 1. sources 参数如果是 null 和 undefined 会被忽略
@@ -138,7 +136,7 @@ Object.assign({}, 'FJ') // 结果为：{0: "F", 1: "J"}
 ```
 
 既然扩展运算符有 2 种情况，那么 JS 解释器怎么知道使用哪一种？  
-所以扩展运算符会更具代码的具体的执行上下文判断
+所以扩展运算符会根据代码的具体的 **执行上下文** 判断
 
 比如：
 
