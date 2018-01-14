@@ -73,7 +73,79 @@ const restFunction = ...rest => {}
 
 # 扩展运算符「spread」
 
-扩展运算符，看起来和 rest 参数外观相似，也是「...」，  
+扩展运算符，看起来和 [rest 参数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) 外观相似，也是三个点「...」，  
 不过和 rest 参数功能可是不一样呢
 
-扩展运算符将可 iterator 对象遍历为「逗号分隔的参数序列」
+扩展运算符号，分二种情况
+
+1. iterable「一般情况为数组」
+1. enumerable「一般情况为对象」
+
+在标准的 ES2015 中，只有针对 iterable 数据实现了扩展运算符  
+它把 iterable 数据的数据序列转换为「用逗号分割的参数序列」  
+注意这里的描述 **参数序列**  
+也就是以为着，扩展运算符是不能单独使用的，需要「某个东西」接受这个「参数序列」
+
+比如：
+
+```javascript
+let array = [5, 12]
+let arrayCopy = [...array]
+// 此行代码类似于：let arrayCopy = [5, 12]
+// arrayCopy ==> [5, 12]
+
+console.log(...[5, 12])
+console.log(5, 12)
+// 上面 2 行代码意义一样
+// 输出结果都是是：5 12
+```
+
+经过上面的 2 个列子，  
+应该能更好的理解「扩展运算符的结果是 **逗号分隔的参数序列**」的含义
+
+不过有个点要注意：  
+非 iterable 数据执行扩展运算符，会报错
+
+在 ES7 的 [某个提案](https://github.com/tc39/proposal-object-rest-spread) 中，  
+扩展运算符引入 enumerable 数据
+
+比如：
+
+```javascript
+let obj = {name: 'hangyangws'}
+let objCopy = {...obj}
+console.log(objCopy) // 输出：{name: 'hangyangws'}
+```
+
+enumerable 数据的扩展运算符底层实现其实是利用了 [Object.assign](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+Object.assign(target, ...sources) 我们比较熟悉，有几个特点：
+
+1. sources 参数如果是「原始类型」会被包装为「对象」
+1. sources 参数如果是 null 和 undefined 会被忽略
+
+比如：
+
+```javascript
+Object.assign({}, null) // 结果为：{}
+Object.assign({}, undefined) // 结果为：{}
+
+Object.assign({}, 0) // 结果为：{}
+Object.assign({}, 'FJ') // 结果为：{0: "F", 1: "J"}
+// 所以有个点可以注意一下：
+// 只有字符串的包装对象才可能有自身可枚举属性
+// 对于「数字」，结果和 null、undefined 类似
+```
+
+既然扩展运算符有 2 种情况，那么 JS 解释器怎么知道使用哪一种？  
+所以扩展运算符会更具代码的具体的执行上下文判断
+
+比如：
+
+```javascript
+let test = [...null]
+// 报错：null is not iterable
+
+let test = {...null}
+// test ===> {}
+```
