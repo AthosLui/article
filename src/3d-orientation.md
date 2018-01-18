@@ -2,7 +2,7 @@
 
 > 涉及知识「CSS：transform、JS：deviceorientation」
 
-废话不多，先上 [DEMO](http://hangyangws.win/demos/src/device_orientation/cube)「请使用移动查看」
+废话不多，先上 [DEMO](http://hangyangws.win/demos/src/device_orientation/cube)「请使用移动设备查看」
 
 ### 如何搭建一个简单的立方体
 
@@ -123,25 +123,25 @@
 
 ![preserve-3d-5](../img/preserve-3d-5.jpg)
 
-### 用陀螺仪使他立方体动起来
+### 用陀螺仪使立方体动起来
 
 细心的开发者应该发现了，在最开始，我给父元素 `.cube` 设置了：  
 `transform: rotateX(10deg) rotateY(10deg) rotateZ(10deg)`  
 认让父元素在三维空间上旋转 10 度。  
 如果我们动态连续修改这三个值，绝对可以达到 3D 旋转动画的效果。
 
-这个时候我就发现，JS 的 [deviceorientation「检测设备方向」](https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation#%E5%A4%84%E7%90%86%E6%96%B9%E5%90%91%EF%BC%88orientation%EF%BC%89%E4%BA%8B%E4%BB%B6) 事件就是闪现在我的脑海。  
+这个时候，JS 的 [deviceorientation「检测设备方向」](https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation#%E5%A4%84%E7%90%86%E6%96%B9%E5%90%91%EF%BC%88orientation%EF%BC%89%E4%BA%8B%E4%BB%B6) 事件闪现突然闪现在我的脑海。  
 因为这个事件的回调参数里面恰好有三个参数「beta、gamma、alpha」，分别代表「X、Y、Z」的旋转方向。
 
-`beta` 表示设备在 x 轴上的旋转角度，范围为 `[-180, 180]` 度。它描述的是设备由前向后旋转的情况。  
-`gamma` 表示设备在 y 轴上的旋转角度，范围为 `[-90, 90]` 度。它描述的是设备由左向右旋转的情况。
-`alpha` 表示设备沿 z 轴上的旋转角度，范围为 `[0, 360]` 度。  
+**beta** 表示设备在 x 轴上的旋转角度，范围为 `[-180, 180]` 度。它描述的是设备由前向后旋转的情况。  
+**gamma** 表示设备在 y 轴上的旋转角度，范围为 `[-90, 90]` 度。它描述的是设备由左向右旋转的情况。  
+**alpha** 表示设备沿 z 轴上的旋转角度，范围为 `[0, 360]` 度。  
 
 大概是这个样子：
 
 ![deviceOrientationEvent](../img/deviceOrientationEvent.jpg)
 
-- 事件订阅，得到 x、y、z
+- 注册 deviceorientation 事件，得到 x、y、z
 
 ```javascript
 const handleOrientation = ({beta: x, gamma: y, alpha: z}) => {
@@ -168,8 +168,8 @@ global.addEventListener('deviceorientation', handleOrientation)
 
 - 使用 x、y、z
 
-我们现在得到的 x、y、z 是在 `[-360, 360]` 度范围内了，  
-接下来要做的就是，用 x、y、z 修改父元素 `.cube` 的 `rotateX(xdeg) rotateY(ydeg) rotateZ(zdeg)` 值。
+我们现在得到的 x、y、z 已经在 `[-360, 360]` 度范围内了，  
+接下来要做的就是，使用 x、y、z 修改父元素 `.cube` 的 `rotateX(xdeg) rotateY(ydeg) rotateZ(zdeg)` 旋转值。
 
 完整的代码大概是这样：
 
