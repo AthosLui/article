@@ -4,6 +4,8 @@
 
 废话不多，先上 [DEMO](http://hangyangws.win/demos/src/device_orientation/cube)「请使用移动设备查看」
 
+![deviceorientation](../img/deviceorientation.gif)
+
 ### 如何搭建一个简单的立方体
 
 只需要寥寥几行 HTML、CSS 代码就能产出一个「立方体」
