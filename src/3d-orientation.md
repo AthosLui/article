@@ -129,7 +129,7 @@
 
 细心的开发者应该发现了，在最开始，我给父元素 `.cube` 设置了：  
 `transform: rotateX(10deg) rotateY(10deg) rotateZ(10deg)`  
-认让父元素在三维空间上旋转 10 度。  
+让父元素在三维空间上旋转 10 度。  
 如果我们动态连续修改这三个值，绝对可以达到 3D 旋转动画的效果。
 
 这个时候，JS 的 [deviceorientation「检测设备方向」](https://developer.mozilla.org/zh-CN/docs/Web/API/Detecting_device_orientation#%E5%A4%84%E7%90%86%E6%96%B9%E5%90%91%EF%BC%88orientation%EF%BC%89%E4%BA%8B%E4%BB%B6) 事件闪现突然闪现在我的脑海。  
